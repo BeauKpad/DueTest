@@ -19,9 +19,10 @@ public final class R {
         public static final int icon=0x7f020001;
         public static final int iggy=0x7f020002;
         public static final int kevin=0x7f020003;
-        public static final int russels=0x7f020004;
-        public static final int tuna=0x7f020005;
-        public static final int wineroom=0x7f020006;
+        public static final int kevocto=0x7f020004;
+        public static final int russels=0x7f020005;
+        public static final int tuna=0x7f020006;
+        public static final int wineroom=0x7f020007;
     }
     public static final class id {
         public static final int Button01=0x7f080018;
@@ -43,26 +44,23 @@ public final class R {
         public static final int RadioLunchOnly=0x7f080010;
         public static final int ReplaceButton=0x7f080008;
         public static final int SaveButton=0x7f080006;
-        public static final int TVStats=0x7f08001f;
+        public static final int TVStats=0x7f08001e;
         public static final int TextView01=0x7f080014;
         public static final int TextView02=0x7f080016;
         public static final int TextViewAdjust=0x7f08001b;
-        public static final int add_new_shift=0x7f080020;
+        public static final int add_new_shift=0x7f08001f;
         public static final int adjustCheckBox=0x7f08001a;
         public static final int adjustEditText=0x7f08001c;
-        public static final int autosave=0x7f080025;
+        public static final int autosave=0x7f080022;
         public static final int bPastShifts=0x7f080012;
         public static final int bStatistics=0x7f080013;
-        public static final int databaseItem=0x7f080023;
-        public static final int delete_item=0x7f080021;
-        public static final int edit_item=0x7f080022;
+        public static final int delete_item=0x7f080020;
+        public static final int edit_item=0x7f080021;
         public static final int editshiftitem=0x7f080004;
-        public static final int exportDB=0x7f080026;
-        public static final int importDB=0x7f080027;
+        public static final int exportDB=0x7f080023;
+        public static final int importDB=0x7f080024;
         public static final int llDataLayout=0x7f08000b;
-        public static final int row=0x7f08001e;
-        public static final int stats=0x7f080024;
-        public static final int tvAnchorForCenterOfLine=0x7f08001d;
+        public static final int row=0x7f08001d;
         public static final int tvAverage=0x7f08000c;
     }
     public static final class layout {

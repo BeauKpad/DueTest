@@ -102,7 +102,7 @@ public class CashDue extends Activity implements
 	}
 
 	private void setBackGround() {
-		int x = new Random().nextInt(6);
+		int x = new Random().nextInt(7);
 		switch (x) {
 		case 0:
 			llMain.setBackgroundResource(R.drawable.kevin);
@@ -122,7 +122,141 @@ public class CashDue extends Activity implements
 		case 5:
 			llMain.setBackgroundResource(R.drawable.bar2);
 			break;
+		case 6:
+			llMain.setBackgroundResource(R.drawable.kevocto);
 		}
+	}
+
+	public long insertAShift() {
+		long result;
+		double bSales = Double.valueOf(editTextSales.getText().toString());
+		// adjust if user requested
+		double adjustment = 0.0;
+		if (checkBoxAdjust.isChecked()) {
+			try {
+				adjustment = Double
+						.valueOf(editTextAdjust.getText().toString());
+			} catch (NumberFormatException e) {
+			}
+		}
+		bSales = bSales + adjustment;
+		Calendar bCalendar = lastNow;
+		Shift bShift = new Shift(bSales, bCalendar);
+		bShift.fixMidnightProblem();
+		dh.open();
+		result = dh.insertShift(bShift);
+		BackupManager.dataChanged(getBaseContext().getPackageName());
+		return result;
+	}
+
+	public void soundPlay(boolean fail) {
+		MediaPlayer mp = null;
+		int x;
+		if (fail) {
+			x = 5;
+		} else {
+			x = 6;
+		}
+		int y = new Random().nextInt(x);
+		if (fail) {
+			switch (y) {
+			case 0:
+				mp = MediaPlayer.create(CashDue.this, R.raw.fail1);
+				break;
+			case 1:
+				mp = MediaPlayer.create(CashDue.this, R.raw.fail2);
+				break;
+			case 2:
+				mp = MediaPlayer.create(CashDue.this, R.raw.fail3);
+				break;
+			case 3:
+				mp = MediaPlayer.create(CashDue.this, R.raw.fail4);
+				break;
+			case 4:
+				mp = MediaPlayer.create(CashDue.this, R.raw.fail5);
+				break;
+			default:
+				return;
+			}
+		} else {
+			switch (y) {
+			case 0:
+				mp = MediaPlayer.create(CashDue.this, R.raw.win1);
+				break;
+			case 1:
+				mp = MediaPlayer.create(CashDue.this, R.raw.win2);
+				break;
+			case 2:
+				mp = MediaPlayer.create(CashDue.this, R.raw.win3);
+				break;
+			case 3:
+				mp = MediaPlayer.create(CashDue.this, R.raw.win4);
+				break;
+			case 4:
+				mp = MediaPlayer.create(CashDue.this, R.raw.win5);
+				break;
+			case 5:
+				mp = MediaPlayer.create(CashDue.this, R.raw.win6);
+				break;
+			default:
+				return;
+			}
+		}
+		if (mp != null) {
+			mp.start();
+		}
+		return;
+	}
+
+	@Override
+	public boolean onCreateOptionsMenu(Menu menu) {
+		super.onCreateOptionsMenu(menu);
+		loadPreferences();
+		getMenuInflater().inflate(R.menu.mainmenu, menu);
+		MenuItem menuAuto = menu.findItem(R.id.autosave);
+		if (autoSave) {
+			menuAuto.setTitle("Autosave is on");
+		} else {
+			menuAuto.setTitle("Autosave is off");
+		}
+		return true;
+	}
+
+	@Override
+	public boolean onOptionsItemSelected(MenuItem item) {
+		super.onOptionsItemSelected(item);
+		switch (item.getItemId()) {
+		case R.id.autosave:
+			switchAutosave();
+			if (autoSave) {
+				item.setTitle("Autosave is on");
+			} else {
+				item.setTitle("Autosave is off");
+			}
+			break;
+		default:
+			break;
+		}
+		return true;
+	}
+
+	public void switchAutosave() {
+		// get a preference editor to edit SharedPreferences
+		int mode = Activity.MODE_PRIVATE;
+		SharedPreferences.Editor editor = getSharedPreferences(MY_PREFS, mode)
+				.edit();
+		autoSave = !autoSave;
+		editor.putBoolean("autosave", autoSave);
+		editor.commit();
+	}
+
+	public void loadPreferences() {
+		// get stored preferences
+		int mode = Activity.MODE_PRIVATE;
+		SharedPreferences myPrefs = getSharedPreferences(MY_PREFS, mode);
+
+		// get savedPref values and set instance variable(s)
+		autoSave = myPrefs.getBoolean("autosave", true);
 	}
 
 	public void Calculate(final boolean forceOther) {
@@ -241,7 +375,7 @@ public class CashDue extends Activity implements
 		resultDialog.setTitle(title);
 		resultDialog.setMessage(FinalString);
 		resultDialog.setPositiveButton(buttonSaveString, new OnClickListener() {
-
+	
 			public void onClick(DialogInterface dialog, int which) {
 				lastNow = Calendar.getInstance();
 				// if saves are done manually OR a previously saved shift does
@@ -264,14 +398,14 @@ public class CashDue extends Activity implements
 			}
 		});
 		resultDialog.setNegativeButton(buttonQuitString, new OnClickListener() {
-
+	
 			public void onClick(DialogInterface dialog, int which) {
 				finish();
 			}
 		});
 		resultDialog.setNeutralButton(buttonChangeString,
 				new OnClickListener() {
-
+	
 					public void onClick(DialogInterface dialog, int which) {
 						dh.removeShift(lastInsertedShiftDBRow);
 						lastInsertedShiftDBRow = 0;
@@ -287,147 +421,6 @@ public class CashDue extends Activity implements
 		}
 		// show the dialog
 		resultDialog.show();
-	}
-
-	public long insertAShift() {
-		long result;
-		double bSales = Double.valueOf(editTextSales.getText().toString());
-		// adjust if user requested
-		double adjustment = 0.0;
-		if (checkBoxAdjust.isChecked()) {
-			try {
-				adjustment = Double
-						.valueOf(editTextAdjust.getText().toString());
-			} catch (NumberFormatException e) {
-			}
-		}
-		bSales = bSales + adjustment;
-		Calendar bCalendar = lastNow;
-		Shift bShift = new Shift(bSales, bCalendar);
-		bShift.fixMidnightProblem();
-		dh.open();
-		result = dh.insertShift(bShift);
-		BackupManager.dataChanged(getBaseContext().getPackageName());
-		return result;
-	}
-
-	public void soundPlay(boolean fail) {
-		MediaPlayer mp = null;
-		int x;
-		if (fail) {
-			x = 5;
-		} else {
-			x = 6;
-		}
-		int y = new Random().nextInt(x);
-		if (fail) {
-			switch (y) {
-			case 0:
-				mp = MediaPlayer.create(CashDue.this, R.raw.fail1);
-				break;
-			case 1:
-				mp = MediaPlayer.create(CashDue.this, R.raw.fail2);
-				break;
-			case 2:
-				mp = MediaPlayer.create(CashDue.this, R.raw.fail3);
-				break;
-			case 3:
-				mp = MediaPlayer.create(CashDue.this, R.raw.fail4);
-				break;
-			case 4:
-				mp = MediaPlayer.create(CashDue.this, R.raw.fail5);
-				break;
-			default:
-				return;
-			}
-		} else {
-			switch (y) {
-			case 0:
-				mp = MediaPlayer.create(CashDue.this, R.raw.win1);
-				break;
-			case 1:
-				mp = MediaPlayer.create(CashDue.this, R.raw.win2);
-				break;
-			case 2:
-				mp = MediaPlayer.create(CashDue.this, R.raw.win3);
-				break;
-			case 3:
-				mp = MediaPlayer.create(CashDue.this, R.raw.win4);
-				break;
-			case 4:
-				mp = MediaPlayer.create(CashDue.this, R.raw.win5);
-				break;
-			case 5:
-				mp = MediaPlayer.create(CashDue.this, R.raw.win6);
-				break;
-			default:
-				return;
-			}
-		}
-		if (mp != null) {
-			mp.start();
-		}
-		return;
-	}
-
-	@Override
-	public boolean onCreateOptionsMenu(Menu menu) {
-		super.onCreateOptionsMenu(menu);
-		loadPreferences();
-		getMenuInflater().inflate(R.menu.mainmenu, menu);
-		MenuItem menuAuto = menu.findItem(R.id.autosave);
-		if (autoSave) {
-			menuAuto.setTitle("Autosave is on");
-		} else {
-			menuAuto.setTitle("Autosave is off");
-		}
-		menu.findItem(R.id.databaseItem).setIntent(
-				new Intent(this, DataActivity.class));
-		menu.findItem(R.id.stats).setIntent(new Intent(this, Stats.class));
-		return true;
-	}
-
-	public void switchAutosave() {
-		// get a preference editor to edit SharedPreferences
-		int mode = Activity.MODE_PRIVATE;
-		SharedPreferences.Editor editor = getSharedPreferences(MY_PREFS, mode)
-				.edit();
-		autoSave = !autoSave;
-		editor.putBoolean("autosave", autoSave);
-		editor.commit();
-	}
-
-	@Override
-	public boolean onOptionsItemSelected(MenuItem item) {
-		super.onOptionsItemSelected(item);
-		switch (item.getItemId()) {
-		case R.id.autosave:
-			switchAutosave();
-			if (autoSave) {
-				item.setTitle("Autosave is on");
-			} else {
-				item.setTitle("Autosave is off");
-			}
-			break;
-		case R.id.databaseItem:
-			startActivity(item.getIntent());
-			break;
-		case R.id.stats:
-			startActivity(item.getIntent());
-
-		default:
-			break;
-		}
-		return true;
-	}
-
-	public void loadPreferences() {
-		// get stored preferences
-		int mode = Activity.MODE_PRIVATE;
-		SharedPreferences myPrefs = getSharedPreferences(MY_PREFS, mode);
-
-		// get savedPref values and set instance variable(s)
-		autoSave = myPrefs.getBoolean("autosave", true);
 	}
 
 	public void onClick(View v) {
