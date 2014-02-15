@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu
+  xmlns:android="http://schemas.android.com/apk/res/android">
+<item android:title="Saved Shifts" android:id="@+id/databaseItem"></item>
+<item android:visible="true" android:id="@+id/autosave" android:enabled="true"></item>
+<item android:title="Export Shift Database" android:id="@+id/exportDB"></item>
+<item android:title="Import Shift Database" android:id="@+id/importDB"></item>
+</menu>
+<!-- From: file:/home/lebeau/workspace/DueTest/res/menu/mainmenu.xml -->

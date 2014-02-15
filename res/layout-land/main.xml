@@ -1,0 +1,137 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="wrap_content"
+    android:background="@drawable/bar2"
+    android:orientation="vertical" >
+
+    <RelativeLayout
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal" >
+
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentLeft="true"
+            android:id="@+id/bPastShifts"
+            android:text="Past Shifts" />
+        <TextView 
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text=" "
+            android:id="@+id/tvAnchorForCenterOfLine"
+            android:layout_centerInParent="true"
+            android:textColor="#f21b20"
+            android:textSize="12pt"/>
+        
+
+        <TextView
+            android:id="@+id/TextView01"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_toLeftOf="@id/tvAnchorForCenterOfLine"
+            android:text="Sales"
+            android:textColor="#f21b20"
+            android:textSize="12pt" >
+        </TextView>
+        
+        <EditText
+            android:id="@+id/EditTextSales"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_toRightOf="@id/tvAnchorForCenterOfLine"
+            android:hint="Your Sales"
+            android:inputType="number|numberDecimal" >
+        </EditText>
+        
+        <Button android:layout_height="wrap_content"
+                android:layout_width="wrap_content"
+                android:id="@+id/bStatistics"
+                android:layout_alignParentRight="true"
+                android:text="Statistics"/>
+    </RelativeLayout>
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:orientation="horizontal" >
+
+        <TextView
+            android:id="@+id/TextView02"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:text="Cash Due"
+            android:textColor="#f21b20"
+            android:textSize="12pt" >
+        </TextView>
+
+        <EditText
+            android:id="@+id/EditTextDue"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:hint="Net Deposit"
+            android:inputType="number|numberSigned|numberDecimal" >
+        </EditText>
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:orientation="horizontal" >
+
+        <Button
+            android:id="@+id/Button01"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Calculate" >
+        </Button>
+
+        <Button
+            android:id="@+id/Button02"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Clear" >
+        </Button>
+    </LinearLayout>
+
+    <CheckBox
+        android:id="@+id/adjustCheckBox"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:text="Adjust Sales?"
+        android:textColor="#f21b20" >
+    </CheckBox>
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="left"
+        android:orientation="horizontal" >
+
+        <TextView
+            android:id="@+id/TextViewAdjust"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:text="Adjustment:"
+            android:textColor="#f21b20"
+            android:textSize="12pt" >
+        </TextView>
+
+        <EditText
+            android:id="@+id/adjustEditText"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:hint="Add To Sales..."
+            android:inputType="number|numberSigned|numberDecimal" >
+        </EditText>
+    </LinearLayout>
+
+</LinearLayout>

@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+  xmlns:android="http://schemas.android.com/apk/res/android"
+  android:orientation="vertical"
+  android:layout_width="fill_parent"
+  android:layout_height="fill_parent">
+<Button android:layout_height="wrap_content" android:id="@+id/DateBut" android:layout_width="fill_parent"></Button>
+<RadioGroup android:id="@+id/RadioGroup01" android:layout_width="wrap_content" android:layout_height="wrap_content" android:orientation="horizontal" android:layout_below="@id/DateBut">
+<RadioButton android:text="Lunch" android:layout_width="wrap_content" android:layout_height="wrap_content" android:id="@+id/RadioLunch"></RadioButton>
+<RadioButton android:text="Dinner" android:layout_width="wrap_content" android:layout_height="wrap_content" android:id="@+id/RadioDinner"></RadioButton>
+</RadioGroup>
+<TextView android:id="@+id/editshiftitem" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="Sales" android:layout_below="@id/RadioGroup01"></TextView>
+<EditText android:id="@+id/EditText01" android:layout_width="wrap_content" android:layout_height="wrap_content" android:inputType="number|numberSigned|numberDecimal" android:layout_below="@id/editshiftitem"></EditText>
+<Button android:text="Save" android:id="@+id/SaveButton" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_alignParentLeft="true" android:layout_alignParentBottom="true"></Button>
+<Button android:text="Cancel" android:id="@+id/CancelButton" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_alignParentRight="true" android:layout_alignParentBottom="true"></Button>
+<Button android:text="Replace" android:id="@+id/ReplaceButton" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_toRightOf="@id/SaveButton" android:layout_alignParentBottom="true"></Button>
+<TextView android:id="@+id/ExistsText" android:layout_width="fill_parent" android:layout_height="wrap_content" android:layout_above="@id/SaveButton"></TextView>
+<CheckBox android:layout_width="wrap_content" android:layout_above="@id/ExistsText" android:id="@+id/CheckBox01" android:layout_height="wrap_content" android:text="Allow duplicate shifts?"></CheckBox>
+</RelativeLayout>
+<!-- From: file:/home/lebeau/workspace/DueTest/res/layout/add_shift.xml -->
