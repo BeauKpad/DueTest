@@ -12,13 +12,13 @@ import android.content.DialogInterface.OnClickListener;
 public class MyApplication extends Application {
 	Calendar lunchEnds;
 	Shift[] AllShiftsGlobal;
-	public DataHelper dh;
+	public DataHelperPrime dh;
 	public Context context;
 	private static MyApplication singleton;
 	public static MyApplication getInstance(){
 		return singleton;
 	}
-	public DataHelper getDH(){
+	public DataHelperPrime getDH(){
 		return dh;
 	}
 	public Context getContext(){
@@ -70,6 +70,6 @@ public class MyApplication extends Application {
 		lunchEnds.set(Calendar.SECOND, 0);
 		singleton = this;
 		context = this;
-		dh = new DataHelper(this);
+		dh = new DataHelperPrime(this);
 	}
 }

@@ -34,7 +34,7 @@ public class AddShift extends Activity {
 			}
 		};
 	//The datahelper for opening the database
-	DataHelper dh;
+	DataHelperPrime dh;
 	//UI elements
 	Button pickDateButton;
 	RadioGroup radioGroup;

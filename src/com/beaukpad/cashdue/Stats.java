@@ -21,7 +21,7 @@ public class Stats extends Activity {
 	public static final int THURSDAY = 5;
 	public static final int FRIDAY = 6;
 	public static final int SATURDAY = 7;
-	private DataHelper dh;
+	private DataHelperPrime dh;
 	TextView tvStats;
 	Shift[] allShifts;
 

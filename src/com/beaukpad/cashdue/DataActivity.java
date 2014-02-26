@@ -27,7 +27,7 @@ import android.widget.TextView;
 
 public class DataActivity extends ListActivity implements
 		OnCheckedChangeListener {
-	private DataHelper dh;
+	private DataHelperPrime dh;
 	Cursor shiftCursor;
 	ListView theListView;
 	Shift[] theShiftArray;
