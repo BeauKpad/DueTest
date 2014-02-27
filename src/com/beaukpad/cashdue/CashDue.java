@@ -247,7 +247,8 @@ public class CashDue extends Activity implements
 			} catch (IOException e) {
 				// TODO: handle exception
 				Toast failExportToast = Toast.makeText(this,
-						"No Database Found! " + e.getMessage(), Toast.LENGTH_SHORT);
+						"No Database Found! " + e.getMessage(),
+						Toast.LENGTH_LONG);
 				e.printStackTrace();
 				failExportToast.show();
 			}
@@ -260,28 +261,63 @@ public class CashDue extends Activity implements
 				Toast failImportToast = Toast
 						.makeText(
 								this,
-								"No Exported Database Found! \n Database must be called 'shifts.db' and be on the root of your sd card",
+								"No Exported Database Found! \n Database must be called 'shifts.db' and be on the root of your sd internal card",
 								Toast.LENGTH_LONG);
 				failImportToast.show();
 			}
 			break;
-		case R.id.mergeIntoInternal:
-			String dbPath = Environment.getExternalStorageDirectory() + "/shifts.db";
+		case R.id.mergeIntoInternal: {
+			String dbPath = Environment.getExternalStorageDirectory()
+					+ "/shifts.db";
 			DataHelperSecondary dhExternal;
 			try {
 				dhExternal = new DataHelperSecondary(dbPath);
 			} catch (SQLiteException e) {
-				Toast failExportToast = Toast.makeText(this,
-						"No Database Found!", Toast.LENGTH_SHORT);
-				e.printStackTrace();
-				failExportToast.show();
+				Toast failImportToast = Toast
+						.makeText(
+								this,
+								"No Exported Database Found! \n Database must be called 'shifts.db' and be on the root of your sd internal card",
+								Toast.LENGTH_LONG);
+				failImportToast.show();
 				break;
 			}
 			Shift[] newShiftsArray = dhExternal.getAllShifts();
 			int recordChangeCount = dh.insertShiftsDeDupe(newShiftsArray);
-			Toast showUpdateCount = Toast.makeText(this, "" + recordChangeCount +"shift(s) updated!", Toast.LENGTH_SHORT);
+			Toast showUpdateCount = Toast.makeText(this, "" + recordChangeCount
+					+ "shift(s) updated!", Toast.LENGTH_LONG);
 			showUpdateCount.show();
 			break;
+		}
+		case R.id.mergeIntoBackup: {
+			String backupPath = Environment.getExternalStorageDirectory()
+					+ "/shifts.db";
+			DataHelperSecondary dhExternal;
+			try {
+				dhExternal = new DataHelperSecondary(backupPath);
+			} catch (SQLiteException e) {
+				Toast failToast = Toast.makeText(this,
+						"No Exported Database Found! Creating new one!",
+						Toast.LENGTH_LONG);
+				failToast.show();
+				try {
+					exportDatabase();
+				} catch (IOException e1) {
+					Toast failExportToast = Toast.makeText(this,
+							"That didn't work either! Doing nothing...",
+							Toast.LENGTH_LONG);
+					failExportToast.show();
+					break;
+				}
+				break;
+			}
+			Shift[] newShiftsArray = dh.getAllShifts();
+			int recordChangeCount = dhExternal.insertShiftsDeDupe(newShiftsArray);
+			Toast showUpdateCount = Toast.makeText(this, "" + recordChangeCount
+					+ "shift(s) updated in backup!", Toast.LENGTH_LONG);
+			showUpdateCount.show();
+
+			break;
+		}
 		default:
 			break;
 		}
@@ -496,9 +532,10 @@ public class CashDue extends Activity implements
 	}
 
 	public static void exportDatabase() throws IOException {
-		
+
 		// Open local db file as input stream
-		File dbFile = MyApplication.getInstance().getDatabasePath(DataHelperPrime.getDBName());
+		File dbFile = MyApplication.getInstance().getDatabasePath(
+				DataHelperPrime.getDBName());
 		FileInputStream fis = new FileInputStream(dbFile);
 
 		String outFileName = Environment.getExternalStorageDirectory()
@@ -519,7 +556,8 @@ public class CashDue extends Activity implements
 
 	public static void importDataBase() throws IOException {
 		// Open local back as input stream
-		File dbFile = MyApplication.getInstance().getDatabasePath(DataHelperPrime.getDBName());
+		File dbFile = MyApplication.getInstance().getDatabasePath(
+				DataHelperPrime.getDBName());
 		String inFileName = Environment.getExternalStorageDirectory()
 				+ "/shifts.db";
 		File backupFile = new File(inFileName);

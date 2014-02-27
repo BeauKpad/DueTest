@@ -63,6 +63,7 @@ public class DataHelperSecondary {
 		Shift[] oldShifts = getAllShifts();
 		int oldShiftsCount = oldShifts.length;
 		int newShiftsCount = newShifts.length;
+		int returnedCount = 0;
 		Shift[] finalShifts = new Shift[oldShifts.length + newShifts.length];
 		int arrayCount = 0;
 		boolean isUnique = true;
@@ -79,16 +80,18 @@ public class DataHelperSecondary {
 				isUnique = true;
 			}
 		}
-		for(Shift newShift : newShifts){
+		returnedCount = arrayCount;
+		for (Shift newShift : newShifts) {
 			finalShifts[arrayCount] = new Shift(newShift);
 			arrayCount++;
 		}
 		finalShifts = trimArray(finalShifts);
-		if ((finalShifts.length >= newShiftsCount) && (finalShifts.length >= oldShiftsCount)) {
+		if ((finalShifts.length >= newShiftsCount)
+				&& (finalShifts.length >= oldShiftsCount)) {
 			deleteAll();
 			insertShifts(finalShifts);
 		}
-		return arrayCount;
+		return returnedCount;
 	}
 
 	// insert a shift using raw values. date parameter is Unix Epoch

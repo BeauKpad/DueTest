@@ -27,9 +27,10 @@ public class DataHelperPrime {
 	private SQLiteDatabase db;
 	private OpenHelper dbHelper;
 
-	static String getDBName(){
+	static String getDBName() {
 		return DATABASE_NAME;
 	}
+
 	// constructor
 	public DataHelperPrime(Context context) {
 		dbHelper = new OpenHelper(context, DATABASE_NAME, null,
@@ -82,7 +83,8 @@ public class DataHelperPrime {
 
 	// delete shift by index
 	public boolean removeShift(long rowIndex) {
-		return updateGlobalArray(db.delete(TABLE_NAME, KEY_ID + "=" + rowIndex, null) > 0);
+		return updateGlobalArray(db.delete(TABLE_NAME, KEY_ID + "=" + rowIndex,
+				null) > 0);
 	}
 
 	// delete shift by object
@@ -98,7 +100,8 @@ public class DataHelperPrime {
 	public boolean updateShift(long rowIndex, Double _sales) {
 		ContentValues newValue = new ContentValues();
 		newValue.put(KEY_SALES, _sales);
-		return updateGlobalArray(db.update(TABLE_NAME, newValue, KEY_ID + "=" + rowIndex, null) > 0);
+		return updateGlobalArray(db.update(TABLE_NAME, newValue, KEY_ID + "="
+				+ rowIndex, null) > 0);
 	}
 
 	// update a shift
@@ -106,8 +109,8 @@ public class DataHelperPrime {
 		ContentValues newValue = new ContentValues();
 		newValue.put(KEY_SALES, _shift.getSales());
 		newValue.put(KEY_DATE, _shift.getDate().getTimeInMillis());
-		return updateGlobalArray(db.update(TABLE_NAME, newValue,
-				KEY_ID + "=" + (_shift.getDBRow()), null) > 0);
+		return updateGlobalArray(db.update(TABLE_NAME, newValue, KEY_ID + "="
+				+ (_shift.getDBRow()), null) > 0);
 	}
 
 	public void deleteAll() {
@@ -307,7 +310,9 @@ public class DataHelperPrime {
 			y++;
 		}
 		return Result;
-	}	public int insertShiftsDeDupe(Shift[] newShifts) {
+	}
+
+	public int insertShiftsDeDupe(Shift[] newShifts) {
 		Shift[] oldShifts = getAllShifts();
 		int oldShiftsCount = oldShifts.length;
 		int newShiftsCount = newShifts.length;
@@ -329,17 +334,19 @@ public class DataHelperPrime {
 			}
 		}
 		returnedCount = arrayCount;
-		for(Shift newShift : newShifts){
+		for (Shift newShift : newShifts) {
 			finalShifts[arrayCount] = new Shift(newShift);
 			arrayCount++;
 		}
 		finalShifts = trimArray(finalShifts);
-		if ((finalShifts.length >= newShiftsCount) && (finalShifts.length >= oldShiftsCount)) {
+		if ((finalShifts.length >= newShiftsCount)
+				&& (finalShifts.length >= oldShiftsCount)) {
 			deleteAll();
 			insertShifts(finalShifts);
 		}
 		return returnedCount;
 	}
+
 	public int insertShifts(Shift[] shiftsArray) {
 		int count = 0;
 		for (Shift tempShift : shiftsArray) {
@@ -349,8 +356,6 @@ public class DataHelperPrime {
 		MyApplication.getInstance().updateGlobalArray();
 		return count;
 	}
-
-
 
 	public static class OpenHelper extends SQLiteOpenHelper {
 		public OpenHelper(Context context, String name, CursorFactory factory,
