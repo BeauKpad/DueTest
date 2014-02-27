@@ -139,6 +139,14 @@ public class Shift{
     	return dayOfWeek;
     }
 
+    public boolean isTheSameShiftAs(Shift theShift){
+    	if(sales == theShift.getSales()){
+    		if(date.getTimeInMillis() == theShift.getDate().getTimeInMillis()){
+    			return true;
+    		}
+    	}
+    	return false;
+    }
 
 	public String getDayOfWeek() {
 		int intOfDay = date.get(Calendar.DAY_OF_WEEK);

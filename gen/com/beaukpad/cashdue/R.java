@@ -60,6 +60,8 @@ public final class R {
         public static final int exportDB=0x7f080023;
         public static final int importDB=0x7f080024;
         public static final int llDataLayout=0x7f08000b;
+        public static final int mergeIntoBackup=0x7f080026;
+        public static final int mergeIntoInternal=0x7f080025;
         public static final int row=0x7f08001d;
         public static final int tvAverage=0x7f08000c;
     }

@@ -4,18 +4,13 @@ import java.util.ArrayList;
 import java.util.Calendar;
 
 import android.content.ContentValues;
-import android.content.Context;
 import android.database.Cursor;
 import android.database.SQLException;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteException;
-import android.database.sqlite.SQLiteOpenHelper;
-import android.database.sqlite.SQLiteDatabase.CursorFactory;
-import android.util.Log;
 
 public class DataHelperSecondary {
 	protected static final String DATABASE_NAME = "backup.db";
-	private static final int DATABASE_VERSION = 1;
 	private static final String TABLE_NAME = "table1";
 	public static final String KEY_ID = "_id";
 	public static final String KEY_DATE = "date";
@@ -25,15 +20,21 @@ public class DataHelperSecondary {
 	public static final int COLUMN_DATE = 1;
 	public static final int COLUMN_SALES = 2;
 	private SQLiteDatabase db;
-	private OpenHelper dbHelper;
+	private String fullPath;
+	// SQL database creation string
+	public static final String DATABASE_CREATE = "create table " + TABLE_NAME
+			+ " (" + KEY_ID + " integer primary key autoincrement, " + KEY_DATE
+			+ " long, " + KEY_SALES + " double);";
 
-	static String getDBName(){
+	static String getDBName() {
 		return DATABASE_NAME;
 	}
-	// constructor
-	public DataHelperSecondary(Context context) {
-		dbHelper = new OpenHelper(context, DATABASE_NAME, null,
-				DATABASE_VERSION);
+
+	// constructors
+	public DataHelperSecondary(String dbFullPath) throws SQLiteException {
+		fullPath = dbFullPath;
+		db = SQLiteDatabase.openDatabase(fullPath, null,
+				SQLiteDatabase.OPEN_READWRITE);
 	}
 
 	// close the database
@@ -43,23 +44,51 @@ public class DataHelperSecondary {
 
 	// open a database
 	public void open() throws SQLiteException {
-		try {
-			db = dbHelper.getWritableDatabase();
-		} catch (SQLiteException ex) {
-			db = dbHelper.getReadableDatabase();
+		db = SQLiteDatabase.openDatabase(fullPath, null,
+				SQLiteDatabase.OPEN_READWRITE);
+	}
+
+	// insert a collection of shifts. This can cause duplicate copies of shifts
+	public int insertShifts(Shift[] shiftsArray) {
+		int count = 0;
+		for (Shift tempShift : shiftsArray) {
+			insertShift(tempShift);
+			count++;
 		}
-		MyApplication.getInstance().updateGlobalArray();
+		return count;
 	}
 
-	// convenience methods for updating global shift array
-	public long updateGlobalArray(long mLong) {
-		MyApplication.getInstance().updateGlobalArray();
-		return mLong;
-	}
-
-	public boolean updateGlobalArray(boolean mBoolean) {
-		MyApplication.getInstance().updateGlobalArray();
-		return mBoolean;
+	// insert a collection of shifts, deduping first
+	public int insertShiftsDeDupe(Shift[] newShifts) {
+		Shift[] oldShifts = getAllShifts();
+		int oldShiftsCount = oldShifts.length;
+		int newShiftsCount = newShifts.length;
+		Shift[] finalShifts = new Shift[oldShifts.length + newShifts.length];
+		int arrayCount = 0;
+		boolean isUnique = true;
+		for (Shift oldShift : oldShifts) {
+			for (Shift newShift : newShifts) {
+				if (newShift.isTheSameShiftAs(oldShift)) {
+					isUnique = false;
+					break;
+				}
+			}
+			if (isUnique) {
+				finalShifts[arrayCount] = new Shift(oldShift);
+				arrayCount++;
+				isUnique = true;
+			}
+		}
+		for(Shift newShift : newShifts){
+			finalShifts[arrayCount] = new Shift(newShift);
+			arrayCount++;
+		}
+		finalShifts = trimArray(finalShifts);
+		if ((finalShifts.length >= newShiftsCount) && (finalShifts.length >= oldShiftsCount)) {
+			deleteAll();
+			insertShifts(finalShifts);
+		}
+		return arrayCount;
 	}
 
 	// insert a shift using raw values. date parameter is Unix Epoch
@@ -67,7 +96,7 @@ public class DataHelperSecondary {
 		ContentValues newShiftValues = new ContentValues();
 		newShiftValues.put(KEY_DATE, date);
 		newShiftValues.put(KEY_SALES, sales);
-		return updateGlobalArray(db.insert(TABLE_NAME, null, newShiftValues));
+		return db.insert(TABLE_NAME, null, newShiftValues);
 	}
 
 	// insert shift using a Shift object
@@ -76,13 +105,12 @@ public class DataHelperSecondary {
 		newShiftValues.put(KEY_DATE, (Long) newShift.getDate()
 				.getTimeInMillis());
 		newShiftValues.put(KEY_SALES, (Double) newShift.getSales());
-		return newShift.DBRow_ID = updateGlobalArray(db.insert(TABLE_NAME,
-				null, newShiftValues));
+		return newShift.DBRow_ID = db.insert(TABLE_NAME, null, newShiftValues);
 	}
 
 	// delete shift by index
 	public boolean removeShift(long rowIndex) {
-		return updateGlobalArray(db.delete(TABLE_NAME, KEY_ID + "=" + rowIndex, null) > 0);
+		return (db.delete(TABLE_NAME, KEY_ID + "=" + rowIndex, null) > 0);
 	}
 
 	// delete shift by object
@@ -98,7 +126,7 @@ public class DataHelperSecondary {
 	public boolean updateShift(long rowIndex, Double _sales) {
 		ContentValues newValue = new ContentValues();
 		newValue.put(KEY_SALES, _sales);
-		return updateGlobalArray(db.update(TABLE_NAME, newValue, KEY_ID + "=" + rowIndex, null) > 0);
+		return (db.update(TABLE_NAME, newValue, KEY_ID + "=" + rowIndex, null) > 0);
 	}
 
 	// update a shift
@@ -106,7 +134,7 @@ public class DataHelperSecondary {
 		ContentValues newValue = new ContentValues();
 		newValue.put(KEY_SALES, _shift.getSales());
 		newValue.put(KEY_DATE, _shift.getDate().getTimeInMillis());
-		return updateGlobalArray(db.update(TABLE_NAME, newValue,
+		return (db.update(TABLE_NAME, newValue,
 				KEY_ID + "=" + (_shift.getDBRow()), null) > 0);
 	}
 
@@ -308,29 +336,4 @@ public class DataHelperSecondary {
 		return Result;
 	}
 
-	public static class OpenHelper extends SQLiteOpenHelper {
-		public OpenHelper(Context context, String name, CursorFactory factory,
-				int version) {
-			super(context, name, factory, version);
-		}
-
-		// SQL database creation string
-		public static final String DATABASE_CREATE = "create table "
-				+ TABLE_NAME + " (" + KEY_ID
-				+ " integer primary key autoincrement, " + KEY_DATE + " long, "
-				+ KEY_SALES + " double);";
-
-		@Override
-		public void onCreate(SQLiteDatabase db) {
-			db.execSQL(DATABASE_CREATE);
-		}
-
-		@Override
-		public void onUpgrade(SQLiteDatabase db, int oldVersion, int newVersion) {
-			Log.w("OpenHelper",
-					"Upgrading database, this will drop tables and recreate");
-			db.execSQL("DROP TABLE IF EXISTS " + TABLE_NAME);
-			onCreate(db);
-		}
-	}
 }

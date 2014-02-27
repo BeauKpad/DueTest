@@ -88,7 +88,7 @@ public class DataHelperPrime {
 	// delete shift by object
 	public boolean removeShift(Shift _shift) {
 		if (_shift.getDBRow() != 0) {
-			return removeShift(_shift.getDBRow());
+			return updateGlobalArray(removeShift(_shift.getDBRow()));
 		} else {
 			return false;
 		}
@@ -112,6 +112,7 @@ public class DataHelperPrime {
 
 	public void deleteAll() {
 		this.db.delete(TABLE_NAME, null, null);
+		MyApplication.getInstance().updateGlobalArray();
 	}
 
 	// get all shifts as a cursor
@@ -306,7 +307,50 @@ public class DataHelperPrime {
 			y++;
 		}
 		return Result;
+	}	public int insertShiftsDeDupe(Shift[] newShifts) {
+		Shift[] oldShifts = getAllShifts();
+		int oldShiftsCount = oldShifts.length;
+		int newShiftsCount = newShifts.length;
+		int returnedCount = 0;
+		Shift[] finalShifts = new Shift[oldShifts.length + newShifts.length];
+		int arrayCount = 0;
+		boolean isUnique = true;
+		for (Shift oldShift : oldShifts) {
+			for (Shift newShift : newShifts) {
+				if (newShift.isTheSameShiftAs(oldShift)) {
+					isUnique = false;
+					break;
+				}
+			}
+			if (isUnique) {
+				finalShifts[arrayCount] = new Shift(oldShift);
+				arrayCount++;
+				isUnique = true;
+			}
+		}
+		returnedCount = arrayCount;
+		for(Shift newShift : newShifts){
+			finalShifts[arrayCount] = new Shift(newShift);
+			arrayCount++;
+		}
+		finalShifts = trimArray(finalShifts);
+		if ((finalShifts.length >= newShiftsCount) && (finalShifts.length >= oldShiftsCount)) {
+			deleteAll();
+			insertShifts(finalShifts);
+		}
+		return returnedCount;
 	}
+	public int insertShifts(Shift[] shiftsArray) {
+		int count = 0;
+		for (Shift tempShift : shiftsArray) {
+			insertShift(tempShift);
+			count++;
+		}
+		MyApplication.getInstance().updateGlobalArray();
+		return count;
+	}
+
+
 
 	public static class OpenHelper extends SQLiteOpenHelper {
 		public OpenHelper(Context context, String name, CursorFactory factory,

@@ -16,6 +16,7 @@ import android.content.DialogInterface;
 import android.content.DialogInterface.OnClickListener;
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.database.sqlite.SQLiteException;
 import android.media.MediaPlayer;
 import android.os.Bundle;
 import android.os.Environment;
@@ -225,7 +226,7 @@ public class CashDue extends Activity implements
 		} else {
 			menuAuto.setTitle("Autosave is off");
 		}
-		return true;
+		return super.onCreateOptionsMenu(menu);
 	}
 
 	@Override
@@ -263,6 +264,23 @@ public class CashDue extends Activity implements
 								Toast.LENGTH_LONG);
 				failImportToast.show();
 			}
+			break;
+		case R.id.mergeIntoInternal:
+			String dbPath = Environment.getExternalStorageDirectory() + "/shifts.db";
+			DataHelperSecondary dhExternal;
+			try {
+				dhExternal = new DataHelperSecondary(dbPath);
+			} catch (SQLiteException e) {
+				Toast failExportToast = Toast.makeText(this,
+						"No Database Found!", Toast.LENGTH_SHORT);
+				e.printStackTrace();
+				failExportToast.show();
+				break;
+			}
+			Shift[] newShiftsArray = dhExternal.getAllShifts();
+			int recordChangeCount = dh.insertShiftsDeDupe(newShiftsArray);
+			Toast showUpdateCount = Toast.makeText(this, "" + recordChangeCount +"shift(s) updated!", Toast.LENGTH_SHORT);
+			showUpdateCount.show();
 			break;
 		default:
 			break;

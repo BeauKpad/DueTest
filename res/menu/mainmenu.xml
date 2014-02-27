@@ -1,7 +1,26 @@
 <?xml version="1.0" encoding="utf-8"?>
-<menu
-  xmlns:android="http://schemas.android.com/apk/res/android">
-<item android:visible="true" android:id="@+id/autosave" android:enabled="true"></item>
-<item android:title="Export Shift Database" android:id="@+id/exportDB"></item>
-<item android:title="Import Shift Database" android:id="@+id/importDB"></item>
+<menu xmlns:android="http://schemas.android.com/apk/res/android" >
+
+    <item
+        android:id="@+id/autosave"
+        android:enabled="true"
+        android:visible="true">
+    </item>
+    <item
+        android:id="@+id/exportDB"
+        android:title="Export Shift Database">
+    </item>
+    <item
+        android:id="@+id/importDB"
+        android:title="Import Shift Database">
+    </item>
+    <item
+        android:id="@+id/mergeIntoInternal"
+        android:title="Merge backup into internal DB">
+    </item>
+    <item
+        android:id="@+id/mergeIntoBackup"
+        android:title="Merge internal into backup DB">
+    </item>
+
 </menu>
