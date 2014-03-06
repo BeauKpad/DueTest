@@ -111,7 +111,7 @@ public class AddShift extends Activity {
 						} else {
 							thisShift.setIsLunch(Shift.LUNCH);
 						}
-						dh.updateShift(thisShift);
+						dh.updateThisShift(thisShift);
 						BackupManager.dataChanged(getBaseContext().getPackageName());
 					} else {
 						try{
@@ -148,7 +148,7 @@ public class AddShift extends Activity {
 						} else {
 							thisShift.setIsLunch(Shift.LUNCH);
 						}
-						dh.updateShift(thisShift);
+						dh.updateThisShift(thisShift);
 						BackupManager.dataChanged(getBaseContext().getPackageName()); 
 					} else {
 						try{
@@ -245,7 +245,7 @@ public class AddShift extends Activity {
 						} else {
 							thisShift.setIsLunch(Shift.LUNCH);
 						}
-						dh.updateShift(thisShift);
+						dh.updateThisShift(thisShift);
 						BackupManager.dataChanged(getBaseContext().getPackageName()); 
 					} else {
 						try{
@@ -282,7 +282,7 @@ public class AddShift extends Activity {
 						} else {
 							thisShift.setIsLunch(Shift.LUNCH);
 						}
-						dh.updateShift(thisShift);
+						dh.updateThisShift(thisShift);
 						BackupManager.dataChanged(getBaseContext().getPackageName()); 
 					} else {
 						try{
@@ -378,7 +378,7 @@ public class AddShift extends Activity {
 						} else {
 							thisShift.setIsLunch(Shift.LUNCH);
 						}
-						dh.updateShift(thisShift);
+						dh.updateThisShift(thisShift);
 						BackupManager.dataChanged(getBaseContext().getPackageName()); 
 					} else {
 						try{
@@ -415,7 +415,7 @@ public class AddShift extends Activity {
 						} else {
 							thisShift.setIsLunch(Shift.LUNCH);
 						}
-						dh.updateShift(thisShift);
+						dh.updateThisShift(thisShift);
 						BackupManager.dataChanged(getBaseContext().getPackageName()); 
 					} else {
 						try{
@@ -457,7 +457,7 @@ public class AddShift extends Activity {
 	
 	}
 	public boolean duplicateExists(){
-		for(Shift tShift : dh.getAllShifts()){
+		for(Shift tShift : MyApplication.getInstance().getGlobalArray()){
 			int tShiftDayYear = tShift.getDate().get(Calendar.DAY_OF_YEAR);
 			int tShiftYear = tShift.getDate().get(Calendar.YEAR);
 			int thisDayYear = thisShift.getDate().get(Calendar.DAY_OF_YEAR);

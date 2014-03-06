@@ -50,13 +50,14 @@ public class CashDue extends Activity implements
 	CheckBox checkBoxAdjust;
 	public static String MY_PREFS = "MY_PREFS";
 	long lastInsertedShiftDBRow = 0;
+	Shift[] allShiftsArray;
 
 	/** Called when the activity is first created. */
 	@Override
 	public void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
-		dh = MyApplication.getInstance().dh;
-		dh.open();
+		dh = MyApplication.getInstance().getDH();
+		allShiftsArray = MyApplication.getInstance().getGlobalArray();
 		setContentView(R.layout.main);
 		llMain = (LinearLayout) findViewById(R.id.MainLayout);
 		setBackGround();
@@ -150,7 +151,6 @@ public class CashDue extends Activity implements
 		Calendar bCalendar = lastNow;
 		Shift bShift = new Shift(bSales, bCalendar);
 		bShift.fixMidnightProblem();
-		dh.open();
 		result = dh.insertShift(bShift);
 		BackupManager.dataChanged(getBaseContext().getPackageName());
 		return result;
@@ -282,6 +282,7 @@ public class CashDue extends Activity implements
 				break;
 			}
 			Shift[] newShiftsArray = dhExternal.getAllShifts();
+			dh.open();
 			int recordChangeCount = dh.insertShiftsDeDupe(newShiftsArray);
 			Toast showUpdateCount = Toast.makeText(this, "" + recordChangeCount
 					+ "shift(s) updated!", Toast.LENGTH_LONG);
@@ -310,7 +311,7 @@ public class CashDue extends Activity implements
 				}
 				break;
 			}
-			Shift[] newShiftsArray = dh.getAllShifts();
+			Shift[] newShiftsArray = MyApplication.getInstance().getGlobalArray();
 			int recordChangeCount = dhExternal.insertShiftsDeDupe(newShiftsArray);
 			Toast showUpdateCount = Toast.makeText(this, "" + recordChangeCount
 					+ "shift(s) updated in backup!", Toast.LENGTH_LONG);
@@ -474,7 +475,7 @@ public class CashDue extends Activity implements
 					// known. Delete last saved shift, and go back (by falling
 					// thru)
 				} else {
-					dh.removeShift(lastInsertedShiftDBRow);
+					dh.removeShiftByID(lastInsertedShiftDBRow);
 					lastInsertedShiftDBRow = 0;
 					BackupManager
 							.dataChanged(getBaseContext().getPackageName());
@@ -491,7 +492,7 @@ public class CashDue extends Activity implements
 				new OnClickListener() {
 
 					public void onClick(DialogInterface dialog, int which) {
-						dh.removeShift(lastInsertedShiftDBRow);
+						dh.removeShiftByID(lastInsertedShiftDBRow);
 						lastInsertedShiftDBRow = 0;
 						BackupManager.dataChanged(getBaseContext()
 								.getPackageName());
@@ -575,5 +576,6 @@ public class CashDue extends Activity implements
 		output.flush();
 		output.close();
 		fis.close();
+		MyApplication.getInstance().updateGlobalArray();
 	}
 }

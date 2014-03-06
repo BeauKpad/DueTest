@@ -112,7 +112,7 @@ public class DataActivity extends ListActivity implements
 	private void populateAllShifts() {
 		// Get all shifts in the database from the database helper member
 		theShiftArray = null;
-		Shift[] temp = dh.getAllShifts();
+		Shift[] temp = MyApplication.getInstance().getGlobalArray();
 		theShiftArray = new Shift[temp.length];
 		theShiftArray = trimArray(temp);
 		// pack the shift array into the list by packing each array item the
@@ -133,7 +133,7 @@ public class DataActivity extends ListActivity implements
 	private double getListAverage() {
 		Shift[] TempArray = null;
 		if (rbBoth.isChecked()) {
-			TempArray = dh.getAllShifts();
+			TempArray = MyApplication.getInstance().getGlobalArray();
 		} else if (rbDinnerOnly.isChecked()) {
 			TempArray = dh.getAllDinnerShifts();
 		} else {

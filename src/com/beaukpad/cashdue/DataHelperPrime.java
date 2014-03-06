@@ -39,6 +39,9 @@ public class DataHelperPrime {
 
 	// close the database
 	public void close() {
+		if (db == null) {
+			return;
+		}
 		db.close();
 	}
 
@@ -49,7 +52,6 @@ public class DataHelperPrime {
 		} catch (SQLiteException ex) {
 			db = dbHelper.getReadableDatabase();
 		}
-		MyApplication.getInstance().updateGlobalArray();
 	}
 
 	// convenience methods for updating global shift array
@@ -62,35 +64,53 @@ public class DataHelperPrime {
 		MyApplication.getInstance().updateGlobalArray();
 		return mBoolean;
 	}
-
+	public long insertByValue(Long date, Double sales, Boolean isLunch) {
+		return insert(date, sales, isLunch);
+	}
 	// insert a shift using raw values. date parameter is Unix Epoch
-	public long insert(Long date, Double sales, Boolean isLunch) {
-		ContentValues newShiftValues = new ContentValues();
-		newShiftValues.put(KEY_DATE, date);
-		newShiftValues.put(KEY_SALES, sales);
-		return updateGlobalArray(db.insert(TABLE_NAME, null, newShiftValues));
+	private long insert(Long date, Double sales, Boolean isLunch) {
+		return insertShift(new Shift(sales, date));
+//		ContentValues newShiftValues = new ContentValues();
+//		newShiftValues.put(KEY_DATE, date);
+//		newShiftValues.put(KEY_SALES, sales);
+//		open();
+//		long resultID = db.insert(TABLE_NAME, null, newShiftValues);
+//		close();
+//		return updateGlobalArray(resultID);
 	}
 
 	// insert shift using a Shift object
+	//This needs to be the only gateway to insertion
 	public long insertShift(Shift newShift) {
-		ContentValues newShiftValues = new ContentValues();
-		newShiftValues.put(KEY_DATE, (Long) newShift.getDate()
-				.getTimeInMillis());
-		newShiftValues.put(KEY_SALES, (Double) newShift.getSales());
-		return newShift.DBRow_ID = updateGlobalArray(db.insert(TABLE_NAME,
-				null, newShiftValues));
+		 ContentValues newShiftValues = new ContentValues();
+		 newShiftValues.put(KEY_DATE, (Long) newShift.getDate()
+		 .getTimeInMillis());
+		 newShiftValues.put(KEY_SALES, (Double) newShift.getSales());
+		 open();
+		 newShift.DBRow_ID = updateGlobalArray(db.insert(TABLE_NAME,
+		 null, newShiftValues));
+		 close();
+		 return updateGlobalArray(newShift.DBRow_ID);
 	}
 
 	// delete shift by index
-	public boolean removeShift(long rowIndex) {
-		return updateGlobalArray(db.delete(TABLE_NAME, KEY_ID + "=" + rowIndex,
-				null) > 0);
+	//gatekeeper for deletion
+	private boolean removeShift(long rowIndex) {
+		boolean returnValue;
+		open();
+		returnValue = updateGlobalArray(db.delete(TABLE_NAME, KEY_ID + "="
+				+ rowIndex, null) > 0);
+		close();
+		return returnValue;
 	}
 
+	public boolean removeShiftByID(long rowIndex) {
+		return removeShift(rowIndex);
+	}
 	// delete shift by object
 	public boolean removeShift(Shift _shift) {
 		if (_shift.getDBRow() != 0) {
-			return updateGlobalArray(removeShift(_shift.getDBRow()));
+			return removeShift(_shift.getDBRow());
 		} else {
 			return false;
 		}
@@ -98,114 +118,124 @@ public class DataHelperPrime {
 
 	// update a sales of a shift
 	public boolean updateShift(long rowIndex, Double _sales) {
-		ContentValues newValue = new ContentValues();
-		newValue.put(KEY_SALES, _sales);
-		return updateGlobalArray(db.update(TABLE_NAME, newValue, KEY_ID + "="
-				+ rowIndex, null) > 0);
+		Shift workingShift = new Shift(_sales);
+		workingShift.setDBRow(rowIndex);
+		return updateShift(workingShift);
 	}
-
+	public boolean updateThisShift(Shift _shift){
+		return updateShift(_shift);
+	}
 	// update a shift
-	public boolean updateShift(Shift _shift) {
+	//Gatekeeper to update shifts
+	private boolean updateShift(Shift _shift) {
 		ContentValues newValue = new ContentValues();
-		newValue.put(KEY_SALES, _shift.getSales());
-		newValue.put(KEY_DATE, _shift.getDate().getTimeInMillis());
-		return updateGlobalArray(db.update(TABLE_NAME, newValue, KEY_ID + "="
-				+ (_shift.getDBRow()), null) > 0);
+		double _sales = _shift.getSales();
+		long _date = _shift.getDate().getTimeInMillis();
+		if(_sales > 0){
+			newValue.put(KEY_SALES, _shift.getSales());
+		}
+		if(_date > 0){
+			newValue.put(KEY_DATE, _shift.getDate().getTimeInMillis());
+		}
+		boolean returnValue;
+		open();
+		returnValue = updateGlobalArray(db.update(TABLE_NAME, newValue, KEY_ID
+				+ "=" + (_shift.getDBRow()), null) > 0);
+		close();
+		return returnValue;
 	}
 
 	public void deleteAll() {
+		open();
 		this.db.delete(TABLE_NAME, null, null);
+		close();
 		MyApplication.getInstance().updateGlobalArray();
 	}
 
 	// get all shifts as a cursor
-	public Cursor getAllShiftsCursor() {
-		return db.query(TABLE_NAME,
-				new String[] { KEY_ID, KEY_DATE, KEY_SALES }, null, null, null,
-				null, KEY_DATE);
-	}
+	// This function taught me the hard way: DON'T PASS AROUND CURSORS!!!
+//	private Cursor getAllShiftsCursor() {
+//		open();
+//		Cursor returnCursor;
+//		returnCursor = db.query(TABLE_NAME, new String[] { KEY_ID, KEY_DATE,
+//				KEY_SALES }, null, null, null, null, KEY_DATE);
+//		// If I close the database now the cursor is useless
+//		// close();
+//		return returnCursor;
+//	}
 
 	// get all shifts in an ArrayList<String>
-	public ArrayList<String> getAllShiftsArray() {
-		ArrayList<String> result = new ArrayList<String>();
-		String tempString;
-		Cursor temp = db.query(TABLE_NAME, new String[] { KEY_ID, KEY_DATE,
-				KEY_SALES }, null, null, null, null, null);
-		if (temp.moveToFirst()) {
-			do {
-				Calendar tempCal = Calendar.getInstance();
-				tempCal.setTimeInMillis(temp.getLong(COLUMN_DATE));
-				tempString = (new Shift(temp.getDouble(COLUMN_SALES), tempCal,
-						temp.getLong(COLUMN_ID))).toString();
-				result.add(tempString);
-			} while (temp.moveToNext());
-		}
-		return result;
+//	private ArrayList<String> getAllShiftsArrayList() {
+//		ArrayList<String> result = new ArrayList<String>();
+//		String tempString;
+//		open();
+//		Cursor temp = db.query(TABLE_NAME, new String[] { KEY_ID, KEY_DATE,
+//				KEY_SALES }, null, null, null, null, null);
+//		close();
+//		if (temp.moveToFirst()) {
+//			do {
+//				Calendar tempCal = Calendar.getInstance();
+//				tempCal.setTimeInMillis(temp.getLong(COLUMN_DATE));
+//				tempString = (new Shift(temp.getDouble(COLUMN_SALES), tempCal,
+//						temp.getLong(COLUMN_ID))).toString();
+//				result.add(tempString);
+//			} while (temp.moveToNext());
+//		}
+//		return result;
+//	}
+	public Shift[] getAllShifts(MyApplication app){
+		return getAllShifts();
 	}
-
 	// get all shifts in a Shift array
-	public Shift[] getAllShifts() {
+	private Shift[] getAllShifts() {
 		Shift[] result = {};
 		Shift tempShift;
-		Cursor temp = getAllShiftsCursor();
-		if (temp.moveToFirst()) {
+		Cursor allShiftsCursor;
+		open();
+		allShiftsCursor = db.query(TABLE_NAME, new String[] { KEY_ID, KEY_DATE,
+				KEY_SALES }, null, null, null, null, KEY_DATE);
+		if (allShiftsCursor.moveToFirst()) {
 			int x = 0;
-			result = new Shift[temp.getCount()];
+			result = new Shift[allShiftsCursor.getCount()];
 			do {
 				Calendar tempCal = Calendar.getInstance();
-				tempCal.setTimeInMillis(temp.getLong(COLUMN_DATE));
-				tempShift = (new Shift(temp.getDouble(COLUMN_SALES), tempCal,
-						temp.getLong(COLUMN_ID)));
+				tempCal.setTimeInMillis(allShiftsCursor.getLong(COLUMN_DATE));
+				tempShift = (new Shift(allShiftsCursor.getDouble(COLUMN_SALES), tempCal,
+						allShiftsCursor.getLong(COLUMN_ID)));
 				result[x++] = tempShift;
-			} while (temp.moveToNext());
+			} while (allShiftsCursor.moveToNext());
 		}
+		allShiftsCursor.close();
+		close();
 		return result;
 	}
 
 	// get all lunch shifts in a shift array
 	public Shift[] getAllLunchShifts() {
-		Shift[] result = {};
-		Shift tempShift;
-		Cursor temp = db.query(TABLE_NAME, new String[] { KEY_ID, KEY_DATE,
-				KEY_SALES }, null, null, null, null, KEY_DATE);
-		if (temp.moveToFirst()) {
-			int x = 0;
-			result = new Shift[temp.getCount()];
-			do {
-				Calendar tempCal = Calendar.getInstance();
-				tempCal.setTimeInMillis(temp.getLong(COLUMN_DATE));
-				tempShift = (new Shift(temp.getDouble(COLUMN_SALES), tempCal,
-						temp.getLong(COLUMN_ID)));
-				if (!tempShift.isLunch()) {
-					continue;
-				}
-				result[x++] = tempShift;
-			} while (temp.moveToNext());
+		Shift[] masterList = MyApplication.getInstance().getGlobalArray();
+		Shift[] lunchArray = new Shift[masterList.length];
+		int index = 0;
+		for(Shift tempShift : masterList){
+			if(tempShift.isLunch()){
+				lunchArray[index] = new Shift(tempShift);
+				index++;
+			}
 		}
-		return result;
+		return trimArray(lunchArray);
 	}
 
 	// get all Dinner shifts in a shift array
 	public Shift[] getAllDinnerShifts() {
-		Shift[] result = {};
-		Shift tempShift;
-		Cursor temp = db.query(TABLE_NAME, new String[] { KEY_ID, KEY_DATE,
-				KEY_SALES }, null, null, null, null, KEY_DATE);
-		if (temp.moveToFirst()) {
-			int x = 0;
-			result = new Shift[temp.getCount()];
-			do {
-				Calendar tempCal = Calendar.getInstance();
-				tempCal.setTimeInMillis(temp.getLong(COLUMN_DATE));
-				tempShift = (new Shift(temp.getDouble(COLUMN_SALES), tempCal,
-						temp.getLong(COLUMN_ID)));
-				if (tempShift.isLunch()) {
-					continue;
-				}
-				result[x++] = tempShift;
-			} while (temp.moveToNext());
+		Shift[] masterList = MyApplication.getInstance().getGlobalArray();
+		Shift[] dinnerArray = new Shift[masterList.length];
+		int index = 0;
+		for(Shift tempShift : masterList){
+			if(tempShift.isDinner()){
+				dinnerArray[index] = new Shift(tempShift);
+				index++;
+			}
 		}
-		return trimArray(result);
+		return trimArray(dinnerArray);
 	}
 
 	// Get all shifts in a shift cursor by day of week and shift time
@@ -246,52 +276,59 @@ public class DataHelperPrime {
 	}
 
 	// get all shifts as an array of Strings
-	public String[] getAllStringArray() {
-		String[] result = {};
-		String tempString;
-		Calendar tempCal = Calendar.getInstance();
-		Cursor temp = db.query(TABLE_NAME, new String[] { KEY_ID, KEY_DATE,
-				KEY_SALES }, null, null, null, null, null);
-		if (temp.moveToFirst()) {
-			result = new String[temp.getCount()];
-			int x = 0;
-			do {
-				tempCal.setTimeInMillis(temp.getLong(COLUMN_DATE));
-				tempString = (new Shift(temp.getDouble(COLUMN_SALES), tempCal))
-						.toString();
-				result[x++] = tempString;
-			} while (temp.moveToNext());
-		}
-		return result;
-	}
+//	private String[] getAllStringArray() {
+//		String[] result = {};
+//		String tempString;
+//		Calendar tempCal = Calendar.getInstance();
+//		open();
+//		Cursor allShiftsCursor = db.query(TABLE_NAME, new String[] { KEY_ID, KEY_DATE,
+//				KEY_SALES }, null, null, null, null, null);
+//		if (allShiftsCursor.moveToFirst()) {
+//			result = new String[allShiftsCursor.getCount()];
+//			int x = 0;
+//			do {
+//				tempCal.setTimeInMillis(allShiftsCursor.getLong(COLUMN_DATE));
+//				tempString = (new Shift(allShiftsCursor.getDouble(COLUMN_SALES), tempCal))
+//						.toString();
+//				result[x++] = tempString;
+//			} while (allShiftsCursor.moveToNext());
+//		}
+//		allShiftsCursor.close();
+//		close();
+//		return result;
+//	}
 
-	// get a single shift as a cursor
-	public Cursor setCursorToShift(long _rowIndex) {
-		Cursor result = db.query(true, TABLE_NAME, null, KEY_ID + "="
-				+ _rowIndex, null, null, null, null, null);
-		if ((result.getCount() == 0) || !result.moveToFirst()) {
-			throw new SQLiteException("No shifts found for row: " + _rowIndex);
-		}
-		return result;
-	}
+//	// get a single shift as a cursor
+//	public Cursor setCursorToShift(long _rowIndex) {
+//		open();
+//		Cursor result = db.query(true, TABLE_NAME, null, KEY_ID + "="
+//				+ _rowIndex, null, null, null, null, null);
+//		if ((result.getCount() == 0) || !result.moveToFirst()) {
+//			throw new SQLiteException("No shifts found for row: " + _rowIndex);
+//		}
+//		return result;
+//	}
 
 	// get a single shift as a shift
-	public Shift getShift(long _rowIndex) throws SQLException {
-		Cursor cursor = db.query(true, TABLE_NAME, new String[] { KEY_ID,
-				KEY_DATE, KEY_SALES }, KEY_ID + "=" + _rowIndex, null, null,
-				null, null, null);
-		if ((cursor.getCount() == 0) || !cursor.moveToFirst()) {
-			throw new SQLException("No shift found for row: " + _rowIndex);
-		}
-		// Could be trouble. How can I guarantee the following indexes?
-		// A:Determined by order created in table creation, apparently
-		double _sales = cursor.getDouble(COLUMN_SALES);
-		long millis = cursor.getLong(COLUMN_DATE);
-		long _id = cursor.getLong(COLUMN_ID);
-		Calendar aCal = Calendar.getInstance();
-		aCal.setTimeInMillis(millis);
-		return new Shift(_sales, aCal, _id);
-	}
+//	private Shift getShift(long _rowIndex) throws SQLException {
+//		open();
+//		Cursor cursor = db.query(true, TABLE_NAME, new String[] { KEY_ID,
+//				KEY_DATE, KEY_SALES }, KEY_ID + "=" + _rowIndex, null, null,
+//				null, null, null);
+//		if ((cursor.getCount() == 0) || !cursor.moveToFirst()) {
+//			throw new SQLException("No shift found for row: " + _rowIndex);
+//		}
+//		// Could be trouble. How can I guarantee the following indexes?
+//		// A:Determined by order created in table creation, apparently
+//		double _sales = cursor.getDouble(COLUMN_SALES);
+//		long millis = cursor.getLong(COLUMN_DATE);
+//		long _id = cursor.getLong(COLUMN_ID);
+//		cursor.close();
+//		close();
+//		Calendar aCal = Calendar.getInstance();
+//		aCal.setTimeInMillis(millis);
+//		return new Shift(_sales, aCal, _id);
+//	}
 
 	private Shift[] trimArray(Shift[] list) {
 		int x = 0;
@@ -302,7 +339,6 @@ public class DataHelperPrime {
 			}
 			x++;
 		}
-		;
 		Shift[] Result = new Shift[x];
 		int y = 0;
 		while (y < x) {
@@ -319,8 +355,8 @@ public class DataHelperPrime {
 		int returnedCount = 0;
 		Shift[] finalShifts = new Shift[oldShifts.length + newShifts.length];
 		int arrayCount = 0;
-		boolean isUnique = true;
 		for (Shift oldShift : oldShifts) {
+			boolean isUnique = true;
 			for (Shift newShift : newShifts) {
 				if (newShift.isTheSameShiftAs(oldShift)) {
 					isUnique = false;
@@ -329,9 +365,7 @@ public class DataHelperPrime {
 			}
 			if (isUnique) {
 				finalShifts[arrayCount] = new Shift(oldShift);
-				arrayCount++;
-				isUnique = true;
-			}
+				arrayCount++;}
 		}
 		returnedCount = arrayCount;
 		for (Shift newShift : newShifts) {
@@ -339,11 +373,13 @@ public class DataHelperPrime {
 			arrayCount++;
 		}
 		finalShifts = trimArray(finalShifts);
-		if ((finalShifts.length >= newShiftsCount)
-				&& (finalShifts.length >= oldShiftsCount)) {
-			deleteAll();
-			insertShifts(finalShifts);
+		//sanity check. On failure, return 0 
+		if (!((finalShifts.length >= newShiftsCount)
+				&& (finalShifts.length >= oldShiftsCount))) {
+			return 0;
 		}
+		deleteAll();
+		insertShifts(finalShifts);
 		return returnedCount;
 	}
 
@@ -353,7 +389,6 @@ public class DataHelperPrime {
 			insertShift(tempShift);
 			count++;
 		}
-		MyApplication.getInstance().updateGlobalArray();
 		return count;
 	}
 

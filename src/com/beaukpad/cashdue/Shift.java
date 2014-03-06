@@ -37,6 +37,13 @@ public class Shift{
 		date = _Cal;
 	}
 	
+	public Shift(double _sales, long _dateAsEpoch) {
+		sales = _sales;
+		Calendar temp = Calendar.getInstance();
+		temp.setTimeInMillis(_dateAsEpoch);
+		date = temp;
+	}
+	
 	public Shift(Shift seed){
 		DBRow_ID = seed.getDBRow();
 		sales = seed.getSales();
@@ -146,6 +153,10 @@ public class Shift{
     		}
     	}
     	return false;
+    }
+    
+    public long getTimeValue(){
+    	return date.getTimeInMillis();
     }
 
 	public String getDayOfWeek() {

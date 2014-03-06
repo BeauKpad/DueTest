@@ -31,9 +31,7 @@ public class Stats extends Activity {
 		setContentView(R.layout.stats);
 		tvStats = (TextView) findViewById(R.id.TVStats);
 		dh = MyApplication.getInstance().getDH();
-		dh.open();
-		allShifts = dh.getAllShifts();
-		dh.close();
+		allShifts = MyApplication.getInstance().getGlobalArray();
 		populateTextView();
 
 	}
@@ -155,6 +153,7 @@ public class Stats extends Activity {
 		return result;
 	}
 
+	//
 	public double getAverageByDayOfWeekAndShift(int DayOfWeek, boolean isLunch) {
 		dh.open();
 		Shift[] temp = dh.getByWeekDayandShiftTime(DayOfWeek, isLunch);

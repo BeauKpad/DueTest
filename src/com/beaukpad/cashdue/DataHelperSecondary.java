@@ -66,8 +66,8 @@ public class DataHelperSecondary {
 		int returnedCount = 0;
 		Shift[] finalShifts = new Shift[oldShifts.length + newShifts.length];
 		int arrayCount = 0;
-		boolean isUnique = true;
 		for (Shift oldShift : oldShifts) {
+			boolean isUnique = true;
 			for (Shift newShift : newShifts) {
 				if (newShift.isTheSameShiftAs(oldShift)) {
 					isUnique = false;
@@ -77,7 +77,6 @@ public class DataHelperSecondary {
 			if (isUnique) {
 				finalShifts[arrayCount] = new Shift(oldShift);
 				arrayCount++;
-				isUnique = true;
 			}
 		}
 		returnedCount = arrayCount;

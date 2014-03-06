@@ -12,7 +12,7 @@ import android.content.DialogInterface.OnClickListener;
 public class MyApplication extends Application {
 	Calendar lunchEnds;
 	Shift[] AllShiftsGlobal;
-	public DataHelperPrime dh;
+	private DataHelperPrime dh;
 	public Context context;
 	private static MyApplication singleton;
 	public static MyApplication getInstance(){
@@ -28,26 +28,8 @@ public class MyApplication extends Application {
 		return lunchEnds;		
 	}
 	//debugger class
-	public class myAlertDialog extends AlertDialog.Builder {
-		AlertDialog.Builder singleton;
-		@Override
-		public AlertDialog show(){
-			return singleton.show();
-		}
-		public myAlertDialog(Context _context, String message) {
-			super(_context);
-			singleton = new AlertDialog.Builder(_context);
-			singleton.setMessage(message);
-			singleton.setPositiveButton("ok", new OnClickListener() {
-				
-				public void onClick(DialogInterface dialog, int which) {
-					// TODO Auto-generated method stub
-					
-				}
-			});
-		}
-	}
 	public Shift[] getGlobalArray(){
+		updateGlobalArray();
 		Shift[] resultArray = new Shift[AllShiftsGlobal.length];
 		for(int x = 0; x < AllShiftsGlobal.length; x++){
 			resultArray[x] = new Shift(AllShiftsGlobal[x]);
@@ -55,7 +37,7 @@ public class MyApplication extends Application {
 		return resultArray;
 	}
 	public void updateGlobalArray(){
-		AllShiftsGlobal = dh.getAllShifts();
+		AllShiftsGlobal = dh.getAllShifts(singleton);
 	}
 	@Override
 	public final void onCreate(){
@@ -71,5 +53,6 @@ public class MyApplication extends Application {
 		singleton = this;
 		context = this;
 		dh = new DataHelperPrime(this);
+		
 	}
 }
