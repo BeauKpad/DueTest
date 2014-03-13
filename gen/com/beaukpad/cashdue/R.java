@@ -220,8 +220,11 @@ containing a value of this type.
         public static final int wineroom=0x7f020023;
     }
     public static final class id {
-        public static final int Button01=0x7f060022;
-        public static final int Button02=0x7f060023;
+        public static final int BDatabaseAction=0x7f06002b;
+        public static final int BQuitApplication=0x7f06002c;
+        public static final int BToggleLunchDinner=0x7f060028;
+        public static final int ButtonCalculate=0x7f060022;
+        public static final int ButtonClearValues=0x7f060023;
         public static final int CancelButton=0x7f06000c;
         public static final int CheckBox01=0x7f06000f;
         public static final int DataRadioGroup=0x7f060012;
@@ -239,31 +242,34 @@ containing a value of this type.
         public static final int RadioLunchOnly=0x7f060015;
         public static final int ReplaceButton=0x7f06000d;
         public static final int SaveButton=0x7f06000b;
-        public static final int TVStats=0x7f060028;
-        public static final int TextView01=0x7f06001e;
-        public static final int TextView02=0x7f060020;
+        public static final int TVCalculations=0x7f060029;
+        public static final int TVCashDueLabel=0x7f060020;
+        public static final int TVHelpInfo=0x7f06002a;
+        public static final int TVResultsPageTitle=0x7f060027;
+        public static final int TVSalesLabel=0x7f06001e;
+        public static final int TVStats=0x7f06002e;
         public static final int TextViewAdjust=0x7f060025;
-        public static final int add_new_shift=0x7f060029;
+        public static final int add_new_shift=0x7f06002f;
         public static final int adjustCheckBox=0x7f060024;
         public static final int adjustEditText=0x7f060026;
-        public static final int autosave=0x7f06002c;
+        public static final int autosave=0x7f060032;
         public static final int bPastShifts=0x7f06001c;
         public static final int bStatistics=0x7f06001d;
         public static final int button1=0x7f06001a;
         public static final int button2=0x7f060019;
         public static final int button3=0x7f060018;
-        public static final int delete_item=0x7f06002a;
-        public static final int edit_item=0x7f06002b;
+        public static final int delete_item=0x7f060030;
+        public static final int edit_item=0x7f060031;
         public static final int editshiftitem=0x7f060009;
-        public static final int exportDB=0x7f06002d;
+        public static final int exportDB=0x7f060033;
         public static final int hybrid=0x7f060004;
-        public static final int importDB=0x7f06002e;
+        public static final int importDB=0x7f060034;
         public static final int llDataLayout=0x7f060010;
-        public static final int mergeIntoBackup=0x7f060030;
-        public static final int mergeIntoInternal=0x7f06002f;
+        public static final int mergeIntoBackup=0x7f060036;
+        public static final int mergeIntoInternal=0x7f060035;
         public static final int none=0x7f060000;
         public static final int normal=0x7f060001;
-        public static final int row=0x7f060027;
+        public static final int row=0x7f06002d;
         public static final int satellite=0x7f060002;
         public static final int terrain=0x7f060003;
         public static final int textView1=0x7f060016;
@@ -278,8 +284,9 @@ containing a value of this type.
         public static final int database=0x7f030001;
         public static final int importexport=0x7f030002;
         public static final int main=0x7f030003;
-        public static final int shiftlistitem=0x7f030004;
-        public static final int stats=0x7f030005;
+        public static final int results_activity=0x7f030004;
+        public static final int shiftlistitem=0x7f030005;
+        public static final int stats=0x7f030006;
     }
     public static final class menu {
         public static final int data_view_menu=0x7f090000;

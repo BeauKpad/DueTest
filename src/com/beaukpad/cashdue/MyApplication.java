@@ -2,14 +2,13 @@ package com.beaukpad.cashdue;
 
 import java.util.Calendar;
 
-import android.app.AlertDialog;
 import android.app.Application;
 import android.content.Context;
-import android.content.DialogInterface;
-import android.content.DialogInterface.OnClickListener;
 
 
 public class MyApplication extends Application {
+	public static final String FONT_PATH_NASHVILLE = "fonts/nashvill.ttf";
+	public static final String FONT_PATH_MIRC = "fonts/micrenc.ttf";
 	Calendar lunchEnds;
 	Shift[] AllShiftsGlobal;
 	private DataHelperPrime dh;
@@ -24,7 +23,7 @@ public class MyApplication extends Application {
 	public Context getContext(){
 		return context;
 	}
-	public Calendar getCal() {
+	public Calendar getLunchEndCal() {
 		return lunchEnds;		
 	}
 	//debugger class

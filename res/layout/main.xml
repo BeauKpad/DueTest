@@ -32,7 +32,7 @@
         android:orientation="vertical" >
 
         <TextView
-            android:id="@+id/TextView01"
+            android:id="@+id/TVSalesLabel"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
@@ -58,7 +58,7 @@
         android:orientation="vertical" >
 
         <TextView
-            android:id="@+id/TextView02"
+            android:id="@+id/TVCashDueLabel"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
@@ -84,14 +84,14 @@
         android:orientation="horizontal" >
 
         <Button
-            android:id="@+id/Button01"
+            android:id="@+id/ButtonCalculate"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Calculate" >
         </Button>
 
         <Button
-            android:id="@+id/Button02"
+            android:id="@+id/ButtonClearValues"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Clear" >

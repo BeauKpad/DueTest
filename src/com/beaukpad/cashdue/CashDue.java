@@ -17,6 +17,7 @@ import android.content.DialogInterface.OnClickListener;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.database.sqlite.SQLiteException;
+import android.graphics.Typeface;
 import android.media.MediaPlayer;
 import android.os.Bundle;
 import android.os.Environment;
@@ -33,7 +34,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 public class CashDue extends Activity implements
-		android.view.View.OnClickListener {
+		android.view.View.OnClickListener, OnCheckedChangeListener {
 	private static final double LUNCH_TIPOUT_MULTIPLIER = .0325;
 	private static final double DINNER_TIPOUT_MULTIPLIER = .035;
 	private static final boolean FAIL = true;
@@ -42,6 +43,8 @@ public class CashDue extends Activity implements
 	EditText editTextDue;
 	EditText editTextAdjust;
 	TextView textViewAdjust;
+	TextView labelSales;
+	TextView labelCashDue;
 	LinearLayout llMain;
 	Calendar lastNow;
 	DataHelperPrime dh;
@@ -61,10 +64,13 @@ public class CashDue extends Activity implements
 		setContentView(R.layout.main);
 		llMain = (LinearLayout) findViewById(R.id.MainLayout);
 		setBackGround();
+		Typeface nashvilleFont = Typeface.createFromAsset(getAssets(), MyApplication.FONT_PATH_NASHVILLE);
 		textViewAdjust = (TextView) findViewById(R.id.TextViewAdjust);
+		textViewAdjust.setTypeface(nashvilleFont);
 		checkBoxAdjust = (CheckBox) findViewById(R.id.adjustCheckBox);
-		Button buttonCalculate = (Button) findViewById(R.id.Button01);
-		Button buttonClear = (Button) findViewById(R.id.Button02);
+		checkBoxAdjust.setTypeface(nashvilleFont);
+		Button buttonCalculate = (Button) findViewById(R.id.ButtonCalculate);
+		Button buttonClear = (Button) findViewById(R.id.ButtonClearValues);
 		Button buttonPastShifts = (Button) findViewById(R.id.bPastShifts);
 		Button buttonStats = (Button) findViewById(R.id.bStatistics);
 		editTextSales = (EditText) findViewById(R.id.EditTextSales);
@@ -75,38 +81,45 @@ public class CashDue extends Activity implements
 		editTextAdjust.setVisibility(View.INVISIBLE);
 		editTextAdjust.setText("");
 		textViewAdjust.setVisibility(View.INVISIBLE);
+		labelSales = (TextView)findViewById(R.id.TVSalesLabel);
+		labelSales.setTypeface(nashvilleFont);
+		labelCashDue = (TextView)findViewById(R.id.TVCashDueLabel);
+		labelCashDue.setTypeface(nashvilleFont);
 		buttonPastShifts.setOnClickListener(this);
 		buttonStats.setOnClickListener(this);
-		buttonClear.setOnClickListener(new View.OnClickListener() {
-
-			public void onClick(View v) {
-				editTextSales.setText("");
-				editTextDue.setText("");
-				editTextAdjust.setText("");
-			}
-		});
-		buttonCalculate.setOnClickListener(new View.OnClickListener() {
-
-			public void onClick(View v) {
-				Calculate(false);
-			}
-
-		});
-		checkBoxAdjust
-				.setOnCheckedChangeListener(new OnCheckedChangeListener() {
-
-					public void onCheckedChanged(CompoundButton buttonView,
-							boolean isChecked) {
-						if (isChecked) {
-							textViewAdjust.setVisibility(View.VISIBLE);
-							editTextAdjust.setVisibility(View.VISIBLE);
-							editTextAdjust.requestFocus();
-						} else {
-							textViewAdjust.setVisibility(View.INVISIBLE);
-							editTextAdjust.setVisibility(View.INVISIBLE);
-						}
-					}
-				});
+		buttonClear.setOnClickListener(this);
+//		buttonClear.setOnClickListener(new View.OnClickListener() {
+//
+//			public void onClick(View v) {
+//				editTextSales.setText("");
+//				editTextDue.setText("");
+//				editTextAdjust.setText("");
+//			}
+//		});
+		buttonCalculate.setOnClickListener(this);
+//		buttonCalculate.setOnClickListener(new View.OnClickListener() {
+//
+//			public void onClick(View v) {
+//				Calculate(false);
+//			}
+//
+//		});
+		checkBoxAdjust.setOnCheckedChangeListener(this);
+//		checkBoxAdjust
+//				.setOnCheckedChangeListener(new OnCheckedChangeListener() {
+//
+//					public void onCheckedChanged(CompoundButton buttonView,
+//							boolean isChecked) {
+//						if (isChecked) {
+//							textViewAdjust.setVisibility(View.VISIBLE);
+//							editTextAdjust.setVisibility(View.VISIBLE);
+//							editTextAdjust.requestFocus();
+//						} else {
+//							textViewAdjust.setVisibility(View.INVISIBLE);
+//							editTextAdjust.setVisibility(View.INVISIBLE);
+//						}
+//					}
+//				});
 	}
 
 	private void setBackGround() {
@@ -151,6 +164,7 @@ public class CashDue extends Activity implements
 		Calendar bCalendar = lastNow;
 		Shift bShift = new Shift(bSales, bCalendar);
 		bShift.fixMidnightProblem();
+		bShift.setIsLunch(isLunch);
 		result = dh.insertShift(bShift);
 		BackupManager.dataChanged(getBaseContext().getPackageName());
 		return result;
@@ -345,13 +359,13 @@ public class CashDue extends Activity implements
 	}
 
 	public void Calculate(final boolean forceOther) {
+		lastNow = Calendar.getInstance();
 		// forceOther means force other shift (show lunch during dinner or
 		// vice/versa)
 		// lunch ends provides an end time for lunch shift
-		Calendar lunchEnds = MyApplication.getInstance().getCal();
+		Calendar lunchEnds = MyApplication.getInstance().getLunchEndCal();
 		// determine if it is currently lunchtime
-		isLunch = ((lunchEnds.after(lastNow = Calendar.getInstance())) && (Calendar
-				.getInstance().get(Calendar.HOUR_OF_DAY) > 11));
+		isLunch = ((lunchEnds.after(lastNow)) && (lastNow.get(Calendar.HOUR_OF_DAY) > 11));
 		// Change the shift if told so by parameter
 		if (forceOther) {
 			isLunch = !isLunch;
@@ -462,7 +476,6 @@ public class CashDue extends Activity implements
 		resultDialog.setPositiveButton(buttonSaveString, new OnClickListener() {
 
 			public void onClick(DialogInterface dialog, int which) {
-				lastNow = Calendar.getInstance();
 				// if saves are done manually OR a previously saved shift does
 				// not exist, save as a new shift and go back...
 				// ...(by falling through.) Set rowid returned as last saved
@@ -525,7 +538,15 @@ public class CashDue extends Activity implements
 		case R.id.bStatistics:
 			tempIntent = new Intent(this, Stats.class);
 			startActivity(tempIntent);
-
+			break;
+		case R.id.ButtonClearValues:
+			editTextSales.setText("");
+			editTextDue.setText("");
+			editTextAdjust.setText("");
+			break;
+		case R.id.ButtonCalculate:
+			Calculate(false);
+			break;
 		default:
 			break;
 		}
@@ -577,5 +598,28 @@ public class CashDue extends Activity implements
 		output.close();
 		fis.close();
 		MyApplication.getInstance().updateGlobalArray();
+	}
+
+	public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
+		switch (buttonView.getId()) {
+		case R.id.adjustCheckBox:
+		{
+
+			if (isChecked) {
+				textViewAdjust.setVisibility(View.VISIBLE);
+				editTextAdjust.setVisibility(View.VISIBLE);
+				editTextAdjust.requestFocus();
+			} else {
+				textViewAdjust.setVisibility(View.INVISIBLE);
+				editTextAdjust.setVisibility(View.INVISIBLE);
+			}
+		
+		}
+			break;
+
+		default:
+			break;
+		}
+		
 	}
 }

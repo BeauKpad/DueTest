@@ -1,12 +1,10 @@
 package com.beaukpad.cashdue;
 
-import java.util.ArrayList;
 import java.util.Calendar;
 
 import android.content.ContentValues;
 import android.content.Context;
 import android.database.Cursor;
-import android.database.SQLException;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteException;
 import android.database.sqlite.SQLiteOpenHelper;
@@ -83,9 +81,9 @@ public class DataHelperPrime {
 	//This needs to be the only gateway to insertion
 	public long insertShift(Shift newShift) {
 		 ContentValues newShiftValues = new ContentValues();
-		 newShiftValues.put(KEY_DATE, (Long) newShift.getDate()
+		 newShiftValues.put(KEY_DATE, newShift.getDate()
 		 .getTimeInMillis());
-		 newShiftValues.put(KEY_SALES, (Double) newShift.getSales());
+		 newShiftValues.put(KEY_SALES, newShift.getSales());
 		 open();
 		 newShift.DBRow_ID = updateGlobalArray(db.insert(TABLE_NAME,
 		 null, newShiftValues));
@@ -183,6 +181,7 @@ public class DataHelperPrime {
 //		}
 //		return result;
 //	}
+	
 	public Shift[] getAllShifts(MyApplication app){
 		return getAllShifts();
 	}
@@ -193,7 +192,7 @@ public class DataHelperPrime {
 		Cursor allShiftsCursor;
 		open();
 		allShiftsCursor = db.query(TABLE_NAME, new String[] { KEY_ID, KEY_DATE,
-				KEY_SALES }, null, null, null, null, KEY_DATE);
+				KEY_SALES }, null, null, null, null, KEY_DATE + " DESC");
 		if (allShiftsCursor.moveToFirst()) {
 			int x = 0;
 			result = new Shift[allShiftsCursor.getCount()];
