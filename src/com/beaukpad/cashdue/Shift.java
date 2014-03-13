@@ -79,7 +79,7 @@ public class Shift{
 			return true;
 		}
 		if (!isLunch) {
-			date.set(Calendar.HOUR_OF_DAY, 20);
+			date.set(Calendar.HOUR_OF_DAY, 22);
 			return true;
 		}
 		return false;

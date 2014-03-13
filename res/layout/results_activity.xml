@@ -5,59 +5,57 @@
 
     <TextView
         android:id="@+id/TVResultsPageTitle"
-        android:gravity="center"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:gravity="center"
         android:text="Date: \n Shift:"
-        android:textAppearance="?android:attr/textAppearanceLarge"
-        android:layout_alignParentTop="true" />
+        android:textAppearance="?android:attr/textAppearanceLarge" />
 
-    <Button 
+    <Button
         android:id="@+id/BToggleLunchDinner"
-        android:layout_alignParentRight="true"
-        android:layout_below="@id/TVResultsPageTitle"
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
-        android:text="Show other"
+        android:layout_alignParentRight="true"
+        android:layout_below="@id/TVResultsPageTitle"
+        android:layout_marginBottom="20dp"
         android:layout_marginTop="20dp"
-        android:layout_marginBottom="20dp"/>
-        
-    <TextView 
+        android:text="Show other" />
+
+    <TextView
         android:id="@+id/TVCalculations"
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
         android:layout_below="@id/BToggleLunchDinner"
-        android:textAppearance="?android:attr/textAppearanceMedium"
-        android:text="Sales: \nCash Due: \nTotal Charges: \nTip-out:"
+        android:layout_marginBottom="20dp"
         android:gravity="center"
-        android:layout_marginBottom="20dp"/>
+        android:text="Sales: \nCash Due: \nTotal Charges: \nTip-out:"
+        android:textAppearance="?android:attr/textAppearanceMedium" />
 
+    
     <TextView
         android:id="@+id/TVHelpInfo"
-        android:gravity="center"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_below="@id/TVCalculations"
-        android:text="Small Text"
+        android:gravity="center"
+        android:text=""
         android:textAppearance="?android:attr/textAppearanceSmall" />
-    
-    <RelativeLayout 
+
+    <TextView
+        android:id="@+id/tvIsSaved"
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
-        android:layout_alignParentBottom="true">
-        <Button 
-            android:id="@+id/BDatabaseAction"
-            android:layout_alignParentRight="true"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="manipulate database"
-            />
-        <Button 
-            android:id="@+id/BQuitApplication"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_alignParentLeft="true"
-            android:text="Quit"/>
-    </RelativeLayout>
+        android:layout_alignParentBottom="true"
+        android:gravity="center"
+        android:text="Shift is NOT saved"
+        android:textSize="30sp" />
+    
+    <Button
+        android:id="@+id/BDatabaseAction"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_above="@id/tvIsSaved"
+        android:text="manipulate database" />
 
 </RelativeLayout>

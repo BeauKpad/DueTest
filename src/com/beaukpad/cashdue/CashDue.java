@@ -9,11 +9,7 @@ import java.util.Calendar;
 import java.util.Random;
 
 import android.app.Activity;
-import android.app.AlertDialog;
 import android.app.backup.BackupManager;
-import android.content.Context;
-import android.content.DialogInterface;
-import android.content.DialogInterface.OnClickListener;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.database.sqlite.SQLiteException;
@@ -35,10 +31,6 @@ import android.widget.Toast;
 
 public class CashDue extends Activity implements
 		android.view.View.OnClickListener, OnCheckedChangeListener {
-	private static final double LUNCH_TIPOUT_MULTIPLIER = .0325;
-	private static final double DINNER_TIPOUT_MULTIPLIER = .035;
-	private static final boolean FAIL = true;
-	private static final boolean WIN = false;
 	EditText editTextSales;
 	EditText editTextDue;
 	EditText editTextAdjust;
@@ -88,38 +80,8 @@ public class CashDue extends Activity implements
 		buttonPastShifts.setOnClickListener(this);
 		buttonStats.setOnClickListener(this);
 		buttonClear.setOnClickListener(this);
-//		buttonClear.setOnClickListener(new View.OnClickListener() {
-//
-//			public void onClick(View v) {
-//				editTextSales.setText("");
-//				editTextDue.setText("");
-//				editTextAdjust.setText("");
-//			}
-//		});
 		buttonCalculate.setOnClickListener(this);
-//		buttonCalculate.setOnClickListener(new View.OnClickListener() {
-//
-//			public void onClick(View v) {
-//				Calculate(false);
-//			}
-//
-//		});
 		checkBoxAdjust.setOnCheckedChangeListener(this);
-//		checkBoxAdjust
-//				.setOnCheckedChangeListener(new OnCheckedChangeListener() {
-//
-//					public void onCheckedChanged(CompoundButton buttonView,
-//							boolean isChecked) {
-//						if (isChecked) {
-//							textViewAdjust.setVisibility(View.VISIBLE);
-//							editTextAdjust.setVisibility(View.VISIBLE);
-//							editTextAdjust.requestFocus();
-//						} else {
-//							textViewAdjust.setVisibility(View.INVISIBLE);
-//							editTextAdjust.setVisibility(View.INVISIBLE);
-//						}
-//					}
-//				});
 	}
 
 	private void setBackGround() {
@@ -358,24 +320,12 @@ public class CashDue extends Activity implements
 		autoSave = myPrefs.getBoolean("autosave", true);
 	}
 
-	public void Calculate(final boolean forceOther) {
-		lastNow = Calendar.getInstance();
-		// forceOther means force other shift (show lunch during dinner or
-		// vice/versa)
-		// lunch ends provides an end time for lunch shift
-		Calendar lunchEnds = MyApplication.getInstance().getLunchEndCal();
-		// determine if it is currently lunchtime
-		isLunch = ((lunchEnds.after(lastNow)) && (lastNow.get(Calendar.HOUR_OF_DAY) > 11));
-		// Change the shift if told so by parameter
-		if (forceOther) {
-			isLunch = !isLunch;
-		}
+	public void beginCalc(final boolean forceOther) {
 		double Sales;
 		double Due;
 		double Adjustment = 0.0;
 		double AdjustedSales;
-		// load preferences to set autosave value
-		loadPreferences();
+		Intent intent;
 		// try to parse user input. On fail, return to user input screen
 		try {
 			Sales = Double.valueOf(editTextSales.getText().toString());
@@ -385,11 +335,14 @@ public class CashDue extends Activity implements
 		try {
 			Due = Double.valueOf(editTextDue.getText().toString());
 		} catch (NumberFormatException d) {
+			Toast.makeText(CashDue.this,
+					"Invalid Sales entered!", Toast.LENGTH_LONG)
+					.show();
 			return;
 		}
 		if (Due > Sales) {
 			Toast.makeText(CashDue.this,
-					"Sales must be greater than Cash due.", Toast.LENGTH_SHORT)
+					"Sales must be greater than Cash due.", Toast.LENGTH_LONG)
 					.show();
 			return;
 		}
@@ -402,140 +355,44 @@ public class CashDue extends Activity implements
 			} catch (NumberFormatException e) {
 				Adjustment = 0.0;
 				Toast.makeText(CashDue.this,
-						"Invalid adjustment value. Sales not adjusted",
-						Toast.LENGTH_SHORT).show();
+						"Invalid adjustment value. Tipout not adjusted",
+						Toast.LENGTH_LONG).show();
 			}
 		} else
 			Adjustment = 0.0;
 		AdjustedSales = (Sales + Adjustment);
 		if (AdjustedSales < 0.0) {
-			Toast.makeText(CashDue.this, "Invalid adjustment value.",
-					Toast.LENGTH_SHORT).show();
+			Toast.makeText(CashDue.this, "Invalid adjustment value. Tipout not adjusted",
+					Toast.LENGTH_LONG).show();
 			return;
 		}
-		// the actual calculations. Should probably use constants
-		double Charges = (Sales - Due);
-		double LunchTip = (AdjustedSales * LUNCH_TIPOUT_MULTIPLIER);
-		double DinnerTip = (AdjustedSales * DINNER_TIPOUT_MULTIPLIER);
-		// build the string
-		String FinalString;
-		String salesString = String.format("Sales: %.2f", Sales) + ".\n";
-		String cashDueString = String.format("Cash Due: %.2f", Due) + ".\n";
-		String ChargesString = String.format("Total Charges: %.2f", Charges)
-				+ ".\n";
-		String LunchTipString = String.format("Lunch tip-out: %.2f", LunchTip)
-				+ " + roller.\n";
-		String DinnerTipString = String.format("Dinner tip-out: %.2f",
-				DinnerTip) + " + roller.\n";
-		if (checkBoxAdjust.isChecked()) {
-			LunchTipString = ("Adjusted ") + LunchTipString;
-			DinnerTipString = ("Adjusted ") + DinnerTipString;
-		}
-		if (isLunch) {
-			FinalString = ChargesString + LunchTipString;
-		} else {
-			FinalString = ChargesString + DinnerTipString;
-		}
-		FinalString = salesString + cashDueString + FinalString;
-		// play win or fails sounds
-		// get context for mediaplayer
-		Context context = CashDue.this;
-		if (!isLunch) {
-			if (AdjustedSales >= 1200) {
-				soundPlay(WIN);
-			}
-			if (AdjustedSales <= 400) {
-				soundPlay(FAIL);
-			}
-		} else {
-			if (AdjustedSales >= 525) {
-				soundPlay(WIN);
-			}
-			if (AdjustedSales <= 275) {
-				soundPlay(FAIL);
-			}
-		}
-		// result dialog
-		// make strings for dialog
-		String title = "Results";
-		String buttonSaveString = "Save and Go Back";
-		if (autoSave) {
-			buttonSaveString = "Go Back / Unsave";
-		}
-		String buttonQuitString = "Quit";
-		String buttonChangeString;
-		if (isLunch) {
-			buttonChangeString = "Show Dinner";
-		} else {
-			buttonChangeString = "Show Lunch";
-		}
-		// build the dialog and wire up the buttons
-		AlertDialog.Builder resultDialog = new AlertDialog.Builder(context);
-		resultDialog.setTitle(title);
-		resultDialog.setMessage(FinalString);
-		resultDialog.setPositiveButton(buttonSaveString, new OnClickListener() {
-
-			public void onClick(DialogInterface dialog, int which) {
-				// if saves are done manually OR a previously saved shift does
-				// not exist, save as a new shift and go back...
-				// ...(by falling through.) Set rowid returned as last saved
-				// shift...
-				if (!autoSave || lastInsertedShiftDBRow == 0) {
-					lastInsertedShiftDBRow = insertAShift();
-					BackupManager
-							.dataChanged(getBaseContext().getPackageName());
-					// ... elsewise, autosave is set, and last saved shift is
-					// known. Delete last saved shift, and go back (by falling
-					// thru)
-				} else {
-					dh.removeShiftByID(lastInsertedShiftDBRow);
-					lastInsertedShiftDBRow = 0;
-					BackupManager
-							.dataChanged(getBaseContext().getPackageName());
-				}
-			}
-		});
-		resultDialog.setNegativeButton(buttonQuitString, new OnClickListener() {
-
-			public void onClick(DialogInterface dialog, int which) {
-				finish();
-			}
-		});
-		resultDialog.setNeutralButton(buttonChangeString,
-				new OnClickListener() {
-
-					public void onClick(DialogInterface dialog, int which) {
-						dh.removeShiftByID(lastInsertedShiftDBRow);
-						lastInsertedShiftDBRow = 0;
-						BackupManager.dataChanged(getBaseContext()
-								.getPackageName());
-						Calculate(!forceOther);
-					}
-				});
-		// if autosave is set, save this shift
-		if (autoSave) {
-			lastInsertedShiftDBRow = insertAShift();
-			BackupManager.dataChanged(getBaseContext().getPackageName());
-		}
-		// show the dialog
-		resultDialog.show();
+		intent = new Intent(this, ResultActivity.class);
+		intent.putExtra("SALES", Sales);
+		intent.putExtra("DUE", Due);
+		intent.putExtra("ADJUSTMENT", Adjustment);
+		startActivity(intent);
 	}
 
 	public void onClick(View v) {
-		// TODO Auto-generated method stub
-		if (MyApplication.getInstance().getGlobalArray().length == 0) {
-			Toast emptyToast = Toast.makeText(getApplicationContext(),
-					"No saved shifts!", Toast.LENGTH_SHORT);
-			emptyToast.show();
-			return;
-		}
 		Intent tempIntent;
 		switch (v.getId()) {
 		case R.id.bPastShifts:
+			if (MyApplication.getInstance().getGlobalArray().length == 0) {
+				Toast emptyToast = Toast.makeText(getApplicationContext(),
+						"No saved shifts!", Toast.LENGTH_SHORT);
+				emptyToast.show();
+				return;
+			}
 			tempIntent = new Intent(this, DataActivity.class);
 			startActivity(tempIntent);
 			break;
 		case R.id.bStatistics:
+			if (MyApplication.getInstance().getGlobalArray().length == 0) {
+				Toast emptyToast = Toast.makeText(getApplicationContext(),
+						"No saved shifts!", Toast.LENGTH_SHORT);
+				emptyToast.show();
+				return;
+			}
 			tempIntent = new Intent(this, Stats.class);
 			startActivity(tempIntent);
 			break;
@@ -545,7 +402,7 @@ public class CashDue extends Activity implements
 			editTextAdjust.setText("");
 			break;
 		case R.id.ButtonCalculate:
-			Calculate(false);
+			beginCalc(false);
 			break;
 		default:
 			break;

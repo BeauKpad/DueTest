@@ -65,8 +65,7 @@ int drawable kevocto 0x7f020020
 int drawable russels 0x7f020021
 int drawable tuna 0x7f020022
 int drawable wineroom 0x7f020023
-int id BDatabaseAction 0x7f06002b
-int id BQuitApplication 0x7f06002c
+int id BDatabaseAction 0x7f06002c
 int id BToggleLunchDinner 0x7f060028
 int id ButtonCalculate 0x7f060022
 int id ButtonClearValues 0x7f060023
@@ -120,6 +119,7 @@ int id terrain 0x7f060003
 int id textView1 0x7f060016
 int id textView2 0x7f060017
 int id tvAverage 0x7f060011
+int id tvIsSaved 0x7f06002b
 int integer google_play_services_version 0x7f080000
 int layout add_shift 0x7f030000
 int layout database 0x7f030001

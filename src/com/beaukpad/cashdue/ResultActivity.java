@@ -1,21 +1,23 @@
 package com.beaukpad.cashdue;
 
 import java.util.Calendar;
-import java.util.Date;
 import java.util.Random;
-
 import android.app.Activity;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.media.MediaPlayer;
 import android.os.Bundle;
+import android.view.View;
+import android.view.View.OnClickListener;
 import android.widget.Button;
 import android.widget.TextView;
 
-public class ResultActivity extends Activity {
+public class ResultActivity extends Activity implements OnClickListener {
 	private static final double LUNCH_TIPOUT_MULTIPLIER = .0325;
 	private static final double DINNER_TIPOUT_MULTIPLIER = .035;
 	private static final boolean FAIL = true;
 	private static final boolean WIN = false;
+	public static String MY_PREFS = "MY_PREFS";
 	Shift m_shift;
 	String titleString;
 	String resultString;
@@ -24,50 +26,62 @@ public class ResultActivity extends Activity {
 	TextView tvPageTitle;
 	TextView tvResults;
 	TextView tvHelpInfo;
+	TextView tvSaveInfo;
 	Button bToggleLunchDinner;
 	Button bQuit;
 	Button bSaveUnsave;
 	Intent intent;
+	boolean autoSave;
 	double sales;
 	double due;
 	double adjustment;
-	Calendar nowCal;
-	
+	DataHelperPrime dh;
+	boolean forceOther;
+	long lastInsertedShiftDBRow;
+
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
-		// TODO Auto-generated method stub
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.results_activity);
-		tvPageTitle = (TextView)findViewById(R.id.TVResultsPageTitle);
-		tvResults = (TextView)findViewById(R.id.TVCalculations);
-		tvHelpInfo = (TextView)findViewById(R.id.TVHelpInfo);
-		bToggleLunchDinner = (Button)findViewById(R.id.BToggleLunchDinner);
-		bQuit = (Button)findViewById(R.id.BQuitApplication);
-		bSaveUnsave = (Button)findViewById(R.id.BDatabaseAction);
+		Calendar nowCal;
+		loadPreferences();
+		lastInsertedShiftDBRow = -1;
+		tvSaveInfo = (TextView)findViewById(R.id.tvIsSaved);
+		tvPageTitle = (TextView) findViewById(R.id.TVResultsPageTitle);
+		tvResults = (TextView) findViewById(R.id.TVCalculations);
+		tvHelpInfo = (TextView) findViewById(R.id.TVHelpInfo);
+		bToggleLunchDinner = (Button) findViewById(R.id.BToggleLunchDinner);
+		bToggleLunchDinner.setOnClickListener(this);
+		bSaveUnsave = (Button) findViewById(R.id.BDatabaseAction);
+		bSaveUnsave.setOnClickListener(this);
 		intent = getIntent();
 		sales = intent.getDoubleExtra("SALES", 0.0);
 		due = intent.getDoubleExtra("DUE", 0.0);
 		adjustment = intent.getDoubleExtra("ADJUSTMENT", 0.0);
+		forceOther = false;
 		nowCal = Calendar.getInstance();
-		Calculate(false);
+		dh = MyApplication.getInstance().getDH();
+		m_shift = new Shift(sales + adjustment, nowCal);
+		m_shift.fixMidnightProblem();
+		Calculate();
 	}
 
-	private void Calculate(boolean forceOther) {
-		// TODO Auto-generated method stub
+	private void Calculate() {
 		double adjustedSales = sales + adjustment;
 		double charges = sales - due;
 		double LunchTip = (adjustedSales * LUNCH_TIPOUT_MULTIPLIER);
 		double DinnerTip = (adjustedSales * DINNER_TIPOUT_MULTIPLIER);
-		Calendar lunchEndsCal = MyApplication.getInstance().getLunchEndCal();
-		boolean isLunch = lunchEndsCal.after(nowCal) && (nowCal.get(Calendar.HOUR_OF_DAY) > 11);
-		if(forceOther){
-			isLunch = !isLunch;
+		if (forceOther) {
 		}
-		m_shift = new Shift(adjustedSales, nowCal);
-		String titleString = "Date: " + m_shift.getDateString() + "\n ";
-		if(isLunch){
-			titleString = titleString + "Lunch";
+		if(m_shift.isLunch()){
+			bToggleLunchDinner.setText("Show dinner results");
 		}else{
+			bToggleLunchDinner.setText("Show lunch results");
+		}
+		String titleString = "Date: " + m_shift.getDateString() + "\n ";
+		if (m_shift.isLunch()) {
+			titleString = titleString + "Lunch";
+		} else {
 			titleString = titleString + "Dinner";
 		}
 		String FinalString;
@@ -83,29 +97,42 @@ public class ResultActivity extends Activity {
 			LunchTipString = ("Adjusted ") + LunchTipString;
 			DinnerTipString = ("Adjusted ") + DinnerTipString;
 		}
-		if (isLunch) {
-			FinalString = ChargesString + LunchTipString;
+		if (m_shift.isLunch()) {
+			FinalString = salesString + cashDueString + ChargesString
+					+ LunchTipString;
 		} else {
-			FinalString = ChargesString + DinnerTipString;
+			FinalString = salesString + cashDueString + ChargesString
+					+ DinnerTipString;
 		}
-		if (!isLunch) {
-			if (adjustedSales >= 1200) {
-				soundPlay(WIN);
-			}
-			if (adjustedSales <= 400) {
-				soundPlay(FAIL);
-			}
-		} else {
+		// wire up displays
+		tvPageTitle.setText(titleString);
+		tvResults.setText(FinalString);
+
+		if (autoSave) {
+			lastInsertedShiftDBRow = insertAShift();
+		}
+		if(lastInsertedShiftDBRow == -1){
+			tvSaveInfo.setText("Shift is NOT saved");
+			bSaveUnsave.setText("Save Shift");
+		}else {
+			tvSaveInfo.setText("Shift is saved");
+			bSaveUnsave.setText("Unsave Shift");
+		}
+		if (m_shift.isLunch()) {
 			if (adjustedSales >= 525) {
 				soundPlay(WIN);
 			}
 			if (adjustedSales <= 275) {
 				soundPlay(FAIL);
 			}
+		} else {
+			if (adjustedSales >= 1200) {
+				soundPlay(WIN);
+			}
+			if (adjustedSales <= 400) {
+				soundPlay(FAIL);
+			}
 		}
-		//wire up displays
-		tvPageTitle.setText(titleString);
-		tvResults.setText(FinalString);
 	}
 
 	public void soundPlay(boolean fail) {
@@ -166,4 +193,50 @@ public class ResultActivity extends Activity {
 		}
 		return;
 	}
+
+	public void loadPreferences() {
+		// get stored preferences
+		int mode = Activity.MODE_PRIVATE;
+		SharedPreferences myPrefs = getSharedPreferences(MY_PREFS, mode);
+
+		// get savedPref values and set instance variable(s)
+		autoSave = myPrefs.getBoolean("autosave", true);
+	}
+
+	public long insertAShift() {
+		long result;
+		result = dh.insertShift(m_shift);
+		return result;
+	}
+
+	public void onClick(View v) {
+		switch (v.getId()) {
+		case R.id.BToggleLunchDinner:
+			m_shift.setIsLunch((!m_shift.isLunch()));
+			if(lastInsertedShiftDBRow != -1){
+				dh.removeShiftByID(lastInsertedShiftDBRow);
+				lastInsertedShiftDBRow = -1;
+			}
+			Calculate();
+			break;
+		case R.id.BDatabaseAction:
+			if (lastInsertedShiftDBRow == -1) {
+				lastInsertedShiftDBRow = insertAShift();
+				bSaveUnsave.setText("Unsave Shift");
+				tvSaveInfo.setText("Shift is saved");
+				break;
+			} else {
+				boolean success = dh.removeShiftByID(lastInsertedShiftDBRow);
+				if (success) {
+					lastInsertedShiftDBRow = -1;
+					bSaveUnsave.setText("Save Shift");
+					tvSaveInfo.setText("Shift is NOT saved");
+				}
+				break;
+			}
+		default:
+			break;
+		}
+	}
+
 }

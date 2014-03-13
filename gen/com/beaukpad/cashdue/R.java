@@ -220,8 +220,7 @@ containing a value of this type.
         public static final int wineroom=0x7f020023;
     }
     public static final class id {
-        public static final int BDatabaseAction=0x7f06002b;
-        public static final int BQuitApplication=0x7f06002c;
+        public static final int BDatabaseAction=0x7f06002c;
         public static final int BToggleLunchDinner=0x7f060028;
         public static final int ButtonCalculate=0x7f060022;
         public static final int ButtonClearValues=0x7f060023;
@@ -275,6 +274,7 @@ containing a value of this type.
         public static final int textView1=0x7f060016;
         public static final int textView2=0x7f060017;
         public static final int tvAverage=0x7f060011;
+        public static final int tvIsSaved=0x7f06002b;
     }
     public static final class integer {
         public static final int google_play_services_version=0x7f080000;
