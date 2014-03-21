@@ -46,7 +46,9 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
+            android:textColor="#f21b20"
             android:hint="Your Sales"
+            android:textSize="28sp"
             android:inputType="number|numberDecimal" >
         </EditText>
     </LinearLayout>
@@ -72,7 +74,9 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
-            android:hint="Net Deposit"
+            android:textSize="28sp"
+            android:textColor="#f21b20"
+            android:hint="Net deposit"
             android:inputType="number|numberSigned|numberDecimal" >
         </EditText>
     </LinearLayout>
@@ -128,6 +132,8 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
+            android:textSize="28sp"
+            android:textColor="#f21b20"
             android:hint="Amount To Add To Sales"
             android:inputType="number|numberSigned|numberDecimal" >
         </EditText>

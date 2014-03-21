@@ -6,6 +6,7 @@ import android.app.Activity;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.media.MediaPlayer;
+import android.os.AsyncTask;
 import android.os.Bundle;
 import android.view.View;
 import android.view.View.OnClickListener;
@@ -13,6 +14,70 @@ import android.widget.Button;
 import android.widget.TextView;
 
 public class ResultActivity extends Activity implements OnClickListener {
+	public class soundPlayTask extends AsyncTask<Boolean, Void, Void> {
+
+		@Override
+		protected Void doInBackground(Boolean... fail) {
+			MediaPlayer mp = null;
+			int x;
+			if (fail[0]) {
+				x = 5;
+			} else {
+				x = 6;
+			}
+			int y = new Random().nextInt(x);
+			if (fail[0]) {
+				switch (y) {
+				case 0:
+					mp = MediaPlayer.create(ResultActivity.this, R.raw.fail1);
+					break;
+				case 1:
+					mp = MediaPlayer.create(ResultActivity.this, R.raw.fail2);
+					break;
+				case 2:
+					mp = MediaPlayer.create(ResultActivity.this, R.raw.fail3);
+					break;
+				case 3:
+					mp = MediaPlayer.create(ResultActivity.this, R.raw.fail4);
+					break;
+				case 4:
+					mp = MediaPlayer.create(ResultActivity.this, R.raw.fail5);
+					break;
+				default:
+					return null;
+				}
+			} else {
+				switch (y) {
+				case 0:
+					mp = MediaPlayer.create(ResultActivity.this, R.raw.win1);
+					break;
+				case 1:
+					mp = MediaPlayer.create(ResultActivity.this, R.raw.win2);
+					break;
+				case 2:
+					mp = MediaPlayer.create(ResultActivity.this, R.raw.win3);
+					break;
+				case 3:
+					mp = MediaPlayer.create(ResultActivity.this, R.raw.win4);
+					break;
+				case 4:
+					mp = MediaPlayer.create(ResultActivity.this, R.raw.win5);
+					break;
+				case 5:
+					mp = MediaPlayer.create(ResultActivity.this, R.raw.win6);
+					break;
+				default:
+					return null;
+				}
+			}
+			if (mp != null) {
+				mp.start();
+			}			
+			return null;
+		}
+
+	}
+
 	private static final double LUNCH_TIPOUT_MULTIPLIER = .0325;
 	private static final double DINNER_TIPOUT_MULTIPLIER = .035;
 	private static final boolean FAIL = true;
@@ -118,19 +183,20 @@ public class ResultActivity extends Activity implements OnClickListener {
 			tvSaveInfo.setText("Shift is saved");
 			bSaveUnsave.setText("Unsave Shift");
 		}
+		
 		if (m_shift.isLunch()) {
 			if (adjustedSales >= 525) {
-				soundPlay(WIN);
+				new soundPlayTask().execute(WIN);
 			}
 			if (adjustedSales <= 275) {
-				soundPlay(FAIL);
+				new soundPlayTask().execute(FAIL);
 			}
 		} else {
 			if (adjustedSales >= 1200) {
-				soundPlay(WIN);
+				new soundPlayTask().execute(WIN);
 			}
 			if (adjustedSales <= 400) {
-				soundPlay(FAIL);
+				new soundPlayTask().execute(FAIL);
 			}
 		}
 	}

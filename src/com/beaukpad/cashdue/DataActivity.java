@@ -7,6 +7,7 @@ import android.content.Context;
 import android.content.Intent;
 import android.database.Cursor;
 import android.graphics.Color;
+import android.graphics.Typeface;
 import android.os.Bundle;
 import android.view.ContextMenu;
 import android.view.LayoutInflater;
@@ -204,7 +205,9 @@ public class DataActivity extends ListActivity implements
 			TextView text = (TextView) mView.findViewById(R.id.row);
 
 			if (items[position] != null) {
-				text.setTextColor(Color.WHITE);
+				Typeface pinWheel = Typeface.createFromAsset(getAssets(), MyApplication.FONT_PATH_PINWHEEL);
+				text.setTypeface(pinWheel);
+				text.setTextColor(Color.BLACK);
 				text.setText(items[position].toString());
 				text.setBackgroundColor(items[position].getAppropriateColor());
 			}

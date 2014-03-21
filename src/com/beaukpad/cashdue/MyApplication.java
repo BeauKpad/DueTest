@@ -9,6 +9,8 @@ import android.content.Context;
 public class MyApplication extends Application {
 	public static final String FONT_PATH_NASHVILLE = "fonts/nashvill.ttf";
 	public static final String FONT_PATH_MIRC = "fonts/micrenc.ttf";
+	public final static String FONT_PATH_PINWHEEL = "fonts/pinwheel.ttf";
+	public static final String FONT_PATH_LEDGER = "fonts/ledger.ttf";
 	Calendar lunchEnds;
 	Shift[] AllShiftsGlobal;
 	private DataHelperPrime dh;

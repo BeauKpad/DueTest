@@ -5,6 +5,7 @@ import java.util.Calendar;
 import java.util.Locale;
 
 import android.app.Activity;
+import android.graphics.Typeface;
 import android.os.Bundle;
 import android.widget.TextView;
 
@@ -42,6 +43,8 @@ public class Stats extends Activity {
 			tvStats.setText("No save shifts!!");
 			return;
 		}
+		Typeface ledger = Typeface.createFromAsset(getAssets(), MyApplication.FONT_PATH_LEDGER);
+		tvStats.setTypeface(ledger);
 		String resultString;
 		resultString = "Averages by day:\n \n   Lunch:\n";
 		int x;
