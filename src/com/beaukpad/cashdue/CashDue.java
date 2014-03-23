@@ -9,7 +9,6 @@ import java.util.Calendar;
 import java.util.Random;
 
 import android.app.Activity;
-import android.app.backup.BackupManager;
 import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
@@ -166,7 +165,6 @@ public class CashDue extends Activity implements
 		bShift.fixMidnightProblem();
 		bShift.setIsLunch(isLunch);
 		result = dh.insertShift(bShift);
-		BackupManager.dataChanged(getBaseContext().getPackageName());
 		return result;
 	}
 

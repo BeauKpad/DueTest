@@ -101,7 +101,7 @@ public class AddShift extends Activity {
 				public void onClick(View v) {
 					if(thisShift.getDBRow() > 0){
 						try{
-							thisShift.setSales(new Double(salesEdit.getText().toString()));
+							thisShift.setSales(Double.valueOf(salesEdit.getText().toString()));
 						} catch (NumberFormatException d) {return;}
 						if (thisShift.getSales() == (Double)0.0){
 							return;
@@ -112,10 +112,9 @@ public class AddShift extends Activity {
 							thisShift.setIsLunch(Shift.LUNCH);
 						}
 						dh.updateThisShift(thisShift);
-						BackupManager.dataChanged(getBaseContext().getPackageName());
 					} else {
 						try{
-							thisShift.setSales(new Double(salesEdit.getText().toString()));
+							thisShift.setSales(Double.valueOf(salesEdit.getText().toString()));
 						} catch (NumberFormatException d) {return;}
 						if (thisShift.getSales() == (Double)0.0){
 							Toast.makeText(AddShift.this, "Can't save a shift with $0 sales...", Toast.LENGTH_SHORT).show();
@@ -138,7 +137,7 @@ public class AddShift extends Activity {
 				public void onClick(View v) {
 					if(thisShift.getDBRow() > 0){
 						try{
-							thisShift.setSales(new Double(salesEdit.getText().toString()));
+							thisShift.setSales(Double.valueOf(salesEdit.getText().toString()));
 						} catch (NumberFormatException d) {return;}
 						if (thisShift.getSales() == (Double)0.0){
 							return;
@@ -149,10 +148,9 @@ public class AddShift extends Activity {
 							thisShift.setIsLunch(Shift.LUNCH);
 						}
 						dh.updateThisShift(thisShift);
-						BackupManager.dataChanged(getBaseContext().getPackageName()); 
 					} else {
 						try{
-							thisShift.setSales(new Double(salesEdit.getText().toString()));
+							thisShift.setSales(Double.valueOf(salesEdit.getText().toString()));
 						} catch (NumberFormatException d) {return;}
 						if (thisShift.getSales() == (Double)0.0){
 							Toast.makeText(AddShift.this, "Can't save a shift with $0 sales...", Toast.LENGTH_SHORT).show();
@@ -164,7 +162,6 @@ public class AddShift extends Activity {
 							thisShift.setIsLunch(Shift.LUNCH);
 						}
 						dh.insertShift(thisShift);
-						BackupManager.dataChanged(getBaseContext().getPackageName()); 
 					}
 					Intent anIntent = new Intent(context, DataActivity.class);
 					startActivity(anIntent);
@@ -235,7 +232,7 @@ public class AddShift extends Activity {
 				public void onClick(View v) {
 					if(thisShift.getDBRow() > 0){
 						try{
-							thisShift.setSales(new Double(salesEdit.getText().toString()));
+							thisShift.setSales(Double.valueOf(salesEdit.getText().toString()));
 						} catch (NumberFormatException d) {return;}
 						if (thisShift.getSales() == (Double)0.0){
 							return;
@@ -246,10 +243,9 @@ public class AddShift extends Activity {
 							thisShift.setIsLunch(Shift.LUNCH);
 						}
 						dh.updateThisShift(thisShift);
-						BackupManager.dataChanged(getBaseContext().getPackageName()); 
 					} else {
 						try{
-							thisShift.setSales(new Double(salesEdit.getText().toString()));
+							thisShift.setSales(Double.valueOf(salesEdit.getText().toString()));
 						} catch (NumberFormatException d) {return;}
 						if (thisShift.getSales() == (Double)0.0){
 							Toast.makeText(AddShift.this, "Can't save a shift with $0 sales...", Toast.LENGTH_SHORT).show();
@@ -261,7 +257,6 @@ public class AddShift extends Activity {
 							thisShift.setIsLunch(Shift.LUNCH);
 						}
 						dh.insertShift(thisShift);
-						BackupManager.dataChanged(getBaseContext().getPackageName()); 
 					}
 					Intent anIntent = new Intent(context, DataActivity.class);
 					startActivity(anIntent);
@@ -272,7 +267,7 @@ public class AddShift extends Activity {
 				public void onClick(View v) {
 					if(thisShift.getDBRow() > 0){
 						try{
-							thisShift.setSales(new Double(salesEdit.getText().toString()));
+							thisShift.setSales(Double.valueOf(salesEdit.getText().toString()));
 						} catch (NumberFormatException d) {return;}
 						if (thisShift.getSales() == (Double)0.0){
 							return;
@@ -283,10 +278,9 @@ public class AddShift extends Activity {
 							thisShift.setIsLunch(Shift.LUNCH);
 						}
 						dh.updateThisShift(thisShift);
-						BackupManager.dataChanged(getBaseContext().getPackageName()); 
 					} else {
 						try{
-							thisShift.setSales(new Double(salesEdit.getText().toString()));
+							thisShift.setSales(Double.valueOf(salesEdit.getText().toString()));
 						} catch (NumberFormatException d) {return;}
 						if (thisShift.getSales() == (Double)0.0){
 							Toast.makeText(AddShift.this, "Can't save a shift with $0 sales...", Toast.LENGTH_SHORT).show();
@@ -298,7 +292,6 @@ public class AddShift extends Activity {
 							thisShift.setIsLunch(Shift.LUNCH);
 						}
 						dh.insertShift(thisShift);
-						BackupManager.dataChanged(getBaseContext().getPackageName()); 
 					}
 					Intent anIntent = new Intent(context, DataActivity.class);
 					startActivity(anIntent);
@@ -368,7 +361,7 @@ public class AddShift extends Activity {
 				public void onClick(View v) {
 					if(thisShift.getDBRow() > 0){
 						try{
-							thisShift.setSales(new Double(salesEdit.getText().toString()));
+							thisShift.setSales(Double.valueOf(salesEdit.getText().toString()));
 						} catch (NumberFormatException d) {return;}
 						if (thisShift.getSales() == (Double)0.0){
 							return;
@@ -379,10 +372,9 @@ public class AddShift extends Activity {
 							thisShift.setIsLunch(Shift.LUNCH);
 						}
 						dh.updateThisShift(thisShift);
-						BackupManager.dataChanged(getBaseContext().getPackageName()); 
 					} else {
 						try{
-							thisShift.setSales(new Double(salesEdit.getText().toString()));
+							thisShift.setSales(Double.valueOf(salesEdit.getText().toString()));
 						} catch (NumberFormatException d) {return;}
 						if (thisShift.getSales() == (Double)0.0){
 							Toast.makeText(AddShift.this, "Can't save a shift with $0 sales...", Toast.LENGTH_SHORT).show();
@@ -394,7 +386,6 @@ public class AddShift extends Activity {
 							thisShift.setIsLunch(Shift.LUNCH);
 						}
 						dh.insertShift(thisShift);
-						BackupManager.dataChanged(getBaseContext().getPackageName()); 
 					}
 					Intent anIntent = new Intent(context, DataActivity.class);
 					startActivity(anIntent);
@@ -405,7 +396,7 @@ public class AddShift extends Activity {
 				public void onClick(View v) {
 					if(thisShift.getDBRow() > 0){
 						try{
-							thisShift.setSales(new Double(salesEdit.getText().toString()));
+							thisShift.setSales(Double.valueOf(salesEdit.getText().toString()));
 						} catch (NumberFormatException d) {return;}
 						if (thisShift.getSales() == (Double)0.0){
 							return;
@@ -416,10 +407,9 @@ public class AddShift extends Activity {
 							thisShift.setIsLunch(Shift.LUNCH);
 						}
 						dh.updateThisShift(thisShift);
-						BackupManager.dataChanged(getBaseContext().getPackageName()); 
 					} else {
 						try{
-							thisShift.setSales(new Double(salesEdit.getText().toString()));
+							thisShift.setSales(Double.valueOf(salesEdit.getText().toString()));
 						} catch (NumberFormatException d) {return;}
 						if (thisShift.getSales() == (Double)0.0){
 							Toast.makeText(AddShift.this, "Can't save a shift with $0 sales...", Toast.LENGTH_SHORT).show();
@@ -431,7 +421,6 @@ public class AddShift extends Activity {
 							thisShift.setIsLunch(Shift.LUNCH);
 						}
 						dh.insertShift(thisShift);
-						BackupManager.dataChanged(getBaseContext().getPackageName()); 
 					}
 					Intent anIntent = new Intent(context, DataActivity.class);
 					startActivity(anIntent);
