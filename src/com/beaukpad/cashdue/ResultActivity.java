@@ -11,72 +11,10 @@ import android.os.Bundle;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.widget.Button;
+import android.widget.RelativeLayout;
 import android.widget.TextView;
 
 public class ResultActivity extends Activity implements OnClickListener {
-	public class soundPlayTask extends AsyncTask<Boolean, Void, Void> {
-
-		@Override
-		protected Void doInBackground(Boolean... fail) {
-			MediaPlayer mp = null;
-			int x;
-			if (fail[0]) {
-				x = 5;
-			} else {
-				x = 6;
-			}
-			int y = new Random().nextInt(x);
-			if (fail[0]) {
-				switch (y) {
-				case 0:
-					mp = MediaPlayer.create(ResultActivity.this, R.raw.fail1);
-					break;
-				case 1:
-					mp = MediaPlayer.create(ResultActivity.this, R.raw.fail2);
-					break;
-				case 2:
-					mp = MediaPlayer.create(ResultActivity.this, R.raw.fail3);
-					break;
-				case 3:
-					mp = MediaPlayer.create(ResultActivity.this, R.raw.fail4);
-					break;
-				case 4:
-					mp = MediaPlayer.create(ResultActivity.this, R.raw.fail5);
-					break;
-				default:
-					return null;
-				}
-			} else {
-				switch (y) {
-				case 0:
-					mp = MediaPlayer.create(ResultActivity.this, R.raw.win1);
-					break;
-				case 1:
-					mp = MediaPlayer.create(ResultActivity.this, R.raw.win2);
-					break;
-				case 2:
-					mp = MediaPlayer.create(ResultActivity.this, R.raw.win3);
-					break;
-				case 3:
-					mp = MediaPlayer.create(ResultActivity.this, R.raw.win4);
-					break;
-				case 4:
-					mp = MediaPlayer.create(ResultActivity.this, R.raw.win5);
-					break;
-				case 5:
-					mp = MediaPlayer.create(ResultActivity.this, R.raw.win6);
-					break;
-				default:
-					return null;
-				}
-			}
-			if (mp != null) {
-				mp.start();
-			}			
-			return null;
-		}
-
-	}
 
 	private static final double LUNCH_TIPOUT_MULTIPLIER = .0325;
 	private static final double DINNER_TIPOUT_MULTIPLIER = .035;
@@ -101,8 +39,8 @@ public class ResultActivity extends Activity implements OnClickListener {
 	double due;
 	double adjustment;
 	DataHelperPrime dh;
-	boolean forceOther;
 	long lastInsertedShiftDBRow;
+	RelativeLayout mLayout;
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -119,11 +57,11 @@ public class ResultActivity extends Activity implements OnClickListener {
 		bToggleLunchDinner.setOnClickListener(this);
 		bSaveUnsave = (Button) findViewById(R.id.BDatabaseAction);
 		bSaveUnsave.setOnClickListener(this);
+		mLayout = (RelativeLayout)findViewById(R.id.RLResultsLayout);
 		intent = getIntent();
 		sales = intent.getDoubleExtra("SALES", 0.0);
 		due = intent.getDoubleExtra("DUE", 0.0);
 		adjustment = intent.getDoubleExtra("ADJUSTMENT", 0.0);
-		forceOther = false;
 		nowCal = Calendar.getInstance();
 		dh = MyApplication.getInstance().getDH();
 		m_shift = new Shift(sales + adjustment, nowCal);
@@ -132,12 +70,12 @@ public class ResultActivity extends Activity implements OnClickListener {
 	}
 
 	private void Calculate() {
+		
 		double adjustedSales = sales + adjustment;
 		double charges = sales - due;
+		mLayout.setBackgroundColor(m_shift.getAppropriateColor());
 		double LunchTip = (adjustedSales * LUNCH_TIPOUT_MULTIPLIER);
 		double DinnerTip = (adjustedSales * DINNER_TIPOUT_MULTIPLIER);
-		if (forceOther) {
-		}
 		if(m_shift.isLunch()){
 			bToggleLunchDinner.setText("Show dinner results");
 		}else{
@@ -303,6 +241,69 @@ public class ResultActivity extends Activity implements OnClickListener {
 		default:
 			break;
 		}
+	}
+	public class soundPlayTask extends AsyncTask<Boolean, Void, Void> {
+
+		@Override
+		protected Void doInBackground(Boolean... fail) {
+			MediaPlayer mp = null;
+			int x;
+			if (fail[0]) {
+				x = 5;
+			} else {
+				x = 6;
+			}
+			int y = new Random().nextInt(x);
+			if (fail[0]) {
+				switch (y) {
+				case 0:
+					mp = MediaPlayer.create(ResultActivity.this, R.raw.fail1);
+					break;
+				case 1:
+					mp = MediaPlayer.create(ResultActivity.this, R.raw.fail2);
+					break;
+				case 2:
+					mp = MediaPlayer.create(ResultActivity.this, R.raw.fail3);
+					break;
+				case 3:
+					mp = MediaPlayer.create(ResultActivity.this, R.raw.fail4);
+					break;
+				case 4:
+					mp = MediaPlayer.create(ResultActivity.this, R.raw.fail5);
+					break;
+				default:
+					return null;
+				}
+			} else {
+				switch (y) {
+				case 0:
+					mp = MediaPlayer.create(ResultActivity.this, R.raw.win1);
+					break;
+				case 1:
+					mp = MediaPlayer.create(ResultActivity.this, R.raw.win2);
+					break;
+				case 2:
+					mp = MediaPlayer.create(ResultActivity.this, R.raw.win3);
+					break;
+				case 3:
+					mp = MediaPlayer.create(ResultActivity.this, R.raw.win4);
+					break;
+				case 4:
+					mp = MediaPlayer.create(ResultActivity.this, R.raw.win5);
+					break;
+				case 5:
+					mp = MediaPlayer.create(ResultActivity.this, R.raw.win6);
+					break;
+				default:
+					return null;
+				}
+			}
+			if (mp != null) {
+				mp.start();
+			}			
+			return null;
+		}
+
 	}
 
 }

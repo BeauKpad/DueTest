@@ -67,7 +67,7 @@ public class CashDue extends Activity implements
 		fis.close();
 	}
 	public static void importDataBase() throws IOException {
-		// Open local back as input stream
+		// Open local backup as input stream
 		File dbFile = MyApplication.getInstance().getDatabasePath(
 				DataHelperPrime.getDBName());
 		String inFileName = Environment.getExternalStorageDirectory()
@@ -247,7 +247,7 @@ public class CashDue extends Activity implements
 		llMain = (LinearLayout) findViewById(R.id.MainLayout);
 		setBackGround();
 		Typeface nashvilleFont = Typeface.createFromAsset(getAssets(), MyApplication.FONT_PATH_NASHVILLE);
-		Typeface mircFont = Typeface.createFromAsset(getAssets(), MyApplication.FONT_PATH_MIRC);
+		Typeface checkBookFont = Typeface.createFromAsset(getAssets(), MyApplication.FONT_PATH_CHECKBOOK);
 		textViewAdjust = (TextView) findViewById(R.id.TextViewAdjust);
 		textViewAdjust.setTypeface(nashvilleFont);
 		checkBoxAdjust = (CheckBox) findViewById(R.id.adjustCheckBox);
@@ -257,14 +257,14 @@ public class CashDue extends Activity implements
 		Button buttonPastShifts = (Button) findViewById(R.id.bPastShifts);
 		Button buttonStats = (Button) findViewById(R.id.bStatistics);
 		editTextSales = (EditText) findViewById(R.id.EditTextSales);
-		editTextSales.setTypeface(mircFont);
+		editTextSales.setTypeface(checkBookFont);
 		editTextSales.setText("");
 		editTextDue = (EditText) findViewById(R.id.EditTextDue);
-		editTextDue.setTypeface(mircFont);
+		editTextDue.setTypeface(checkBookFont);
 		editTextDue.setText("");
 		editTextAdjust = (EditText) findViewById(R.id.adjustEditText);
 		editTextAdjust.setVisibility(View.INVISIBLE);
-		editTextAdjust.setTypeface(mircFont);
+		editTextAdjust.setTypeface(checkBookFont);
 		editTextAdjust.setText("");
 		textViewAdjust.setVisibility(View.INVISIBLE);
 		labelSales = (TextView)findViewById(R.id.TVSalesLabel);
