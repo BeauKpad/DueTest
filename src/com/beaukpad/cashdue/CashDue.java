@@ -90,7 +90,6 @@ public class CashDue extends Activity implements
 		MyApplication.getInstance().updateGlobalArray();
 	}
 
-	long lastInsertedShiftDBRow = 0;
 
 	Shift[] allShiftsArray;
 

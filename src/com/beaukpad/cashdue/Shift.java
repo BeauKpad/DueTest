@@ -148,8 +148,10 @@ public class Shift{
 
     public boolean isTheSameShiftAs(Shift theShift){
     	if(sales == theShift.getSales()){
-    		if(date.getTimeInMillis() == theShift.getDate().getTimeInMillis()){
-    			return true;
+    		if(date.get(Calendar.DAY_OF_YEAR) == theShift.getDate().get(Calendar.DAY_OF_YEAR)){
+    			if(this.isLunch() == theShift.isLunch()){
+        			return true;
+    			}
     		}
     	}
     	return false;

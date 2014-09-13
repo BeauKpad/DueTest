@@ -37,6 +37,9 @@ public class DataHelperPrime {
 			onCreate(db);
 		}
 	}
+	private Shift lastInsertedShift;
+	private long lastInsertedID;
+	private int dbSize;
 	public static final int COLUMN_DATE = 1;
 	public static final int COLUMN_ID = 0;
 	public static final int COLUMN_SALES = 2;
@@ -74,6 +77,30 @@ public class DataHelperPrime {
 		this.db.delete(TABLE_NAME, null, null);
 		close();
 		MyApplication.getInstance().updateGlobalArray();
+	}
+	private void setLastShift(Shift theShift){
+		lastInsertedShift = theShift;
+	}
+	private void setLastShift(){
+		Shift[] tempShiftArray = MyApplication.getInstance().getGlobalArray();
+		setLastShift(tempShiftArray);
+	}
+	//The following is the main one:
+	private void setLastShift(Shift[] tempShiftArray){
+		dbSize = tempShiftArray.length;
+		if(dbSize == 0){
+			return;
+		}
+		setLastShift(tempShiftArray[dbSize - 1]);
+		
+	}
+	private int setDBSizeCount(int theSize){
+		dbSize = theSize;
+		return dbSize;
+	}
+	private int setDBSizeCount(){
+		setDBSizeCount(MyApplication.getInstance().AllShiftsGlobal.length);
+		return dbSize;
 	}
 
 	// get all Dinner shifts in a shift array
@@ -122,6 +149,7 @@ public class DataHelperPrime {
 			} while (allShiftsCursor.moveToNext());
 		}
 		allShiftsCursor.close();
+		setLastShift(result);
 		close();
 		return result;
 	}
@@ -163,11 +191,11 @@ public class DataHelperPrime {
 	//This needs to be the only gateway to insertion
 	public long insertShift(Shift newShift) {
 		// TODO begin drunk coding
-		Shift lastShift;
-		int globalSize = MyApplication.getInstance().AllShiftsGlobal.length;
-		lastShift = MyApplication.getInstance().AllShiftsGlobal[globalSize - 1];
-		if(newShift.isTheSameShiftAs(lastShift)){
-			return lastShift.DBRow_ID;
+		//I'm trying to prevent the same shift being added to the database twice in a row
+		if(dbSize > 0){
+			if(newShift.isTheSameShiftAs(lastInsertedShift)){
+				return lastInsertedShift.DBRow_ID;
+			}			
 		}
 		// end drunk coding
 		 ContentValues newShiftValues = new ContentValues();
@@ -401,7 +429,7 @@ public class DataHelperPrime {
 		return updateShift(workingShift);
 	}
 
-	// update a shift
+	// update a shift in db and memory
 	//Gatekeeper to update shifts
 	private boolean updateShift(Shift _shift) {
 		ContentValues newValue = new ContentValues();
