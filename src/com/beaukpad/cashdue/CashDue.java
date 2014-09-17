@@ -146,27 +146,6 @@ public class CashDue extends Activity implements
 		startActivity(intent);
 	}
 
-	public long insertAShift() {
-		long result;
-		double bSales = Double.valueOf(editTextSales.getText().toString());
-		// adjust if user requested
-		double adjustment = 0.0;
-		if (checkBoxAdjust.isChecked()) {
-			try {
-				adjustment = Double
-						.valueOf(editTextAdjust.getText().toString());
-			} catch (NumberFormatException e) {
-			}
-		}
-		bSales = bSales + adjustment;
-		Calendar bCalendar = lastNow;
-		Shift bShift = new Shift(bSales, bCalendar);
-		bShift.fixMidnightProblem();
-		bShift.setIsLunch(isLunch);
-		result = dh.insertShift(bShift);
-		return result;
-	}
-
 	public void loadPreferences() {
 		// get stored preferences
 		int mode = Context.MODE_PRIVATE;
@@ -411,64 +390,6 @@ public class CashDue extends Activity implements
 		}
 	}
 
-	public void soundPlay(boolean fail) {
-		MediaPlayer mp = null;
-		int x;
-		if (fail) {
-			x = 5;
-		} else {
-			x = 6;
-		}
-		int y = new Random().nextInt(x);
-		if (fail) {
-			switch (y) {
-			case 0:
-				mp = MediaPlayer.create(CashDue.this, R.raw.fail1);
-				break;
-			case 1:
-				mp = MediaPlayer.create(CashDue.this, R.raw.fail2);
-				break;
-			case 2:
-				mp = MediaPlayer.create(CashDue.this, R.raw.fail3);
-				break;
-			case 3:
-				mp = MediaPlayer.create(CashDue.this, R.raw.fail4);
-				break;
-			case 4:
-				mp = MediaPlayer.create(CashDue.this, R.raw.fail5);
-				break;
-			default:
-				return;
-			}
-		} else {
-			switch (y) {
-			case 0:
-				mp = MediaPlayer.create(CashDue.this, R.raw.win1);
-				break;
-			case 1:
-				mp = MediaPlayer.create(CashDue.this, R.raw.win2);
-				break;
-			case 2:
-				mp = MediaPlayer.create(CashDue.this, R.raw.win3);
-				break;
-			case 3:
-				mp = MediaPlayer.create(CashDue.this, R.raw.win4);
-				break;
-			case 4:
-				mp = MediaPlayer.create(CashDue.this, R.raw.win5);
-				break;
-			case 5:
-				mp = MediaPlayer.create(CashDue.this, R.raw.win6);
-				break;
-			default:
-				return;
-			}
-		}
-		if (mp != null) {
-			mp.start();
-		}
-		return;
-	}
 
 	public void switchAutosave() {
 		// get a preference editor to edit SharedPreferences

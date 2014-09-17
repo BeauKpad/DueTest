@@ -175,13 +175,6 @@ public class DataHelperPrime {
 	// insert a shift using raw values. date parameter is Unix Epoch
 	private long insert(Long date, Double sales, Boolean isLunch) {
 		return insertShift(new Shift(sales, date));
-//		ContentValues newShiftValues = new ContentValues();
-//		newShiftValues.put(KEY_DATE, date);
-//		newShiftValues.put(KEY_SALES, sales);
-//		open();
-//		long resultID = db.insert(TABLE_NAME, null, newShiftValues);
-//		close();
-//		return updateGlobalArray(resultID);
 	}
 	public long insertByValue(Long date, Double sales, Boolean isLunch) {
 		return insert(date, sales, isLunch);
@@ -270,28 +263,7 @@ public class DataHelperPrime {
 //		// If I close the database now the cursor is useless
 //		// close();
 //		return returnCursor;
-//	}
-
-	// get all shifts in an ArrayList<String>
-//	private ArrayList<String> getAllShiftsArrayList() {
-//		ArrayList<String> result = new ArrayList<String>();
-//		String tempString;
-//		open();
-//		Cursor temp = db.query(TABLE_NAME, new String[] { KEY_ID, KEY_DATE,
-//				KEY_SALES }, null, null, null, null, null);
-//		close();
-//		if (temp.moveToFirst()) {
-//			do {
-//				Calendar tempCal = Calendar.getInstance();
-//				tempCal.setTimeInMillis(temp.getLong(COLUMN_DATE));
-//				tempString = (new Shift(temp.getDouble(COLUMN_SALES), tempCal,
-//						temp.getLong(COLUMN_ID))).toString();
-//				result.add(tempString);
-//			} while (temp.moveToNext());
-//		}
-//		return result;
-//	}
-	
+//	}	
 	// delete shift by index
 	//gatekeeper for deletion
 	private boolean removeShift(long rowIndex) {
@@ -333,88 +305,11 @@ public class DataHelperPrime {
 		return Result;
 	}
 
-	// Get all shifts in a shift cursor by day of week and shift time
-	// public Shift[] getByWeekDayandShiftTime(int iDayOfWeek, boolean isLunch){
-	// Shift[] result = {};
-	// Shift tempShift;
-	// Cursor tempCursor = getAllShiftsCursor();
-	// if(tempCursor.moveToFirst()){
-	// int x = 0;
-	// result = new Shift[tempCursor.getCount()];
-	// do{
-	// Calendar tempCal = Calendar.getInstance();
-	// tempCal.setTimeInMillis(tempCursor.getLong(COLUMN_DATE));
-	// tempShift = (new Shift(tempCursor.getDouble(COLUMN_SALES), tempCal,
-	// tempCursor.getLong(COLUMN_ID)));
-	// if(tempShift.isLunch() != isLunch){continue;}
-	// if(tempShift.getDayOfWeekInt() != iDayOfWeek){continue;}
-	// result[x] = tempShift;
-	// x++;
-	// }
-	// while (tempCursor.moveToNext());
-	// }
-	// return trimArray(result);
-	// }
 
 	public boolean updateGlobalArray(boolean mBoolean) {
 		MyApplication.getInstance().updateGlobalArray();
 		return mBoolean;
 	}
-
-	// get all shifts as an array of Strings
-//	private String[] getAllStringArray() {
-//		String[] result = {};
-//		String tempString;
-//		Calendar tempCal = Calendar.getInstance();
-//		open();
-//		Cursor allShiftsCursor = db.query(TABLE_NAME, new String[] { KEY_ID, KEY_DATE,
-//				KEY_SALES }, null, null, null, null, null);
-//		if (allShiftsCursor.moveToFirst()) {
-//			result = new String[allShiftsCursor.getCount()];
-//			int x = 0;
-//			do {
-//				tempCal.setTimeInMillis(allShiftsCursor.getLong(COLUMN_DATE));
-//				tempString = (new Shift(allShiftsCursor.getDouble(COLUMN_SALES), tempCal))
-//						.toString();
-//				result[x++] = tempString;
-//			} while (allShiftsCursor.moveToNext());
-//		}
-//		allShiftsCursor.close();
-//		close();
-//		return result;
-//	}
-
-//	// get a single shift as a cursor
-//	public Cursor setCursorToShift(long _rowIndex) {
-//		open();
-//		Cursor result = db.query(true, TABLE_NAME, null, KEY_ID + "="
-//				+ _rowIndex, null, null, null, null, null);
-//		if ((result.getCount() == 0) || !result.moveToFirst()) {
-//			throw new SQLiteException("No shifts found for row: " + _rowIndex);
-//		}
-//		return result;
-//	}
-
-	// get a single shift as a shift
-//	private Shift getShift(long _rowIndex) throws SQLException {
-//		open();
-//		Cursor cursor = db.query(true, TABLE_NAME, new String[] { KEY_ID,
-//				KEY_DATE, KEY_SALES }, KEY_ID + "=" + _rowIndex, null, null,
-//				null, null, null);
-//		if ((cursor.getCount() == 0) || !cursor.moveToFirst()) {
-//			throw new SQLException("No shift found for row: " + _rowIndex);
-//		}
-//		// Could be trouble. How can I guarantee the following indexes?
-//		// A:Determined by order created in table creation, apparently
-//		double _sales = cursor.getDouble(COLUMN_SALES);
-//		long millis = cursor.getLong(COLUMN_DATE);
-//		long _id = cursor.getLong(COLUMN_ID);
-//		cursor.close();
-//		close();
-//		Calendar aCal = Calendar.getInstance();
-//		aCal.setTimeInMillis(millis);
-//		return new Shift(_sales, aCal, _id);
-//	}
 
 	// convenience methods for updating global shift array
 	public long updateGlobalArray(long mLong) {

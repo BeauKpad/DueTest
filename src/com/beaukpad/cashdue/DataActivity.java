@@ -58,8 +58,6 @@ public class DataActivity extends ListActivity implements
 		// override onCreateContextMenu(ContextMenu, View, ContextMenuInfo)...
 		// and onContextItemSelected(MenuItem)
 		registerForContextMenu(getListView());
-		// insertDummyData();
-		// insertDummyShift();
 		// Jam the array into the list
 		populateAllShifts();
 	}
