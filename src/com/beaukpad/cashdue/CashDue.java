@@ -198,7 +198,7 @@ public class CashDue extends Activity implements
 				emptyToast.show();
 				return;
 			}
-			tempIntent = new Intent(this, Stats.class);
+			tempIntent = new Intent(this, NewStats.class);
 			startActivity(tempIntent);
 			break;
 		case R.id.ButtonClearValues:

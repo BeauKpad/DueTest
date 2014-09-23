@@ -10,6 +10,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
+import android.widget.ListView;
 import android.widget.TextView;
 
 public class NewStats extends Activity {
@@ -21,15 +22,23 @@ public class NewStats extends Activity {
 	public static final int FRIDAY = 6;
 	public static final int SATURDAY = 7;
 	private DataHelperPrime dh;
-	TextView tvStats;
 	Shift[] allShifts;
+	MyAdapter adapter;
+	ListView lunchList;
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		// TODO Auto-generated method stub
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.newstats);
-	}	public String getBestShiftString() {
+		lunchList = (ListView)findViewById(R.id.lunchList);
+		dh = MyApplication.getInstance().getDH();
+		allShifts = dh.getAllShifts(MyApplication.getInstance());
+		adapter = new MyAdapter(allShifts, this);
+		lunchList.setAdapter(adapter);
+	}
+
+	public String getBestShiftString() {
 		String resultString = "";
 		Shift resultShift = new Shift(allShifts[0]);
 		for (Shift tempShift : allShifts) {
@@ -41,7 +50,6 @@ public class NewStats extends Activity {
 		return resultString;
 	}
 
-	
 	public String createMonthlyAverageString() {
 		String result = "Averages by Month: \n \n";
 		int currentMonth;
@@ -161,10 +169,16 @@ public class NewStats extends Activity {
 				+ String.format(Locale.US, "%1$, .2f", (total / (double) count))
 				+ "\n";
 	}
+
 	public class MyAdapter extends BaseAdapter {
 		Shift[] theShiftList;
 		Activity mContext;
 
+		public MyAdapter(Shift[] shiftsArray, Activity context){
+			theShiftList = shiftsArray;
+			mContext = context;
+		}
+		
 		public int getCount() {
 			return theShiftList.length;
 		}
@@ -176,26 +190,27 @@ public class NewStats extends Activity {
 		public long getItemId(int position) {
 			return theShiftList[position].getDBRow();
 		}
-		
-		private class ViewHolder{
+
+		private class ViewHolder {
 			TextView tvDayOfWeek;
 			TextView tvSalesValue;
 		}
+
 		public View getView(int position, View convertView, ViewGroup parent) {
 			// TODO Auto-generated method stub
 			ViewHolder vh;
 			Shift m_Shift = theShiftList[position];
 			LayoutInflater inflater = mContext.getLayoutInflater();
-			if (convertView == null)
-			{
-				convertView = inflater.inflate(R.layout.statlistitem, parent, false);
+			if (convertView == null) {
+				convertView = inflater.inflate(R.layout.statlistitem, parent,
+						false);
 				vh = new ViewHolder();
-				vh.tvDayOfWeek = (TextView) convertView.findViewById(R.id.daylabel);
-				vh.tvSalesValue = (TextView) convertView.findViewById(R.id.salesvalue);
+				vh.tvDayOfWeek = (TextView) convertView
+						.findViewById(R.id.daylabel);
+				vh.tvSalesValue = (TextView) convertView
+						.findViewById(R.id.salesvalue);
 				convertView.setTag(vh);
-			}
-			else
-			{
+			} else {
 				vh = (ViewHolder) convertView.getTag();
 			}
 
@@ -203,7 +218,7 @@ public class NewStats extends Activity {
 			vh.tvSalesValue.setText("" + m_Shift.getSales());
 			vh.tvSalesValue.setTextColor(m_Shift.getAppropriateColor());
 
-		return convertView;
+			return convertView;
 		}
 
 	}
