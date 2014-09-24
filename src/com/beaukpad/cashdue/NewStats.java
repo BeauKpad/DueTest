@@ -23,19 +23,39 @@ public class NewStats extends Activity {
 	public static final int SATURDAY = 7;
 	private DataHelperPrime dh;
 	Shift[] allShifts;
-	MyAdapter adapter;
+	MyAdapter lunchAdapter;
+	MyAdapter dinnerAdapter;
 	ListView lunchList;
+	ListView dinnerList;
+	Double[] lunchAverageSalesArray;
+	Double[] dinnerAverageSalesArray;
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
-		// TODO Auto-generated method stub
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.newstats);
 		lunchList = (ListView)findViewById(R.id.lunchList);
+		dinnerList = (ListView)findViewById(R.id.dinnerList);
 		dh = MyApplication.getInstance().getDH();
 		allShifts = dh.getAllShifts(MyApplication.getInstance());
-		adapter = new MyAdapter(allShifts, this);
-		lunchList.setAdapter(adapter);
+		populateArrays();
+		lunchAdapter = new MyAdapter(lunchAverageSalesArray, this, true);
+		lunchList.setAdapter(lunchAdapter);
+		dinnerAdapter = new MyAdapter(dinnerAverageSalesArray, this, false);
+		dinnerList.setAdapter(dinnerAdapter);
+	}
+
+	public void populateArrays() {
+		lunchAverageSalesArray = new Double[7];
+		dinnerAverageSalesArray = new Double[7];
+		int i;
+		for(i=0;i < 7;i++){
+			lunchAverageSalesArray[i] = getAverageByDayOfWeekAndShift(i+1, true);
+		}
+		for(i=0;i < 7;i++){
+			dinnerAverageSalesArray[i] = getAverageByDayOfWeekAndShift(i+1, false);
+		}
+		//TODO I was here last 
 	}
 
 	public String getBestShiftString() {
@@ -171,24 +191,22 @@ public class NewStats extends Activity {
 	}
 
 	public class MyAdapter extends BaseAdapter {
-		Shift[] theShiftList;
+		Double[] theValuesList;
 		Activity mContext;
+		boolean isLunch;
 
-		public MyAdapter(Shift[] shiftsArray, Activity context){
-			theShiftList = shiftsArray;
+		public MyAdapter(Double[] shiftsArray, Activity context, boolean Lunch){
+			theValuesList = shiftsArray;
 			mContext = context;
+			isLunch = Lunch;
 		}
 		
 		public int getCount() {
-			return theShiftList.length;
+			return theValuesList.length;
 		}
 
 		public Object getItem(int position) {
-			return theShiftList[position];
-		}
-
-		public long getItemId(int position) {
-			return theShiftList[position].getDBRow();
+			return (Double)theValuesList[position];
 		}
 
 		private class ViewHolder {
@@ -197,9 +215,8 @@ public class NewStats extends Activity {
 		}
 
 		public View getView(int position, View convertView, ViewGroup parent) {
-			// TODO Auto-generated method stub
 			ViewHolder vh;
-			Shift m_Shift = theShiftList[position];
+			Double m_Value = theValuesList[position];
 			LayoutInflater inflater = mContext.getLayoutInflater();
 			if (convertView == null) {
 				convertView = inflater.inflate(R.layout.statlistitem, parent,
@@ -214,11 +231,15 @@ public class NewStats extends Activity {
 				vh = (ViewHolder) convertView.getTag();
 			}
 
-			vh.tvDayOfWeek.setText(m_Shift.getDayOfWeek());
-			vh.tvSalesValue.setText("" + m_Shift.getSales());
-			vh.tvSalesValue.setTextColor(m_Shift.getAppropriateColor());
+			vh.tvDayOfWeek.setText(Shift.getWeekDayName(position + 1));
+			vh.tvSalesValue.setText("" + m_Value);
+			vh.tvSalesValue.setTextColor(Shift.getAppropriateColor(m_Value, isLunch));
 
 			return convertView;
+		}
+
+		public long getItemId(int position) {
+			return 0;
 		}
 
 	}

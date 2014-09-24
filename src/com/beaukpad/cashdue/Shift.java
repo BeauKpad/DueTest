@@ -220,6 +220,45 @@ public class Shift{
 
 	}
 
+	static public int getAppropriateColor(double sales, boolean isLunch){
+		int redValue;
+		int greenValue;
+		int blueValue;
+		if(isLunch){
+			if(sales <= 150.0){
+				return Color.rgb(255, 0, 0);
+			}
+			if(sales >= 600.0){
+				return Color.rgb(88, 232, 93);
+			}
+			if((sales > 150.0) && (sales < 600.0)){
+				redValue = (int) (255.0 + ((sales - 150.00) * (-167.0 / 450.0)));
+				greenValue = (int) (0.0 + ((sales - 150.0) * (232.0 / 450.0)));
+				blueValue = (int) (0.0 + ((sales - 150.0) * (93.0 / 450.0)));
+				return Color.rgb(redValue, greenValue, blueValue);
+				// red is #FF0000, or 255, 0, 0
+				// Green is #58E85D, or 88, 232, 93
+				// Difference is -167, 232, 93
+			}
+		}
+		if (sales <= 400.0) {
+			return Color.rgb(255, 0, 0);
+		}
+		if (sales > 1600.0) {
+			return Color.rgb(88, 232, 93);
+		}
+		if ((sales > 400.0) && (sales <= 1600.0)) {
+			redValue = (int) (255.0 + ((sales - 400.00) * (-167.0 / 1200.0)));
+			greenValue = (int) (0.0 + ((sales - 400.0) * (232.0 / 1200.0)));
+			blueValue = (int) (0.0 + ((sales - 400.0) * (93.0 / 1200.0)));
+			return Color.rgb(redValue, greenValue, blueValue);
+			// red is #FF0000, or 255, 0, 0
+			// Green is #58E85D, or 88, 232, 93
+			// Difference is -167, 232, 93
+		}
+		return 0;
+		
+	}
 	public int getAppropriateColor() {
 
 		int redValue;

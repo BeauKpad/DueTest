@@ -8,16 +8,12 @@
         android:id="@+id/daylabel"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:background="#000000"
-        android:padding="10dp"
-        android:text="Friday: " />
+        android:padding="8dp"/>
 
     <TextView
         android:id="@+id/salesvalue"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:background="#000000"
-        android:padding="10dp"
-        android:text="1200.00" />
+        android:padding="8dp"/>
 
 </LinearLayout>
