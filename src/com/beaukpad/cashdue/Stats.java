@@ -156,7 +156,7 @@ public class Stats extends Activity {
 		return result;
 	}
 
-	//
+	
 	public double getAverageByDayOfWeekAndShift(int DayOfWeek, boolean isLunch) {
 		dh.open();
 		Shift[] temp = dh.getByWeekDayandShiftTime(DayOfWeek, isLunch);
