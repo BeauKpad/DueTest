@@ -1,7 +1,5 @@
 package com.beaukpad.cashdue;
 
-import java.util.Calendar;
-
 import android.content.ContentValues;
 import android.content.Context;
 import android.database.Cursor;
@@ -10,6 +8,8 @@ import android.database.sqlite.SQLiteDatabase.CursorFactory;
 import android.database.sqlite.SQLiteException;
 import android.database.sqlite.SQLiteOpenHelper;
 import android.util.Log;
+
+import java.util.Calendar;
 
 public class DataHelperPrime {
 	public static class OpenHelper extends SQLiteOpenHelper {
@@ -38,8 +38,7 @@ public class DataHelperPrime {
 		}
 	}
 	private Shift lastInsertedShift;
-	private long lastInsertedID;
-	private int dbSize;
+    private int dbSize;
 	public static final int COLUMN_DATE = 1;
 	public static final int COLUMN_ID = 0;
 	public static final int COLUMN_SALES = 2;
@@ -47,8 +46,7 @@ public class DataHelperPrime {
 	private static final int DATABASE_VERSION = 1;
 	public static final String KEY_DATE = "date";
 	public static final String KEY_ID = "_id";
-	public static final String KEY_ISLUNCH = "islunch";
-	public static final String KEY_SALES = "sale";
+    public static final String KEY_SALES = "sale";
 	private static final String TABLE_NAME = "table1";
 	static String getDBName() {
 		return DATABASE_NAME;
@@ -81,11 +79,8 @@ public class DataHelperPrime {
 	private void setLastShift(Shift theShift){
 		lastInsertedShift = theShift;
 	}
-	private void setLastShift(){
-		Shift[] tempShiftArray = MyApplication.getInstance().getGlobalArray();
-		setLastShift(tempShiftArray);
-	}
-	//The following is the main one:
+
+    //The following is the main one:
 	private void setLastShift(Shift[] tempShiftArray){
 		dbSize = tempShiftArray.length;
 		if(dbSize == 0){
@@ -94,16 +89,8 @@ public class DataHelperPrime {
 		setLastShift(tempShiftArray[dbSize - 1]);
 		
 	}
-	private int setDBSizeCount(int theSize){
-		dbSize = theSize;
-		return dbSize;
-	}
-	private int setDBSizeCount(){
-		setDBSizeCount(MyApplication.getInstance().AllShiftsGlobal.length);
-		return dbSize;
-	}
 
-	// get all Dinner shifts in a shift array
+    // get all Dinner shifts in a shift array
 	public Shift[] getAllDinnerShifts() {
 		Shift[] masterList = MyApplication.getInstance().getGlobalArray();
 		Shift[] dinnerArray = new Shift[masterList.length];
@@ -213,7 +200,7 @@ public class DataHelperPrime {
 		Shift[] oldShifts = getAllShifts();
 		int oldShiftsCount = oldShifts.length;
 		int newShiftsCount = newShifts.length;
-		int returnedCount = 0;
+		int returnedCount;
 		Shift[] finalShifts = new Shift[oldShifts.length + newShifts.length];
 		int arrayCount = 0;
 		for (Shift oldShift : oldShifts) {
@@ -228,6 +215,7 @@ public class DataHelperPrime {
 				finalShifts[arrayCount] = new Shift(oldShift);
 				arrayCount++;}
 		}
+        //TODO I think this is backwards. Don't think returnedCount is actually tracking record changes
 		returnedCount = arrayCount;
 		for (Shift newShift : newShifts) {
 			finalShifts[arrayCount] = new Shift(newShift);

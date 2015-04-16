@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:id="@+id/RLResultsLayout" >
+
+    <TextView
+        android:id="@+id/TVResultsPageTitle"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:gravity="center"
+        android:text="Date: \n Shift:"
+        android:textAppearance="?android:attr/textAppearanceLarge" />
+
+    <Button
+        android:id="@+id/BToggleLunchDinner"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentRight="true"
+        android:layout_below="@id/TVResultsPageTitle"
+        android:layout_marginBottom="20dp"
+        android:layout_marginTop="20dp"
+        android:text="Show other" />
+
+    <TextView
+        android:id="@+id/TVCalculations"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/BToggleLunchDinner"
+        android:layout_marginBottom="20dp"
+        android:gravity="center"
+        android:text="Sales: \nCash Due: \nTotal Charges: \nTip-out:"
+        android:textAppearance="?android:attr/textAppearanceMedium" />
+
+    
+    <TextView
+        android:id="@+id/TVHelpInfo"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/TVCalculations"
+        android:gravity="center"
+        android:text=""
+        android:textAppearance="?android:attr/textAppearanceSmall" />
+
+    <TextView
+        android:id="@+id/tvIsSaved"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:gravity="center"
+        android:text="Shift is NOT saved"
+        android:textSize="30sp" />
+    
+    <Button
+        android:id="@+id/BDatabaseAction"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_above="@id/tvIsSaved"
+        android:text="manipulate database" />
+
+</RelativeLayout><!-- From: file:/home/lebeau/workspace/DueTest/res/layout/results_activity.xml -->

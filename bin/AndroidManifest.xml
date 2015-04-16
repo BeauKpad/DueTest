@@ -33,7 +33,7 @@
             </intent-filter>
         </activity>
         <activity
-            android:name="DataActivity"
+            android:name=".PastShifts"
             android:enabled="true"
             android:label="@string/DataActName"
             android:launchMode="singleTop" >

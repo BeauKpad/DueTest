@@ -1,0 +1,148 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/MainLayout"
+    android:layout_width="fill_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical" >
+
+    <RelativeLayout
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal" >
+
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentLeft="true"
+            android:id="@+id/bPastShifts"
+            android:text="Past Shifts" />
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:id="@+id/bReports"
+            android:text="Create Report"/>
+
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:id="@+id/bStatistics"
+            android:text="Statistics" />
+    </RelativeLayout>
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:orientation="vertical" >
+
+        <TextView
+            android:id="@+id/TVSalesLabel"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:text="Sales"
+            android:textColor="#f21b20"
+            android:textSize="12pt" >
+        </TextView>
+
+        <EditText
+            android:id="@+id/EditTextSales"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:textColor="#f21b20"
+            android:hint="Your Sales"
+            android:textSize="28sp"
+            android:inputType="number|numberDecimal" >
+        </EditText>
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:orientation="vertical" >
+
+        <TextView
+            android:id="@+id/TVCashDueLabel"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:text="Cash Due"
+            android:textColor="#f21b20"
+            android:textSize="12pt" >
+        </TextView>
+
+        <EditText
+            android:id="@+id/EditTextDue"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:textSize="28sp"
+            android:textColor="#f21b20"
+            android:hint="Net deposit"
+            android:inputType="number|numberSigned|numberDecimal" >
+        </EditText>
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:orientation="horizontal" >
+
+        <Button
+            android:id="@+id/ButtonCalculate"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Calculate" >
+        </Button>
+
+        <Button
+            android:id="@+id/ButtonClearValues"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Clear" >
+        </Button>
+    </LinearLayout>
+
+    <CheckBox
+        android:id="@+id/adjustCheckBox"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:text="Adjust Sales"
+        android:textColor="#f21b20" >
+    </CheckBox>
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:orientation="vertical" >
+
+        <TextView
+            android:id="@+id/TextViewAdjust"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:text="Adjustment:"
+            android:textColor="#f21b20"
+            android:textSize="12pt" >
+        </TextView>
+
+        <EditText
+            android:id="@+id/adjustEditText"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:textSize="28sp"
+            android:textColor="#f21b20"
+            android:hint="Amount To Add To Sales"
+            android:inputType="number|numberSigned|numberDecimal" >
+        </EditText>
+    </LinearLayout>
+
+</LinearLayout><!-- From: file:/home/lebeau/workspace/DueTest/res/layout/main.xml -->

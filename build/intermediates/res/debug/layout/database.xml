@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/llDataLayout"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:background="@color/beige"
+    android:orientation="vertical"
+    android:weightSum="10" >
+
+    <ListView
+        android:id="@android:id/list"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_weight="10" >
+    </ListView>
+
+    <TextView
+        android:id="@+id/tvAverage"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_weight="1"
+        android:text="0"
+        android:textColor="#f21b20"
+        android:textSize="12sp" />
+
+    <RadioGroup
+        android:id="@+id/DataRadioGroup"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_weight="1"
+        android:orientation="horizontal" >
+
+        <RadioButton
+            android:id="@+id/RadioBoth"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:checked="true"
+            android:clickable="true"
+            android:text="Lunch and Dinner"
+            android:textSize="12sp" />
+
+        <RadioButton
+            android:id="@+id/RadioDinnerOnly"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:clickable="true"
+            android:text="Dinner Only"
+            android:textSize="12sp" />
+
+        <RadioButton
+            android:id="@+id/RadioLunchOnly"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:clickable="true"
+            android:text="Lunch Only"
+            android:textSize="12sp" />
+    </RadioGroup>
+
+</LinearLayout><!-- From: file:/home/lebeau/workspace/DueTest/res/layout/database.xml -->

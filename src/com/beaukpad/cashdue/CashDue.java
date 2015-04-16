@@ -1,20 +1,11 @@
 package com.beaukpad.cashdue;
 
-import java.io.File;
-import java.io.FileInputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-import java.io.OutputStream;
-import java.util.Calendar;
-import java.util.Random;
-
 import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.database.sqlite.SQLiteException;
 import android.graphics.Typeface;
-import android.media.MediaPlayer;
 import android.os.Bundle;
 import android.os.Environment;
 import android.view.Menu;
@@ -29,6 +20,13 @@ import android.widget.LinearLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import java.io.File;
+import java.io.FileInputStream;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import java.io.OutputStream;
+import java.util.Random;
+
 public class CashDue extends Activity implements
 		android.view.View.OnClickListener, OnCheckedChangeListener {
 	EditText editTextSales;
@@ -38,11 +36,10 @@ public class CashDue extends Activity implements
 	TextView labelSales;
 	TextView labelCashDue;
 	LinearLayout llMain;
-	Calendar lastNow;
-	DataHelperPrime dh;
-	boolean isLunch;
-	boolean autoSave;
+    DataHelperPrime dh;
+    boolean autoSave;
 	CheckBox checkBoxAdjust;
+    Shift[] allShiftsArray;
 	public static String MY_PREFS = "MY_PREFS";
 	public static void exportDatabase() throws IOException {
 
@@ -91,25 +88,27 @@ public class CashDue extends Activity implements
 	}
 
 
-	Shift[] allShiftsArray;
 
-	public void beginCalc(final boolean forceOther) {
+	private void beginCalc() {
 		double Sales;
 		double Due;
-		double Adjustment = 0.0;
+		double Adjustment;
 		double AdjustedSales;
 		Intent intent;
 		// try to parse user input. On fail, return to user input screen
 		try {
 			Sales = Double.valueOf(editTextSales.getText().toString());
 		} catch (NumberFormatException e) {
-			return;
+            Toast.makeText(CashDue.this,
+                    "Invalid 'Sales' entered!", Toast.LENGTH_LONG)
+                    .show();
+            return;
 		}
 		try {
 			Due = Double.valueOf(editTextDue.getText().toString());
 		} catch (NumberFormatException d) {
 			Toast.makeText(CashDue.this,
-					"Invalid Sales entered!", Toast.LENGTH_LONG)
+					"Invalid 'Cash Due' entered!", Toast.LENGTH_LONG)
 					.show();
 			return;
 		}
@@ -128,13 +127,13 @@ public class CashDue extends Activity implements
 			} catch (NumberFormatException e) {
 				Adjustment = 0.0;
 				Toast.makeText(CashDue.this,
-						"Invalid adjustment value. Tipout not adjusted",
+						"Invalid adjustment value. Sales/tipout not adjusted",
 						Toast.LENGTH_LONG).show();
 			}
 		} else
 			Adjustment = 0.0;
 		AdjustedSales = (Sales + Adjustment);
-		if (AdjustedSales < 0.0) {
+		if (AdjustedSales <= 0.0) {
 			Toast.makeText(CashDue.this, "Invalid adjustment value. Tipout not adjusted",
 					Toast.LENGTH_LONG).show();
 			return;
@@ -188,7 +187,7 @@ public class CashDue extends Activity implements
 				emptyToast.show();
 				return;
 			}
-			tempIntent = new Intent(this, DataActivity.class);
+			tempIntent = new Intent(this, PastShifts.class);
 			startActivity(tempIntent);
 			break;
 		case R.id.bStatistics:
@@ -207,7 +206,7 @@ public class CashDue extends Activity implements
 			editTextAdjust.setText("");
 			break;
 		case R.id.ButtonCalculate:
-			beginCalc(false);
+			beginCalc();
 			break;
 		default:
 			break;
@@ -234,6 +233,7 @@ public class CashDue extends Activity implements
 		Button buttonClear = (Button) findViewById(R.id.ButtonClearValues);
 		Button buttonPastShifts = (Button) findViewById(R.id.bPastShifts);
 		Button buttonStats = (Button) findViewById(R.id.bStatistics);
+        Button buttonReports = (Button)findViewById(R.id.bReports);
 		editTextSales = (EditText) findViewById(R.id.EditTextSales);
 		editTextSales.setTypeface(checkBookFont);
 		editTextSales.setText("");
@@ -253,6 +253,7 @@ public class CashDue extends Activity implements
 		buttonStats.setOnClickListener(this);
 		buttonClear.setOnClickListener(this);
 		buttonCalculate.setOnClickListener(this);
+        buttonReports.setOnClickListener(this);
 		checkBoxAdjust.setOnCheckedChangeListener(this);
 	}
 

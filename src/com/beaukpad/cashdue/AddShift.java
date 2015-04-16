@@ -92,7 +92,7 @@ public class AddShift extends Activity {
 			cancelButton.setOnClickListener(new View.OnClickListener() {
 				
 				public void onClick(View v) {
-					Intent anIntent = new Intent(context, DataActivity.class);
+					Intent anIntent = new Intent(context, PastShifts.class);
 					startActivity(anIntent);
 				}
 			});
@@ -128,7 +128,7 @@ public class AddShift extends Activity {
 						dh.insertShift(thisShift);
 						BackupManager.dataChanged(getBaseContext().getPackageName()); 
 					}
-					Intent anIntent = new Intent(context, DataActivity.class);
+					Intent anIntent = new Intent(context, PastShifts.class);
 					startActivity(anIntent);
 				}
 			});
@@ -163,7 +163,7 @@ public class AddShift extends Activity {
 						}
 						dh.insertShift(thisShift);
 					}
-					Intent anIntent = new Intent(context, DataActivity.class);
+					Intent anIntent = new Intent(context, PastShifts.class);
 					startActivity(anIntent);
 				}
 			});
@@ -223,7 +223,7 @@ public class AddShift extends Activity {
 			cancelButton.setOnClickListener(new View.OnClickListener() {
 				
 				public void onClick(View v) {
-					Intent anIntent = new Intent(context, DataActivity.class);
+					Intent anIntent = new Intent(context, PastShifts.class);
 					startActivity(anIntent);
 				}
 			});
@@ -258,7 +258,7 @@ public class AddShift extends Activity {
 						}
 						dh.insertShift(thisShift);
 					}
-					Intent anIntent = new Intent(context, DataActivity.class);
+					Intent anIntent = new Intent(context, PastShifts.class);
 					startActivity(anIntent);
 				}
 			});
@@ -293,7 +293,7 @@ public class AddShift extends Activity {
 						}
 						dh.insertShift(thisShift);
 					}
-					Intent anIntent = new Intent(context, DataActivity.class);
+					Intent anIntent = new Intent(context, PastShifts.class);
 					startActivity(anIntent);
 				}
 			});
@@ -352,7 +352,7 @@ public class AddShift extends Activity {
 			cancelButton.setOnClickListener(new View.OnClickListener() {
 				
 				public void onClick(View v) {
-					Intent anIntent = new Intent(context, DataActivity.class);
+					Intent anIntent = new Intent(context, PastShifts.class);
 					startActivity(anIntent);
 				}
 			});
@@ -387,7 +387,7 @@ public class AddShift extends Activity {
 						}
 						dh.insertShift(thisShift);
 					}
-					Intent anIntent = new Intent(context, DataActivity.class);
+					Intent anIntent = new Intent(context, PastShifts.class);
 					startActivity(anIntent);
 				}
 			});
@@ -422,7 +422,7 @@ public class AddShift extends Activity {
 						}
 						dh.insertShift(thisShift);
 					}
-					Intent anIntent = new Intent(context, DataActivity.class);
+					Intent anIntent = new Intent(context, PastShifts.class);
 					startActivity(anIntent);
 				}
 			});
