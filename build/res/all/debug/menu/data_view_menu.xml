@@ -1,6 +1,0 @@
-<?xml version="1.0" encoding="utf-8"?>
-<menu
-  xmlns:android="http://schemas.android.com/apk/res/android">
- <item android:title="Add A New Shift" android:id="@+id/add_new_shift"></item>
-</menu>
-<!-- From: file:/home/lebeau/workspace/DueTest/res/menu/data_view_menu.xml -->

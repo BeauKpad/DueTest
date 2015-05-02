@@ -49,6 +49,7 @@
         </activity>
         <activity android:name="ResultActivity" android:launchMode="singleTop" android:enabled="true"></activity>
         <activity android:name=".NewStats" android:noHistory="true"></activity>
+        <activity android:name=".ReportBuild" android:enabled="true"></activity>
     </application>
 
 </manifest>

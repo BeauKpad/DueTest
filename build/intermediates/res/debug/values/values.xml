@@ -3,6 +3,7 @@
     <!-- From: file:/home/lebeau/workspace/DueTest/res/values/colors.xml -->
     <eat-comment/>
     <color name="beige">#CDB79E</color>
+    <color name="white">#FFFFFF</color>
     <color name="yellow">#FFFF00</color>
     <!-- From: file:/home/lebeau/workspace/DueTest/res/values/strings.xml -->
     <eat-comment/>

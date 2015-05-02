@@ -1,11 +1,11 @@
 package com.beaukpad.cashdue;
 
+import android.graphics.Color;
+
 import java.text.DateFormat;
 import java.util.Calendar;
 import java.util.Date;
-
-import android.graphics.Color;
-
+//TODO: Make comparable!!!
 public class Shift{
 	public final static boolean LUNCH = true;
 	public final static boolean DINNER = false;

@@ -180,6 +180,10 @@ public class CashDue extends Activity implements
 	public void onClick(View v) {
 		Intent tempIntent;
 		switch (v.getId()) {
+            case R.id.bReports:
+                tempIntent = new Intent(this, ReportBuild.class);
+                startActivity(tempIntent);
+                break;
 		case R.id.bPastShifts:
 			if (MyApplication.getInstance().getGlobalArray().length == 0) {
 				Toast emptyToast = Toast.makeText(getApplicationContext(),

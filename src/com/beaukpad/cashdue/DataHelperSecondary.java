@@ -235,7 +235,7 @@ public class DataHelperSecondary {
 	}
 
 	// Get all shifts in a shift cursor by day of week and shift time
-	// public Shift[] getByWeekDayandShiftTime(int iDayOfWeek, boolean isLunch){
+	// public Shift[] getByWeekDayAndShiftTime(int iDayOfWeek, boolean isLunch){
 	// Shift[] result = {};
 	// Shift tempShift;
 	// Cursor tempCursor = getAllShiftsCursor();

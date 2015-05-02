@@ -145,7 +145,7 @@ public class DataHelperPrime {
 		return getAllShifts();
 	}
 
-	public Shift[] getByWeekDayandShiftTime(int iDayOfWeek, boolean isLunch) {
+	public Shift[] getByWeekDayAndShiftTime(int iDayOfWeek, boolean isLunch) {
 		Shift[] tempAllShifts = isLunch ? (getAllLunchShifts())
 				: (getAllDinnerShifts());
 		Shift[] result = new Shift[tempAllShifts.length];

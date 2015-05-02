@@ -112,10 +112,14 @@
             android:textColor="#000000"
             android:textSize="25sp" />
 
-        <DatePicker
-            android:layout_width="wrap_content"
+        <EditText
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:id="@+id/dpStartDate"/>
+            android:inputType="date"
+            android:ems="10"
+            android:id="@+id/etStartDate"
+            android:textSize="25sp"
+            android:layout_gravity="center_horizontal" />
 
         <TextView
             android:layout_width="match_parent"
@@ -124,10 +128,16 @@
             android:text="End date:"
             android:textColor="#000000"
             android:textSize="25sp" />
-        <DatePicker
+
+        <EditText
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:id="@+id/dpEndDate"/>
+            android:inputType="date"
+            android:ems="10"
+            android:id="@+id/etEndDate"
+            android:textSize="25sp"
+            android:layout_gravity="center_horizontal" />
+
         <Button
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
