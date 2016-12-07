@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- From: file:/home/lebeau/workspace/DueTest/res/values/colors.xml -->
+    <eat-comment/>
+    <color name="beige">#CDB79E</color>
+    <color name="white">#FFFFFF</color>
+    <color name="yellow">#FFFF00</color>
+    <!-- From: file:/home/lebeau/workspace/DueTest/res/values/strings.xml -->
+    <eat-comment/>
+    <string name="DataActName">Past Shifts</string>
+    <string name="app_name">CashDo</string>
+    <string name="delete_item">Delete this shift</string>
+    <string name="edit_item">Edit this shift</string>
+    <string name="hello">Hello World, CashDue!</string>
+    <string name="shift_exists">Another shift with this date and time is already saved. Touch \'Replace\' to replace it or check the above box to be able to save a duplicate with different sales.</string>
+    <string name="shift_exists_allowed">A shift already exist with this date and time. Touch \'Save\' to save a duplicate of this shift, or \'Replace\' to replace it.</string>
+    <string name="shift_non_exists">This is a new shift. Press \'Save\' to save it.</string>
+</resources>

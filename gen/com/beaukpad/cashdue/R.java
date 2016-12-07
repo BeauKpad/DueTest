@@ -15,14 +15,14 @@ public final class R {
         public static final int yellow=0x7f050001;
     }
     public static final class drawable {
-        public static final int bar2=0x7f020000;
-        public static final int icon=0x7f020001;
-        public static final int iggy=0x7f020002;
-        public static final int kevin=0x7f020003;
-        public static final int kevocto=0x7f020004;
+        public static final int burrata=0x7f020000;
+        public static final int chefs=0x7f020001;
+        public static final int coppa=0x7f020002;
+        public static final int group=0x7f020003;
+        public static final int icon=0x7f020004;
         public static final int russels=0x7f020005;
-        public static final int tuna=0x7f020006;
-        public static final int wineroom=0x7f020007;
+        public static final int seabass=0x7f020006;
+        public static final int windwine=0x7f020007;
     }
     public static final class id {
         public static final int BDatabaseAction=0x7f080028;

@@ -1,0 +1,119 @@
+-- Merging decision tree log ---
+manifest
+ADDED from AndroidManifest.xml:2:1
+	package
+		ADDED from AndroidManifest.xml:3:5
+	android:versionName
+		ADDED from AndroidManifest.xml:5:5
+	android:versionCode
+		ADDED from AndroidManifest.xml:4:5
+		INJECTED from AndroidManifest.xml:0:0
+		INJECTED from AndroidManifest.xml:0:0
+	xmlns:android
+		ADDED from AndroidManifest.xml:2:11
+uses-sdk
+ADDED from AndroidManifest.xml:7:5
+	android:targetSdkVersion
+		ADDED from AndroidManifest.xml:9:9
+		INJECTED from AndroidManifest.xml:0:0
+		INJECTED from AndroidManifest.xml:0:0
+	android:minSdkVersion
+		ADDED from AndroidManifest.xml:8:9
+		INJECTED from AndroidManifest.xml:0:0
+		INJECTED from AndroidManifest.xml:0:0
+supports-screens
+ADDED from AndroidManifest.xml:11:5
+	android:largeScreens
+		ADDED from AndroidManifest.xml:12:9
+	android:smallScreens
+		ADDED from AndroidManifest.xml:14:9
+	android:normalScreens
+		ADDED from AndroidManifest.xml:13:9
+uses-permission#android.permission.WRITE_EXTERNAL_STORAGE
+ADDED from AndroidManifest.xml:15:5
+	android:name
+		ADDED from AndroidManifest.xml:15:22
+uses-permission#android.permission.READ_EXTERNAL_STORAGE
+ADDED from AndroidManifest.xml:16:5
+	android:name
+		ADDED from AndroidManifest.xml:16:22
+application
+ADDED from AndroidManifest.xml:18:5
+	android:label
+		ADDED from AndroidManifest.xml:21:9
+	android:icon
+		ADDED from AndroidManifest.xml:20:9
+	android:name
+		ADDED from AndroidManifest.xml:19:9
+meta-data#com.google.android.backup.api_key
+ADDED from AndroidManifest.xml:22:9
+	android:value
+		ADDED from AndroidManifest.xml:24:13
+	android:name
+		ADDED from AndroidManifest.xml:23:13
+activity#com.beaukpad.cashdue.CashDue
+ADDED from AndroidManifest.xml:25:9
+	android:clearTaskOnLaunch
+		ADDED from AndroidManifest.xml:27:13
+	android:screenOrientation
+		ADDED from AndroidManifest.xml:28:46
+	android:label
+		ADDED from AndroidManifest.xml:28:13
+	android:configChanges
+		ADDED from AndroidManifest.xml:28:83
+	android:name
+		ADDED from AndroidManifest.xml:26:13
+intent-filter#android.intent.action.MAIN+android.intent.category.LAUNCHER
+ADDED from AndroidManifest.xml:29:13
+action#android.intent.action.MAIN
+ADDED from AndroidManifest.xml:30:17
+	android:name
+		ADDED from AndroidManifest.xml:30:25
+category#android.intent.category.LAUNCHER
+ADDED from AndroidManifest.xml:32:17
+	android:name
+		ADDED from AndroidManifest.xml:32:27
+activity#com.beaukpad.cashdue.PastShifts
+ADDED from AndroidManifest.xml:35:9
+	android:enabled
+		ADDED from AndroidManifest.xml:37:13
+	android:label
+		ADDED from AndroidManifest.xml:38:13
+	android:parentActivityName
+		ADDED from AndroidManifest.xml:40:13
+	android:launchMode
+		ADDED from AndroidManifest.xml:39:13
+	android:name
+		ADDED from AndroidManifest.xml:36:13
+activity#com.beaukpad.cashdue.AddShift
+ADDED from AndroidManifest.xml:42:9
+	android:noHistory
+		ADDED from AndroidManifest.xml:44:13
+	android:name
+		ADDED from AndroidManifest.xml:43:13
+activity#com.beaukpad.cashdue.Stats
+ADDED from AndroidManifest.xml:46:9
+	android:noHistory
+		ADDED from AndroidManifest.xml:48:13
+	android:name
+		ADDED from AndroidManifest.xml:47:13
+activity#com.beaukpad.cashdue.ResultActivity
+ADDED from AndroidManifest.xml:50:9
+	android:enabled
+		ADDED from AndroidManifest.xml:50:80
+	android:launchMode
+		ADDED from AndroidManifest.xml:50:49
+	android:name
+		ADDED from AndroidManifest.xml:50:19
+activity#com.beaukpad.cashdue.NewStats
+ADDED from AndroidManifest.xml:51:9
+	android:noHistory
+		ADDED from AndroidManifest.xml:51:44
+	android:name
+		ADDED from AndroidManifest.xml:51:19
+activity#com.beaukpad.cashdue.ReportBuild
+ADDED from AndroidManifest.xml:52:9
+	android:enabled
+		ADDED from AndroidManifest.xml:52:47
+	android:name
+		ADDED from AndroidManifest.xml:52:19

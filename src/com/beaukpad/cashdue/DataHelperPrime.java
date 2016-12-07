@@ -187,7 +187,7 @@ public class DataHelperPrime {
 		//I'm trying to prevent the same shift being added to the database twice in a row
 		if(dbSize > 0){
 			if(newShift.isTheSameShiftAs(lastInsertedShift)){
-				return lastInsertedShift.DBRow_ID;
+				return -1;
 			}			
 		}
 		// end drunk coding

@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="com.beaukpad.cashdue"
+    android:versionCode="29"
+    android:versionName="1.814" >
+
+    <uses-sdk
+        android:minSdkVersion="11"
+        android:targetSdkVersion="19" />
+
+    <supports-screens
+        android:largeScreens="true"
+        android:normalScreens="true"
+        android:smallScreens="true" />
+
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
+
+    <application
+        android:name="com.beaukpad.cashdue.MyApplication"
+        android:icon="@drawable/icon"
+        android:label="@string/app_name" >
+        <meta-data
+            android:name="com.google.android.backup.api_key"
+            android:value="AEdPqrEAAAAIKn4Ndr9VN0eI3EA0xzboMWEAmaBh8_c9kdNwQw" />
+
+        <activity
+            android:name="com.beaukpad.cashdue.CashDue"
+            android:clearTaskOnLaunch="true"
+            android:configChanges="keyboardHidden|orientation|screenSize"
+            android:label="@string/app_name"
+            android:screenOrientation="portrait" >
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name="com.beaukpad.cashdue.PastShifts"
+            android:enabled="true"
+            android:label="@string/DataActName"
+            android:launchMode="singleTop"
+            android:parentActivityName="com.beaukpad.cashdue.CashDue" >
+        </activity>
+        <activity
+            android:name="com.beaukpad.cashdue.AddShift"
+            android:noHistory="true" >
+        </activity>
+        <activity
+            android:name="com.beaukpad.cashdue.Stats"
+            android:noHistory="true" >
+        </activity>
+        <activity
+            android:name="com.beaukpad.cashdue.ResultActivity"
+            android:enabled="true"
+            android:launchMode="singleTop" />
+        <activity
+            android:name="com.beaukpad.cashdue.NewStats"
+            android:noHistory="true" />
+        <activity
+            android:name="com.beaukpad.cashdue.ReportBuild"
+            android:enabled="true" />
+    </application>
+
+</manifest>

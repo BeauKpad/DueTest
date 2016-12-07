@@ -16,8 +16,8 @@ import android.widget.TextView;
 
 public class ResultActivity extends Activity implements OnClickListener {
 
-	private static final double LUNCH_TIPOUT_MULTIPLIER = .0325;
-	private static final double DINNER_TIPOUT_MULTIPLIER = .035;
+	private static final double LUNCH_TIPOUT_MULTIPLIER = .035;
+	private static final double DINNER_TIPOUT_MULTIPLIER = .0375;
 	private static final boolean FAIL = true;
 	private static final boolean WIN = false;
 	public static String MY_PREFS = "MY_PREFS";
@@ -212,18 +212,19 @@ public class ResultActivity extends Activity implements OnClickListener {
 		//method from 'dh', but it only currently supports Shift array params
 		//and a return of the final size of the master array. I MUST write a function
 		//in the dh class that inserts a shift singally and returns the row or -1
+		//long result;
 		
-		long result;
-		Shift toAdd[] = new Shift[]{m_shift};
-		int countBefore = MyApplication.getInstance().AllShiftsGlobal.length;
-		dh.insertShiftsDeDupe(toAdd);
-		int countAfter = MyApplication.getInstance().AllShiftsGlobal.length;
-		if(countBefore < countAfter){
-			result = MyApplication.getInstance().AllShiftsGlobal[countAfter - 1].getDBRow();
-		}else {
-			result = -1;
-		}
-		return result;
+		//Shift toAdd[] = new Shift[]{m_shift};
+		//int countBefore = MyApplication.getInstance().AllShiftsGlobal.length;
+		//dh.insertShiftsDeDupe(toAdd);
+		//int countAfter = MyApplication.getInstance().AllShiftsGlobal.length;
+		//if(countBefore < countAfter){
+		//	result = MyApplication.getInstance().AllShiftsGlobal[countAfter - 1].getDBRow();
+		//}else {
+		//	result = -1;
+		//}
+		//return result;
+		return dh.insertShift(m_shift);
 	}
 
 	public void onClick(View v) {

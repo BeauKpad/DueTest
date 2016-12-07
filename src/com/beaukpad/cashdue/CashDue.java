@@ -368,25 +368,25 @@ public class CashDue extends Activity implements
 		int x = new Random().nextInt(7);
 		switch (x) {
 		case 0:
-			llMain.setBackgroundResource(R.drawable.kevin);
+			llMain.setBackgroundResource(R.drawable.chefs);
 			break;
 		case 1:
-			llMain.setBackgroundResource(R.drawable.iggy);
+			llMain.setBackgroundResource(R.drawable.burrata);
 			break;
 		case 2:
 			llMain.setBackgroundResource(R.drawable.russels);
 			break;
 		case 3:
-			llMain.setBackgroundResource(R.drawable.tuna);
+			llMain.setBackgroundResource(R.drawable.coppa);
 			break;
 		case 4:
-			llMain.setBackgroundResource(R.drawable.wineroom);
+			llMain.setBackgroundResource(R.drawable.group);
 			break;
 		case 5:
-			llMain.setBackgroundResource(R.drawable.bar2);
+			llMain.setBackgroundResource(R.drawable.seabass);
 			break;
 		case 6:
-			llMain.setBackgroundResource(R.drawable.kevocto);
+			llMain.setBackgroundResource(R.drawable.windwine);
 		}
 	}
 
