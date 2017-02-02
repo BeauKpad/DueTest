@@ -1,93 +1,50 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
-  <component name="AndroidLayoutPreviewToolWindow">
-    <option name="state">
-      <GlobalState />
-    </option>
-  </component>
   <component name="AndroidLayouts">
     <shared>
-      <config>
-        <target>android-17</target>
-      </config>
+      <config />
     </shared>
-    <layouts>
-      <layout url="file://$PROJECT_DIR$/res/layout/main.xml">
-        <config>
-          <device>2.7in QVGA slider</device>
-          <theme>@android:style/Theme</theme>
-        </config>
-      </layout>
-    </layouts>
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="654098be-c67f-4c92-af39-09c3268df38f" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/DueTest.iml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/com/beaukpad/cashdue/Stats.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/res/layout/stats.xml" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/bin/jarlist.cache" afterPath="" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/bin/classes/com/beaukpad/cashdue/AddShift$1.class" afterPath="$PROJECT_DIR$/bin/classes/com/beaukpad/cashdue/AddShift$1.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/bin/classes/com/beaukpad/cashdue/AddShift$10.class" afterPath="$PROJECT_DIR$/bin/classes/com/beaukpad/cashdue/AddShift$10.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/bin/classes/com/beaukpad/cashdue/AddShift$11.class" afterPath="$PROJECT_DIR$/bin/classes/com/beaukpad/cashdue/AddShift$11.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/bin/classes/com/beaukpad/cashdue/AddShift$12.class" afterPath="$PROJECT_DIR$/bin/classes/com/beaukpad/cashdue/AddShift$12.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/bin/classes/com/beaukpad/cashdue/AddShift$13.class" afterPath="$PROJECT_DIR$/bin/classes/com/beaukpad/cashdue/AddShift$13.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/bin/classes/com/beaukpad/cashdue/AddShift$14.class" afterPath="$PROJECT_DIR$/bin/classes/com/beaukpad/cashdue/AddShift$14.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/bin/classes/com/beaukpad/cashdue/AddShift$15.class" afterPath="$PROJECT_DIR$/bin/classes/com/beaukpad/cashdue/AddShift$15.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/bin/classes/com/beaukpad/cashdue/AddShift$16.class" afterPath="$PROJECT_DIR$/bin/classes/com/beaukpad/cashdue/AddShift$16.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/bin/classes/com/beaukpad/cashdue/AddShift$17.class" afterPath="$PROJECT_DIR$/bin/classes/com/beaukpad/cashdue/AddShift$17.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/bin/classes/com/beaukpad/cashdue/AddShift$18.class" afterPath="$PROJECT_DIR$/bin/classes/com/beaukpad/cashdue/AddShift$18.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/bin/classes/com/beaukpad/cashdue/AddShift$19.class" afterPath="$PROJECT_DIR$/bin/classes/com/beaukpad/cashdue/AddShift$19.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/bin/classes/com/beaukpad/cashdue/AddShift$2.class" afterPath="$PROJECT_DIR$/bin/classes/com/beaukpad/cashdue/AddShift$2.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/bin/classes/com/beaukpad/cashdue/AddShift$3.class" afterPath="$PROJECT_DIR$/bin/classes/com/beaukpad/cashdue/AddShift$3.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/bin/classes/com/beaukpad/cashdue/AddShift$4.class" afterPath="$PROJECT_DIR$/bin/classes/com/beaukpad/cashdue/AddShift$4.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/bin/classes/com/beaukpad/cashdue/AddShift$5.class" afterPath="$PROJECT_DIR$/bin/classes/com/beaukpad/cashdue/AddShift$5.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/bin/classes/com/beaukpad/cashdue/AddShift$6.class" afterPath="$PROJECT_DIR$/bin/classes/com/beaukpad/cashdue/AddShift$6.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/bin/classes/com/beaukpad/cashdue/AddShift$7.class" afterPath="$PROJECT_DIR$/bin/classes/com/beaukpad/cashdue/AddShift$7.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/bin/classes/com/beaukpad/cashdue/AddShift$8.class" afterPath="$PROJECT_DIR$/bin/classes/com/beaukpad/cashdue/AddShift$8.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/bin/classes/com/beaukpad/cashdue/AddShift$9.class" afterPath="$PROJECT_DIR$/bin/classes/com/beaukpad/cashdue/AddShift$9.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/bin/classes/com/beaukpad/cashdue/AddShift.class" afterPath="$PROJECT_DIR$/bin/classes/com/beaukpad/cashdue/AddShift.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/bin/classes/com/beaukpad/cashdue/CashDue$1.class" afterPath="$PROJECT_DIR$/bin/classes/com/beaukpad/cashdue/CashDue$1.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/bin/classes/com/beaukpad/cashdue/CashDue$2.class" afterPath="$PROJECT_DIR$/bin/classes/com/beaukpad/cashdue/CashDue$2.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/bin/classes/com/beaukpad/cashdue/CashDue$3.class" afterPath="$PROJECT_DIR$/bin/classes/com/beaukpad/cashdue/CashDue$3.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/bin/classes/com/beaukpad/cashdue/CashDue$4.class" afterPath="$PROJECT_DIR$/bin/classes/com/beaukpad/cashdue/CashDue$4.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/bin/classes/com/beaukpad/cashdue/CashDue$5.class" afterPath="$PROJECT_DIR$/bin/classes/com/beaukpad/cashdue/CashDue$5.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/bin/classes/com/beaukpad/cashdue/CashDue$6.class" afterPath="$PROJECT_DIR$/bin/classes/com/beaukpad/cashdue/CashDue$6.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/bin/classes/com/beaukpad/cashdue/CashDue.class" afterPath="$PROJECT_DIR$/bin/classes/com/beaukpad/cashdue/CashDue.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/bin/classes/com/beaukpad/cashdue/DataActivity$CustomListAdapter.class" afterPath="$PROJECT_DIR$/bin/classes/com/beaukpad/cashdue/DataActivity$CustomListAdapter.class" />
+    <list default="true" id="5b309e8c-14c9-4910-adaf-404c84998adf" name="Default" comment="">
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/modules/DueTest.iml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/runConfigurations.xml" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/.idea/.name" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/.idea/encodings.xml" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/.idea/libraries/annotations_0a1194a7dab18dda5a9f9f4fd31df05d.xml" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/.idea/scopes/scope_settings.xml" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/DueTest.iml" afterPath="" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/bin/classes/com/beaukpad/cashdue/BuildConfig.class" afterPath="$PROJECT_DIR$/bin/classes/com/beaukpad/cashdue/BuildConfig.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/bin/classes/com/beaukpad/cashdue/DataActivity.class" afterPath="$PROJECT_DIR$/bin/classes/com/beaukpad/cashdue/DataActivity.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/bin/classes/com/beaukpad/cashdue/DataHelper$OpenHelper.class" afterPath="$PROJECT_DIR$/bin/classes/com/beaukpad/cashdue/DataHelper$OpenHelper.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/bin/classes/com/beaukpad/cashdue/DataHelper.class" afterPath="$PROJECT_DIR$/bin/classes/com/beaukpad/cashdue/DataHelper.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/bin/DueTest.apk" afterPath="$PROJECT_DIR$/bin/DueTest.apk" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/bin/classes/com/beaukpad/cashdue/R$color.class" afterPath="$PROJECT_DIR$/bin/classes/com/beaukpad/cashdue/R$color.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/bin/classes/com/beaukpad/cashdue/R$drawable.class" afterPath="$PROJECT_DIR$/bin/classes/com/beaukpad/cashdue/R$drawable.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/bin/classes/com/beaukpad/cashdue/R$id.class" afterPath="$PROJECT_DIR$/bin/classes/com/beaukpad/cashdue/R$id.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/bin/classes/com/beaukpad/cashdue/R$layout.class" afterPath="$PROJECT_DIR$/bin/classes/com/beaukpad/cashdue/R$layout.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/bin/classes/com/beaukpad/cashdue/R$menu.class" afterPath="$PROJECT_DIR$/bin/classes/com/beaukpad/cashdue/R$menu.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/bin/classes/com/beaukpad/cashdue/R$raw.class" afterPath="$PROJECT_DIR$/bin/classes/com/beaukpad/cashdue/R$raw.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/bin/classes/com/beaukpad/cashdue/R$string.class" afterPath="$PROJECT_DIR$/bin/classes/com/beaukpad/cashdue/R$string.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/bin/classes/com/beaukpad/cashdue/Shift.class" afterPath="$PROJECT_DIR$/bin/classes/com/beaukpad/cashdue/Shift.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/bin/res/drawable/bar.png" afterPath="$PROJECT_DIR$/bin/res/drawable/bar.png" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/res/drawable/bar.png" afterPath="$PROJECT_DIR$/res/drawable/bar.png" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/bin/classes.dex" afterPath="$PROJECT_DIR$/bin/classes.dex" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/bin/resources.ap_" afterPath="$PROJECT_DIR$/bin/resources.ap_" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.classpath" afterPath="$PROJECT_DIR$/.classpath" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/com/beaukpad/cashdue/AddShift.java" afterPath="$PROJECT_DIR$/src/com/beaukpad/cashdue/AddShift.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/AndroidManifest.xml" afterPath="$PROJECT_DIR$/AndroidManifest.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/bin/AndroidManifest.xml" afterPath="$PROJECT_DIR$/bin/AndroidManifest.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/com/beaukpad/cashdue/CashDue.java" afterPath="$PROJECT_DIR$/src/com/beaukpad/cashdue/CashDue.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/com/beaukpad/cashdue/DataActivity.java" afterPath="$PROJECT_DIR$/src/com/beaukpad/cashdue/DataActivity.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/com/beaukpad/cashdue/DataHelper.java" afterPath="$PROJECT_DIR$/src/com/beaukpad/cashdue/DataHelper.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/bin/classes/com/beaukpad/cashdue/ResultActivity$soundPlayTask.class" afterPath="$PROJECT_DIR$/bin/classes/com/beaukpad/cashdue/ResultActivity$soundPlayTask.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/bin/classes/com/beaukpad/cashdue/ResultActivity.class" afterPath="$PROJECT_DIR$/bin/classes/com/beaukpad/cashdue/ResultActivity.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/bin/classes/com/beaukpad/cashdue/Stats.class" afterPath="$PROJECT_DIR$/bin/classes/com/beaukpad/cashdue/Stats.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/compiler.xml" afterPath="$PROJECT_DIR$/.idea/compiler.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/copyright/profiles_settings.xml" afterPath="$PROJECT_DIR$/.idea/copyright/profiles_settings.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/gradle.xml" afterPath="$PROJECT_DIR$/.idea/gradle.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/misc.xml" afterPath="$PROJECT_DIR$/.idea/misc.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/modules.xml" afterPath="$PROJECT_DIR$/.idea/modules.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/vcs.xml" afterPath="$PROJECT_DIR$/.idea/vcs.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/gen/com/beaukpad/cashdue/BuildConfig.java" afterPath="$PROJECT_DIR$/gen/com/beaukpad/cashdue/BuildConfig.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/gen/com/beaukpad/cashdue/R.java" afterPath="$PROJECT_DIR$/gen/com/beaukpad/cashdue/R.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/com/beaukpad/cashdue/Shift.java" afterPath="$PROJECT_DIR$/src/com/beaukpad/cashdue/Shift.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/res/values/colors.xml" afterPath="$PROJECT_DIR$/res/values/colors.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/res/layout/database.xml" afterPath="$PROJECT_DIR$/res/layout/database.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/gradle/wrapper/gradle-wrapper.properties" afterPath="$PROJECT_DIR$/gradle/wrapper/gradle-wrapper.properties" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/local.properties" afterPath="$PROJECT_DIR$/local.properties" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/res/layout/main.xml" afterPath="$PROJECT_DIR$/res/layout/main.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/res/menu/mainmenu.xml" afterPath="$PROJECT_DIR$/res/menu/mainmenu.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/project.properties" afterPath="$PROJECT_DIR$/project.properties" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/res/layout/shiftlistitem.xml" afterPath="$PROJECT_DIR$/res/layout/shiftlistitem.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/res/layout/results_activity.xml" afterPath="$PROJECT_DIR$/res/layout/results_activity.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/com/beaukpad/cashdue/CashDue.java" afterPath="$PROJECT_DIR$/src/com/beaukpad/cashdue/CashDue.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/com/beaukpad/cashdue/DataHelperPrime.java" afterPath="$PROJECT_DIR$/src/com/beaukpad/cashdue/DataHelperPrime.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/com/beaukpad/cashdue/ResultActivity.java" afterPath="$PROJECT_DIR$/src/com/beaukpad/cashdue/ResultActivity.java" />
     </list>
     <ignored path="DueTest.iws" />
     <ignored path=".idea/workspace.xml" />
+    <ignored path="$PROJECT_DIR$/.gradle/" />
+    <ignored path="$PROJECT_DIR$/build/" />
+    <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -98,108 +55,32 @@
   <component name="CreatePatchCommitExecutor">
     <option name="PATCH_PATH" value="" />
   </component>
-  <component name="DaemonCodeAnalyzer">
-    <disable_hints />
-  </component>
-  <component name="DebuggerManager">
-    <breakpoint_any default_suspend_policy="SuspendAll" default_condition_enabled="true">
-      <breakpoint>
-        <option name="NOTIFY_CAUGHT" value="true" />
-        <option name="NOTIFY_UNCAUGHT" value="true" />
-        <option name="ENABLED" value="false" />
-        <option name="LOG_ENABLED" value="false" />
-        <option name="LOG_EXPRESSION_ENABLED" value="false" />
-        <option name="REMOVE_AFTER_HIT" value="false" />
-        <option name="SUSPEND_POLICY" value="SuspendAll" />
-        <option name="SUSPEND" value="true" />
-        <option name="COUNT_FILTER_ENABLED" value="false" />
-        <option name="COUNT_FILTER" value="0" />
-        <option name="CONDITION_ENABLED" value="true" />
-        <option name="CLASS_FILTERS_ENABLED" value="false" />
-        <option name="INSTANCE_FILTERS_ENABLED" value="false" />
-        <option name="CONDITION" value="" />
-        <option name="LOG_MESSAGE" value="" />
-      </breakpoint>
-      <breakpoint>
-        <option name="NOTIFY_CAUGHT" value="true" />
-        <option name="NOTIFY_UNCAUGHT" value="true" />
-        <option name="ENABLED" value="false" />
-        <option name="LOG_ENABLED" value="false" />
-        <option name="LOG_EXPRESSION_ENABLED" value="false" />
-        <option name="REMOVE_AFTER_HIT" value="false" />
-        <option name="SUSPEND_POLICY" value="SuspendAll" />
-        <option name="SUSPEND" value="true" />
-        <option name="COUNT_FILTER_ENABLED" value="false" />
-        <option name="COUNT_FILTER" value="0" />
-        <option name="CONDITION_ENABLED" value="true" />
-        <option name="CLASS_FILTERS_ENABLED" value="false" />
-        <option name="INSTANCE_FILTERS_ENABLED" value="false" />
-        <option name="CONDITION" value="" />
-        <option name="LOG_MESSAGE" value="" />
-      </breakpoint>
-    </breakpoint_any>
-    <ui_properties default_suspend_policy="SuspendAll" default_condition_enabled="true" />
-    <breakpoint_rules />
-    <ui_properties />
-  </component>
   <component name="ExecutionTargetManager" SELECTED_TARGET="default_target" />
+  <component name="ExternalProjectsData">
+    <projectState path="$PROJECT_DIR$">
+      <ProjectState />
+    </projectState>
+  </component>
   <component name="FavoritesManager">
     <favorites_list name="DueTest" />
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="stats.xml" pinned="false" current="true" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/res/layout/stats.xml">
-          <provider selected="true" editor-type-id="android-designer">
-            <state />
-          </provider>
-          <provider editor-type-id="text-editor">
-            <state line="9" column="14" selection-start="462" selection-end="462" vertical-scroll-proportion="-5.4" vertical-offset="0" max-vertical-offset="225">
+      <file leaf-file-name="CashDue.java" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/com/beaukpad/cashdue/CashDue.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="30">
+              <caret line="214" column="20" selection-start-line="214" selection-start-column="20" selection-end-line="214" selection-end-column="20" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="Stats.java" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/com/beaukpad/cashdue/Stats.java">
+      <file leaf-file-name="DataHelperPrime.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/com/beaukpad/cashdue/DataHelperPrime.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="91" column="0" selection-start="2840" selection-end="2840" vertical-scroll-proportion="0.0" vertical-offset="1365" max-vertical-offset="1455">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="DataHelper.java" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/com/beaukpad/cashdue/DataHelper.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="182" column="31" selection-start="6629" selection-end="6629" vertical-scroll-proportion="0.0" vertical-offset="2730" max-vertical-offset="4005">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="Shift.java" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/com/beaukpad/cashdue/Shift.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="96" column="24" selection-start="1894" selection-end="1894" vertical-scroll-proportion="0.0" vertical-offset="1440" max-vertical-offset="3120">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="DataActivity.java" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/com/beaukpad/cashdue/DataActivity.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="55" column="38" selection-start="1928" selection-end="1928" vertical-scroll-proportion="0.0" vertical-offset="825" max-vertical-offset="4245">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="AndroidManifest.xml" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/AndroidManifest.xml">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="4" column="29" selection-start="201" selection-end="201" vertical-scroll-proportion="0.0" vertical-offset="60" max-vertical-offset="855">
+            <state relative-caret-position="0">
+              <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
               <folding />
             </state>
           </provider>
@@ -207,30 +88,10 @@
       </file>
     </leaf>
   </component>
-  <component name="FindManager">
-    <FindUsagesManager>
-      <setting name="OPEN_NEW_TAB" value="false" />
-    </FindUsagesManager>
-  </component>
-  <component name="GenerateSignedApkSettings">
-    <option name="KEY_STORE_PATH" value="$PROJECT_DIR$/../DueTest publish keystore/DueTestKeystore" />
-    <option name="KEY_ALIAS" value="cashdue" />
-    <option name="REMEMBER_PASSWORDS" value="true" />
-  </component>
   <component name="Git.Settings">
-    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/.." />
-  </component>
-  <component name="GitLogSettings">
-    <option name="myDateState">
-      <MyDateState />
-    </option>
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
   <component name="GradleLocalSettings">
-    <option name="tasksExpandState">
-      <map>
-        <entry key="" value="true" />
-      </map>
-    </option>
     <option name="availableProjects">
       <map>
         <entry>
@@ -565,47 +426,108 @@
     </option>
     <option name="modificationStamps">
       <map>
-        <entry key="$PROJECT_DIR$" value="1380675224646" />
+        <entry key="$PROJECT_DIR$" value="1480828442185" />
       </map>
+    </option>
+    <option name="projectBuildClasspath">
+      <map>
+        <entry key="$PROJECT_DIR$">
+          <value>
+            <ExternalProjectBuildClasspathPojo>
+              <option name="modulesBuildClasspath">
+                <map>
+                  <entry key="$PROJECT_DIR$">
+                    <value>
+                      <ExternalModuleBuildClasspathPojo>
+                        <option name="path" value="$PROJECT_DIR$" />
+                      </ExternalModuleBuildClasspathPojo>
+                    </value>
+                  </entry>
+                </map>
+              </option>
+              <option name="name" value="DueTest" />
+              <option name="projectBuildClasspath">
+                <list>
+                  <option value="$USER_HOME$/.gradle/wrapper/dists/gradle-1.6-all/arxsbed7blvy3uqpbct0v8y48/gradle-1.6/src" />
+                  <option value="$USER_HOME$/.gradle/wrapper/dists/gradle-1.6-all/arxsbed7blvy3uqpbct0v8y48/gradle-1.6/lib/gradle-tooling-api-1.6.jar" />
+                  <option value="$USER_HOME$/.gradle/wrapper/dists/gradle-1.6-all/arxsbed7blvy3uqpbct0v8y48/gradle-1.6/lib/gradle-open-api-1.6.jar" />
+                  <option value="$USER_HOME$/.gradle/wrapper/dists/gradle-1.6-all/arxsbed7blvy3uqpbct0v8y48/gradle-1.6/lib/gradle-launcher-1.6.jar" />
+                  <option value="$USER_HOME$/.gradle/wrapper/dists/gradle-1.6-all/arxsbed7blvy3uqpbct0v8y48/gradle-1.6/lib/groovy-all-1.8.6.jar" />
+                  <option value="$USER_HOME$/.gradle/wrapper/dists/gradle-1.6-all/arxsbed7blvy3uqpbct0v8y48/gradle-1.6/lib/gradle-cli-1.6.jar" />
+                  <option value="$USER_HOME$/.gradle/wrapper/dists/gradle-1.6-all/arxsbed7blvy3uqpbct0v8y48/gradle-1.6/lib/ant-launcher-1.8.4.jar" />
+                  <option value="$USER_HOME$/.gradle/wrapper/dists/gradle-1.6-all/arxsbed7blvy3uqpbct0v8y48/gradle-1.6/lib/gradle-wrapper-1.6.jar" />
+                  <option value="$USER_HOME$/.gradle/wrapper/dists/gradle-1.6-all/arxsbed7blvy3uqpbct0v8y48/gradle-1.6/lib/ivy-2.2.0.jar" />
+                  <option value="$USER_HOME$/.gradle/wrapper/dists/gradle-1.6-all/arxsbed7blvy3uqpbct0v8y48/gradle-1.6/lib/gradle-docs-1.6.jar" />
+                  <option value="$USER_HOME$/.gradle/wrapper/dists/gradle-1.6-all/arxsbed7blvy3uqpbct0v8y48/gradle-1.6/lib/ant-1.8.4.jar" />
+                  <option value="$USER_HOME$/.gradle/wrapper/dists/gradle-1.6-all/arxsbed7blvy3uqpbct0v8y48/gradle-1.6/lib/gradle-native-1.6.jar" />
+                  <option value="$USER_HOME$/.gradle/wrapper/dists/gradle-1.6-all/arxsbed7blvy3uqpbct0v8y48/gradle-1.6/lib/gradle-base-services-1.6.jar" />
+                  <option value="$USER_HOME$/.gradle/wrapper/dists/gradle-1.6-all/arxsbed7blvy3uqpbct0v8y48/gradle-1.6/lib/gradle-base-services-groovy-1.6.jar" />
+                  <option value="$USER_HOME$/.gradle/wrapper/dists/gradle-1.6-all/arxsbed7blvy3uqpbct0v8y48/gradle-1.6/lib/gradle-ui-1.6.jar" />
+                  <option value="$USER_HOME$/.gradle/wrapper/dists/gradle-1.6-all/arxsbed7blvy3uqpbct0v8y48/gradle-1.6/lib/gradle-messaging-1.6.jar" />
+                  <option value="$USER_HOME$/.gradle/wrapper/dists/gradle-1.6-all/arxsbed7blvy3uqpbct0v8y48/gradle-1.6/lib/gradle-core-1.6.jar" />
+                  <option value="$USER_HOME$/.gradle/wrapper/dists/gradle-1.6-all/arxsbed7blvy3uqpbct0v8y48/gradle-1.6/lib/plugins/gradle-build-setup-1.6.jar" />
+                  <option value="$USER_HOME$/.gradle/wrapper/dists/gradle-1.6-all/arxsbed7blvy3uqpbct0v8y48/gradle-1.6/lib/plugins/gradle-code-quality-1.6.jar" />
+                  <option value="$USER_HOME$/.gradle/wrapper/dists/gradle-1.6-all/arxsbed7blvy3uqpbct0v8y48/gradle-1.6/lib/plugins/gradle-ivy-1.6.jar" />
+                  <option value="$USER_HOME$/.gradle/wrapper/dists/gradle-1.6-all/arxsbed7blvy3uqpbct0v8y48/gradle-1.6/lib/plugins/gradle-build-comparison-1.6.jar" />
+                  <option value="$USER_HOME$/.gradle/wrapper/dists/gradle-1.6-all/arxsbed7blvy3uqpbct0v8y48/gradle-1.6/lib/plugins/gradle-diagnostics-1.6.jar" />
+                  <option value="$USER_HOME$/.gradle/wrapper/dists/gradle-1.6-all/arxsbed7blvy3uqpbct0v8y48/gradle-1.6/lib/plugins/gradle-antlr-1.6.jar" />
+                  <option value="$USER_HOME$/.gradle/wrapper/dists/gradle-1.6-all/arxsbed7blvy3uqpbct0v8y48/gradle-1.6/lib/plugins/gradle-jacoco-1.6.jar" />
+                  <option value="$USER_HOME$/.gradle/wrapper/dists/gradle-1.6-all/arxsbed7blvy3uqpbct0v8y48/gradle-1.6/lib/plugins/gradle-ear-1.6.jar" />
+                  <option value="$USER_HOME$/.gradle/wrapper/dists/gradle-1.6-all/arxsbed7blvy3uqpbct0v8y48/gradle-1.6/lib/plugins/gradle-plugins-1.6.jar" />
+                  <option value="$USER_HOME$/.gradle/wrapper/dists/gradle-1.6-all/arxsbed7blvy3uqpbct0v8y48/gradle-1.6/lib/plugins/gradle-osgi-1.6.jar" />
+                  <option value="$USER_HOME$/.gradle/wrapper/dists/gradle-1.6-all/arxsbed7blvy3uqpbct0v8y48/gradle-1.6/lib/plugins/ant-antlr-1.8.4.jar" />
+                  <option value="$USER_HOME$/.gradle/wrapper/dists/gradle-1.6-all/arxsbed7blvy3uqpbct0v8y48/gradle-1.6/lib/plugins/gradle-maven-1.6.jar" />
+                  <option value="$USER_HOME$/.gradle/wrapper/dists/gradle-1.6-all/arxsbed7blvy3uqpbct0v8y48/gradle-1.6/lib/plugins/gradle-language-jvm-1.6.jar" />
+                  <option value="$USER_HOME$/.gradle/wrapper/dists/gradle-1.6-all/arxsbed7blvy3uqpbct0v8y48/gradle-1.6/lib/plugins/gradle-javascript-1.6.jar" />
+                  <option value="$USER_HOME$/.gradle/wrapper/dists/gradle-1.6-all/arxsbed7blvy3uqpbct0v8y48/gradle-1.6/lib/plugins/gradle-jetty-1.6.jar" />
+                  <option value="$USER_HOME$/.gradle/wrapper/dists/gradle-1.6-all/arxsbed7blvy3uqpbct0v8y48/gradle-1.6/lib/plugins/gradle-signing-1.6.jar" />
+                  <option value="$USER_HOME$/.gradle/wrapper/dists/gradle-1.6-all/arxsbed7blvy3uqpbct0v8y48/gradle-1.6/lib/plugins/gradle-scala-1.6.jar" />
+                  <option value="$USER_HOME$/.gradle/wrapper/dists/gradle-1.6-all/arxsbed7blvy3uqpbct0v8y48/gradle-1.6/lib/plugins/gradle-announce-1.6.jar" />
+                  <option value="$USER_HOME$/.gradle/wrapper/dists/gradle-1.6-all/arxsbed7blvy3uqpbct0v8y48/gradle-1.6/lib/plugins/gradle-ide-1.6.jar" />
+                  <option value="$USER_HOME$/.gradle/wrapper/dists/gradle-1.6-all/arxsbed7blvy3uqpbct0v8y48/gradle-1.6/lib/plugins/gradle-cpp-1.6.jar" />
+                  <option value="$USER_HOME$/.gradle/wrapper/dists/gradle-1.6-all/arxsbed7blvy3uqpbct0v8y48/gradle-1.6/lib/plugins/gradle-publish-1.6.jar" />
+                  <option value="$USER_HOME$/.gradle/wrapper/dists/gradle-1.6-all/arxsbed7blvy3uqpbct0v8y48/gradle-1.6/lib/plugins/gradle-sonar-1.6.jar" />
+                  <option value="$USER_HOME$/.gradle/wrapper/dists/gradle-1.6-all/arxsbed7blvy3uqpbct0v8y48/gradle-1.6/lib/plugins/gradle-reporting-1.6.jar" />
+                  <option value="$USER_HOME$/.gradle/wrapper/dists/gradle-1.6-all/arxsbed7blvy3uqpbct0v8y48/gradle-1.6/lib/plugins/gradle-core-impl-1.6.jar" />
+                  <option value="$USER_HOME$/.gradle/wrapper/dists/gradle-1.6-all/arxsbed7blvy3uqpbct0v8y48/gradle-1.6/lib/plugins/gradle-language-base-1.6.jar" />
+                  <option value="$PROJECT_DIR$/buildSrc/src/main/java" />
+                  <option value="$PROJECT_DIR$/buildSrc/src/main/groovy" />
+                </list>
+              </option>
+            </ExternalProjectBuildClasspathPojo>
+          </value>
+        </entry>
+      </map>
+    </option>
+    <option name="externalProjectsViewState">
+      <projects_view />
     </option>
   </component>
   <component name="IdeDocumentHistory">
-    <option name="changedFiles">
+    <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/res/layout/main.xml" />
-        <option value="$PROJECT_DIR$/res/menu/mainmenu.xml" />
         <option value="$PROJECT_DIR$/src/com/beaukpad/cashdue/CashDue.java" />
-        <option value="$PROJECT_DIR$/res/values/colors.xml" />
-        <option value="$PROJECT_DIR$/res/layout/stats.xml" />
-        <option value="$PROJECT_DIR$/src/com/beaukpad/cashdue/Shift.java" />
-        <option value="$PROJECT_DIR$/src/com/beaukpad/cashdue/DataHelper.java" />
-        <option value="$PROJECT_DIR$/src/com/beaukpad/cashdue/Stats.java" />
-        <option value="$PROJECT_DIR$/res/layout/database.xml" />
-        <option value="$PROJECT_DIR$/src/com/beaukpad/cashdue/DataActivity.java" />
-        <option value="$PROJECT_DIR$/AndroidManifest.xml" />
       </list>
     </option>
   </component>
   <component name="ProjectFrameBounds">
-    <option name="x" value="-3" />
-    <option name="width" value="1926" />
-    <option name="height" value="1057" />
+    <option name="x" value="10" />
+    <option name="y" value="20" />
+    <option name="width" value="1346" />
+    <option name="height" value="703" />
   </component>
-  <component name="ProjectLevelVcsManager" settingsEditedManually="true">
+  <component name="ProjectLevelVcsManager" settingsEditedManually="false">
     <OptionsSetting value="true" id="Add" />
     <OptionsSetting value="true" id="Remove" />
     <OptionsSetting value="true" id="Checkout" />
     <OptionsSetting value="true" id="Update" />
     <OptionsSetting value="true" id="Status" />
     <OptionsSetting value="true" id="Edit" />
-    <ConfirmationsSetting value="2" id="Add" />
+    <ConfirmationsSetting value="0" id="Add" />
     <ConfirmationsSetting value="0" id="Remove" />
   </component>
-  <component name="ProjectReloadState">
-    <option name="STATE" value="0" />
-  </component>
   <component name="ProjectView">
-    <navigator currentView="ProjectPane" proportions="" version="1" splitterProportion="0.5">
+    <navigator currentView="ProjectPane" proportions="" version="1">
       <flattenPackages />
       <showMembers />
       <showModules />
@@ -615,9 +537,10 @@
       <autoscrollToSource />
       <autoscrollFromSource />
       <sortByType />
+      <manualOrder />
+      <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="Scope" />
       <pane id="PackagesPane" />
       <pane id="ProjectPane">
         <subPane>
@@ -637,34 +560,93 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="DueTest" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="DueTest" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="com" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="beaukpad" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="cashdue" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
         </subPane>
       </pane>
+      <pane id="Scope" />
+      <pane id="AndroidView">
+        <subPane />
+      </pane>
+      <pane id="Scratches" />
     </panes>
   </component>
   <component name="PropertiesComponent">
-    <property name="GoToFile.includeJavaFiles" value="false" />
-    <property name="GoToClass.toSaveIncludeLibraries" value="false" />
-    <property name="MemberChooser.sorted" value="false" />
-    <property name="MemberChooser.showClasses" value="true" />
-    <property name="GoToClass.includeLibraries" value="false" />
-    <property name="MemberChooser.copyJavadoc" value="false" />
-    <property name="options.lastSelected" value="project.propVCSSupport.Mappings" />
-    <property name="options.splitter.main.proportions" value="0.3" />
-    <property name="options.splitter.details.proportions" value="0.2" />
-    <property name="options.searchVisible" value="true" />
-    <property name="recentsLimit" value="5" />
-    <property name="OverrideImplement.combined" value="true" />
-    <property name="OverrideImplement.overriding.sorted" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/../DueTest publish keystore/DueTestKeystore" />
-    <property name="ExportedModule" value="DueTest" />
-    <property name="ExportedApkPath" value="$PROJECT_DIR$/DueTest16.apk" />
-    <property name="AndroidRunProguardForReleaseBuild" value="false" />
-    <property name="FullScreen" value="false" />
-    <property name="project.structure.last.edited" value="Android SDK" />
-    <property name="project.structure.proportion" value="0.15" />
-    <property name="project.structure.side.proportion" value="0.2" />
+    <property name="android.sdk.path" value="$USER_HOME$/Android/Sdk" />
+    <property name="settings.editor.selected.configurable" value="editor.preferences.import" />
+    <property name="settings.editor.splitter.proportion" value="0.2" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
   </component>
-  <component name="RunManager" selected="Android Application.DueTest">
+  <component name="RunManager">
+    <configuration default="true" type="AndroidRunConfigurationType" factoryName="Android App">
+      <module name="" />
+      <option name="DEPLOY" value="true" />
+      <option name="ARTIFACT_NAME" value="" />
+      <option name="PM_INSTALL_OPTIONS" value="" />
+      <option name="ACTIVITY_EXTRA_FLAGS" value="" />
+      <option name="MODE" value="default_activity" />
+      <option name="TARGET_SELECTION_MODE" value="SHOW_DIALOG" />
+      <option name="PREFERRED_AVD" value="" />
+      <option name="CLEAR_LOGCAT" value="false" />
+      <option name="SHOW_LOGCAT_AUTOMATICALLY" value="false" />
+      <option name="SKIP_NOOP_APK_INSTALLATIONS" value="true" />
+      <option name="FORCE_STOP_RUNNING_APP" value="true" />
+      <option name="DEBUGGER_TYPE" value="Auto" />
+      <option name="USE_LAST_SELECTED_DEVICE" value="false" />
+      <option name="PREFERRED_AVD" value="" />
+      <option name="SELECTED_CLOUD_MATRIX_CONFIGURATION_ID" value="-1" />
+      <option name="SELECTED_CLOUD_MATRIX_PROJECT_ID" value="" />
+      <Auto>
+        <option name="USE_JAVA_AWARE_DEBUGGER" value="false" />
+        <option name="WORKING_DIR" value="" />
+        <option name="TARGET_LOGGING_CHANNELS" value="lldb process:gdb-remote packets" />
+      </Auto>
+      <Hybrid>
+        <option name="USE_JAVA_AWARE_DEBUGGER" value="false" />
+        <option name="WORKING_DIR" value="" />
+        <option name="TARGET_LOGGING_CHANNELS" value="lldb process:gdb-remote packets" />
+      </Hybrid>
+      <Java />
+      <Native>
+        <option name="USE_JAVA_AWARE_DEBUGGER" value="false" />
+        <option name="WORKING_DIR" value="" />
+        <option name="TARGET_LOGGING_CHANNELS" value="lldb process:gdb-remote packets" />
+      </Native>
+      <Profilers>
+        <option name="ENABLE_ADVANCED_PROFILING" value="true" />
+        <option name="GAPID_ENABLED" value="false" />
+        <option name="GAPID_DISABLE_PCS" value="false" />
+        <option name="SUPPORT_LIB_ENABLED" value="true" />
+        <option name="INSTRUMENTATION_ENABLED" value="true" />
+      </Profilers>
+      <option name="DEEP_LINK" value="" />
+      <option name="ACTIVITY_CLASS" value="" />
+      <method />
+    </configuration>
     <configuration default="true" type="AndroidTestRunConfigurationType" factoryName="Android Tests">
       <module name="" />
       <option name="TESTING_TYPE" value="0" />
@@ -672,68 +654,45 @@
       <option name="METHOD_NAME" value="" />
       <option name="CLASS_NAME" value="" />
       <option name="PACKAGE_NAME" value="" />
-      <option name="TARGET_SELECTION_MODE" value="EMULATOR" />
+      <option name="EXTRA_OPTIONS" value="" />
+      <option name="TARGET_SELECTION_MODE" value="SHOW_DIALOG" />
+      <option name="PREFERRED_AVD" value="" />
+      <option name="CLEAR_LOGCAT" value="false" />
+      <option name="SHOW_LOGCAT_AUTOMATICALLY" value="false" />
+      <option name="SKIP_NOOP_APK_INSTALLATIONS" value="true" />
+      <option name="FORCE_STOP_RUNNING_APP" value="true" />
+      <option name="DEBUGGER_TYPE" value="Auto" />
       <option name="USE_LAST_SELECTED_DEVICE" value="false" />
       <option name="PREFERRED_AVD" value="" />
-      <option name="USE_COMMAND_LINE" value="true" />
-      <option name="COMMAND_LINE" value="" />
-      <option name="WIPE_USER_DATA" value="false" />
-      <option name="DISABLE_BOOT_ANIMATION" value="false" />
-      <option name="NETWORK_SPEED" value="full" />
-      <option name="NETWORK_LATENCY" value="none" />
-      <option name="CLEAR_LOGCAT" value="false" />
-      <option name="SHOW_LOGCAT_AUTOMATICALLY" value="true" />
-      <method />
-    </configuration>
-    <configuration default="true" type="Remote" factoryName="Remote">
-      <option name="USE_SOCKET_TRANSPORT" value="true" />
-      <option name="SERVER_MODE" value="false" />
-      <option name="SHMEM_ADDRESS" value="javadebug" />
-      <option name="HOST" value="localhost" />
-      <option name="PORT" value="5005" />
-      <method />
-    </configuration>
-    <configuration default="true" type="Applet" factoryName="Applet">
-      <module name="" />
-      <option name="MAIN_CLASS_NAME" />
-      <option name="HTML_FILE_NAME" />
-      <option name="HTML_USED" value="false" />
-      <option name="WIDTH" value="400" />
-      <option name="HEIGHT" value="300" />
-      <option name="POLICY_FILE" value="$APPLICATION_HOME_DIR$/bin/appletviewer.policy" />
-      <option name="VM_PARAMETERS" />
-      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
-      <option name="ALTERNATIVE_JRE_PATH" />
-      <method />
-    </configuration>
-    <configuration default="true" type="TestNG" factoryName="TestNG">
-      <module name="" />
-      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
-      <option name="ALTERNATIVE_JRE_PATH" />
-      <option name="SUITE_NAME" />
-      <option name="PACKAGE_NAME" />
-      <option name="MAIN_CLASS_NAME" />
-      <option name="METHOD_NAME" />
-      <option name="GROUP_NAME" />
-      <option name="TEST_OBJECT" value="CLASS" />
-      <option name="VM_PARAMETERS" value="-ea" />
-      <option name="PARAMETERS" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
-      <option name="OUTPUT_DIRECTORY" />
-      <option name="ANNOTATION_TYPE" />
-      <option name="ENV_VARIABLES" />
-      <option name="PASS_PARENT_ENVS" value="true" />
-      <option name="TEST_SEARCH_SCOPE">
-        <value defaultName="moduleWithDependencies" />
-      </option>
-      <option name="USE_DEFAULT_REPORTERS" value="false" />
-      <option name="PROPERTIES_FILE" />
-      <envs />
-      <properties />
-      <listeners />
+      <option name="SELECTED_CLOUD_MATRIX_CONFIGURATION_ID" value="-1" />
+      <option name="SELECTED_CLOUD_MATRIX_PROJECT_ID" value="" />
+      <Auto>
+        <option name="USE_JAVA_AWARE_DEBUGGER" value="false" />
+        <option name="WORKING_DIR" value="" />
+        <option name="TARGET_LOGGING_CHANNELS" value="lldb process:gdb-remote packets" />
+      </Auto>
+      <Hybrid>
+        <option name="USE_JAVA_AWARE_DEBUGGER" value="false" />
+        <option name="WORKING_DIR" value="" />
+        <option name="TARGET_LOGGING_CHANNELS" value="lldb process:gdb-remote packets" />
+      </Hybrid>
+      <Java />
+      <Native>
+        <option name="USE_JAVA_AWARE_DEBUGGER" value="false" />
+        <option name="WORKING_DIR" value="" />
+        <option name="TARGET_LOGGING_CHANNELS" value="lldb process:gdb-remote packets" />
+      </Native>
+      <Profilers>
+        <option name="ENABLE_ADVANCED_PROFILING" value="true" />
+        <option name="GAPID_ENABLED" value="false" />
+        <option name="GAPID_DISABLE_PCS" value="false" />
+        <option name="SUPPORT_LIB_ENABLED" value="true" />
+        <option name="INSTRUMENTATION_ENABLED" value="true" />
+      </Profilers>
       <method />
     </configuration>
     <configuration default="true" type="Application" factoryName="Application">
+      <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea" />
       <option name="MAIN_CLASS_NAME" />
       <option name="VM_PARAMETERS" />
       <option name="PROGRAM_PARAMETERS" />
@@ -747,7 +706,24 @@
       <envs />
       <method />
     </configuration>
+    <configuration default="true" type="GradleRunConfiguration" factoryName="Gradle">
+      <ExternalSystemSettings>
+        <option name="executionName" />
+        <option name="externalProjectPath" />
+        <option name="externalSystemIdString" value="GRADLE" />
+        <option name="scriptParameters" />
+        <option name="taskDescriptions">
+          <list />
+        </option>
+        <option name="taskNames">
+          <list />
+        </option>
+        <option name="vmOptions" />
+      </ExternalSystemSettings>
+      <method />
+    </configuration>
     <configuration default="true" type="JUnit" factoryName="JUnit">
+      <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea" />
       <module name="" />
       <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
       <option name="ALTERNATIVE_JRE_PATH" />
@@ -757,434 +733,201 @@
       <option name="TEST_OBJECT" value="class" />
       <option name="VM_PARAMETERS" value="-ea" />
       <option name="PARAMETERS" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <option name="WORKING_DIRECTORY" value="$MODULE_DIR$" />
       <option name="ENV_VARIABLES" />
       <option name="PASS_PARENT_ENVS" value="true" />
       <option name="TEST_SEARCH_SCOPE">
-        <value defaultName="moduleWithDependencies" />
+        <value defaultName="singleModule" />
       </option>
       <envs />
       <patterns />
+      <method>
+        <option name="Make" enabled="false" />
+        <option name="Android.Gradle.BeforeRunTask" enabled="true" />
+      </method>
+    </configuration>
+    <configuration default="true" type="JarApplication" factoryName="JAR Application">
+      <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea" />
+      <envs />
       <method />
     </configuration>
-    <configuration default="true" type="AndroidRunConfigurationType" factoryName="Android Application">
+    <configuration default="true" type="Java Scratch" factoryName="Java Scratch">
+      <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea" />
+      <option name="SCRATCH_FILE_ID" value="0" />
+      <option name="MAIN_CLASS_NAME" />
+      <option name="VM_PARAMETERS" />
+      <option name="PROGRAM_PARAMETERS" />
+      <option name="WORKING_DIRECTORY" />
+      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
+      <option name="ALTERNATIVE_JRE_PATH" />
+      <option name="ENABLE_SWING_INSPECTOR" value="false" />
+      <option name="ENV_VARIABLES" />
+      <option name="PASS_PARENT_ENVS" value="true" />
       <module name="" />
-      <option name="ACTIVITY_CLASS" value="" />
-      <option name="MODE" value="default_activity" />
-      <option name="DEPLOY" value="true" />
-      <option name="ARTIFACT_NAME" value="" />
-      <option name="TARGET_SELECTION_MODE" value="EMULATOR" />
-      <option name="USE_LAST_SELECTED_DEVICE" value="false" />
-      <option name="PREFERRED_AVD" value="" />
-      <option name="USE_COMMAND_LINE" value="true" />
-      <option name="COMMAND_LINE" value="" />
-      <option name="WIPE_USER_DATA" value="false" />
-      <option name="DISABLE_BOOT_ANIMATION" value="false" />
-      <option name="NETWORK_SPEED" value="full" />
-      <option name="NETWORK_LATENCY" value="none" />
-      <option name="CLEAR_LOGCAT" value="false" />
-      <option name="SHOW_LOGCAT_AUTOMATICALLY" value="true" />
+      <envs />
       <method />
     </configuration>
-    <configuration default="false" name="DueTest" type="AndroidRunConfigurationType" factoryName="Android Application">
-      <module name="DueTest" />
-      <option name="ACTIVITY_CLASS" value="" />
-      <option name="MODE" value="default_activity" />
-      <option name="DEPLOY" value="true" />
-      <option name="ARTIFACT_NAME" value="" />
-      <option name="TARGET_SELECTION_MODE" value="EMULATOR" />
-      <option name="USE_LAST_SELECTED_DEVICE" value="false" />
-      <option name="PREFERRED_AVD" value="" />
-      <option name="USE_COMMAND_LINE" value="true" />
-      <option name="COMMAND_LINE" value="" />
-      <option name="WIPE_USER_DATA" value="false" />
-      <option name="DISABLE_BOOT_ANIMATION" value="false" />
-      <option name="NETWORK_SPEED" value="full" />
-      <option name="NETWORK_LATENCY" value="none" />
-      <option name="CLEAR_LOGCAT" value="false" />
-      <option name="SHOW_LOGCAT_AUTOMATICALLY" value="true" />
-      <RunnerSettings RunnerId="AndroidDebugRunner" />
-      <ConfigurationWrapper RunnerId="AndroidDebugRunner" />
+    <configuration default="true" type="Remote" factoryName="Remote">
+      <option name="USE_SOCKET_TRANSPORT" value="true" />
+      <option name="SERVER_MODE" value="false" />
+      <option name="SHMEM_ADDRESS" value="javadebug" />
+      <option name="HOST" value="localhost" />
+      <option name="PORT" value="5005" />
       <method />
     </configuration>
-    <list size="1">
-      <item index="0" class="java.lang.String" itemvalue="Android Application.DueTest" />
-    </list>
+    <configuration default="true" type="TestNG" factoryName="TestNG">
+      <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea" />
+      <module name="" />
+      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
+      <option name="ALTERNATIVE_JRE_PATH" />
+      <option name="SUITE_NAME" />
+      <option name="PACKAGE_NAME" />
+      <option name="MAIN_CLASS_NAME" />
+      <option name="METHOD_NAME" />
+      <option name="GROUP_NAME" />
+      <option name="TEST_OBJECT" value="CLASS" />
+      <option name="VM_PARAMETERS" value="-ea" />
+      <option name="PARAMETERS" />
+      <option name="WORKING_DIRECTORY" value="$MODULE_DIR$" />
+      <option name="OUTPUT_DIRECTORY" />
+      <option name="ANNOTATION_TYPE" />
+      <option name="ENV_VARIABLES" />
+      <option name="PASS_PARENT_ENVS" value="true" />
+      <option name="TEST_SEARCH_SCOPE">
+        <value defaultName="singleModule" />
+      </option>
+      <option name="USE_DEFAULT_REPORTERS" value="false" />
+      <option name="PROPERTIES_FILE" />
+      <envs />
+      <properties />
+      <listeners />
+      <method />
+    </configuration>
+    <configuration default="true" type="TestNGTestDiscovery" factoryName="TestNG Test Discovery" changeList="All">
+      <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea" />
+      <module name="" />
+      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
+      <option name="ALTERNATIVE_JRE_PATH" />
+      <option name="SUITE_NAME" />
+      <option name="PACKAGE_NAME" />
+      <option name="MAIN_CLASS_NAME" />
+      <option name="METHOD_NAME" />
+      <option name="GROUP_NAME" />
+      <option name="TEST_OBJECT" value="CLASS" />
+      <option name="VM_PARAMETERS" />
+      <option name="PARAMETERS" />
+      <option name="WORKING_DIRECTORY" />
+      <option name="OUTPUT_DIRECTORY" />
+      <option name="ANNOTATION_TYPE" />
+      <option name="ENV_VARIABLES" />
+      <option name="PASS_PARENT_ENVS" value="true" />
+      <option name="TEST_SEARCH_SCOPE">
+        <value defaultName="singleModule" />
+      </option>
+      <option name="USE_DEFAULT_REPORTERS" value="false" />
+      <option name="PROPERTIES_FILE" />
+      <envs />
+      <properties />
+      <listeners />
+      <method />
+    </configuration>
+    <configuration name="&lt;template&gt;" type="Applet" default="true" selected="false">
+      <option name="MAIN_CLASS_NAME" />
+      <option name="HTML_FILE_NAME" />
+      <option name="HTML_USED" value="false" />
+      <option name="WIDTH" value="400" />
+      <option name="HEIGHT" value="300" />
+      <option name="POLICY_FILE" value="$APPLICATION_HOME_DIR$/bin/appletviewer.policy" />
+      <option name="VM_PARAMETERS" />
+    </configuration>
     <configuration name="&lt;template&gt;" type="#org.jetbrains.idea.devkit.run.PluginConfigurationType" default="true" selected="false">
       <option name="VM_PARAMETERS" value="-Xmx512m -Xms256m -XX:MaxPermSize=250m -ea" />
     </configuration>
-    <configuration name="&lt;template&gt;" type="WebApp" default="true" selected="false">
-      <Host>localhost</Host>
-      <Port>5050</Port>
-    </configuration>
   </component>
-  <component name="ShelveChangesManager" show_recycled="false" />
-  <component name="SliceManager">
-    <option name="analysisUIOptions">
-      <AnalysisUIOptions />
-    </option>
+  <component name="ShelveChangesManager" show_recycled="false">
+    <option name="remove_strategy" value="false" />
   </component>
-  <component name="SvnConfiguration" maxAnnotateRevisions="500" myUseAcceleration="nothing" myAutoUpdateAfterCommit="false" cleanupOnStartRun="false" SSL_PROTOCOLS="all">
-    <option name="USER" value="" />
-    <option name="PASSWORD" value="" />
-    <option name="mySSHConnectionTimeout" value="30000" />
-    <option name="mySSHReadTimeout" value="30000" />
-    <option name="LAST_MERGED_REVISION" />
-    <option name="MERGE_DRY_RUN" value="false" />
-    <option name="MERGE_DIFF_USE_ANCESTRY" value="true" />
-    <option name="UPDATE_LOCK_ON_DEMAND" value="false" />
-    <option name="IGNORE_SPACES_IN_MERGE" value="false" />
-    <option name="CHECK_NESTED_FOR_QUICK_MERGE" value="false" />
-    <option name="IGNORE_SPACES_IN_ANNOTATE" value="true" />
-    <option name="SHOW_MERGE_SOURCES_IN_ANNOTATE" value="true" />
-    <option name="FORCE_UPDATE" value="false" />
-    <option name="IGNORE_EXTERNALS" value="false" />
-    <myIsUseDefaultProxy>false</myIsUseDefaultProxy>
+  <component name="SvnConfiguration">
+    <configuration />
   </component>
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
-      <changelist id="654098be-c67f-4c92-af39-09c3268df38f" name="Default" comment="" />
-      <created>1369278230463</created>
-      <updated>1369278230463</updated>
-      <workItem from="1369278235326" duration="1099000" />
-      <workItem from="1369947734864" duration="28000" />
-      <workItem from="1369947804003" duration="665000" />
-      <workItem from="1370471124125" duration="33000" />
-      <workItem from="1370472430056" duration="581000" />
+      <changelist id="5b309e8c-14c9-4910-adaf-404c84998adf" name="Default" comment="" />
+      <created>1485548509252</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1485548509252</updated>
     </task>
     <servers />
   </component>
-  <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="2406000" />
-  </component>
   <component name="ToolWindowManager">
-    <frame x="-3" y="0" width="1926" height="1057" extended-state="6" />
-    <editor active="false" />
+    <frame x="10" y="20" width="1346" height="703" extended-state="0" />
+    <editor active="true" />
     <layout>
-      <window_info id="Palette&#9;" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3292357" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Designer" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3292357" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Preview" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.18489583" sideWeight="0.6912393" order="4" side_tool="false" content_ui="tabs" />
-      <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
-      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
-      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
-      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Build Variants" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.102813855" sideWeight="0.28635347" order="2" side_tool="true" content_ui="tabs" />
-      <window_info id="Gradle Console" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="9" side_tool="true" content_ui="tabs" />
-      <window_info id="Android" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.30876067" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Gradle" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
-      <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
-      <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="SLIDING" type="SLIDING" visible="false" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
-      <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Application Servers" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.12083333" sideWeight="0.6912393" order="0" side_tool="false" content_ui="combo" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3297062" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
-      <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
-      <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
-      <window_info id="Find" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.32960895" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3297062" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
+      <window_info id="Nl-Palette" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
+      <window_info id="Build Variants" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="-1" side_tool="true" content_ui="tabs" />
+      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="-1" side_tool="true" content_ui="tabs" />
+      <window_info id="Android Monitor" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
+      <window_info id="Properties" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
+      <window_info id="Capture Tool" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
+      <window_info id="Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
+      <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Android Model" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="-1" side_tool="true" content_ui="tabs" />
+      <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
+      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
+      <window_info id="Palette&#9;" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
+      <window_info id="Image Layers" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
+      <window_info id="Capture Analysis" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
+      <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
+      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
+      <window_info id="Captures" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Gradle Console" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="-1" side_tool="true" content_ui="tabs" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.24961479" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Gradle" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
+      <window_info id="Theme Preview" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
+      <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="-1" side_tool="true" content_ui="tabs" />
+      <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
+      <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
+      <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
+      <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
+      <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
     </layout>
   </component>
   <component name="Vcs.Log.UiProperties">
-    <option name="RECENTLY_FILTERED_USERS">
+    <option name="RECENTLY_FILTERED_USER_GROUPS">
+      <collection />
+    </option>
+    <option name="RECENTLY_FILTERED_BRANCH_GROUPS">
       <collection />
     </option>
   </component>
   <component name="VcsContentAnnotationSettings">
     <option name="myLimit" value="2678400000" />
   </component>
-  <component name="VcsManagerConfiguration">
-    <option name="myTodoPanelSettings">
-      <TodoPanelSettings />
-    </option>
-  </component>
   <component name="XDebuggerManager">
     <breakpoint-manager />
+    <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/res/layout/stats.xml">
-      <provider editor-type-id="android-designer">
-        <state />
-      </provider>
+    <entry file="file://$PROJECT_DIR$/src/com/beaukpad/cashdue/DataHelperPrime.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="7" column="68" selection-start="430" selection-end="430" vertical-scroll-proportion="0.0" vertical-offset="105" max-vertical-offset="225">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/beaukpad/cashdue/Stats.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="91" column="0" selection-start="2840" selection-end="2840" vertical-scroll-proportion="0.0" vertical-offset="1365" max-vertical-offset="1455">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/beaukpad/cashdue/DataHelper.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="182" column="31" selection-start="6629" selection-end="6629" vertical-scroll-proportion="0.0" vertical-offset="2730" max-vertical-offset="4005">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/beaukpad/cashdue/Shift.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="96" column="24" selection-start="1894" selection-end="1894" vertical-scroll-proportion="0.0" vertical-offset="1440" max-vertical-offset="3120">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/beaukpad/cashdue/DataActivity.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="55" column="38" selection-start="1928" selection-end="1928" vertical-scroll-proportion="0.0" vertical-offset="825" max-vertical-offset="4245">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/AndroidManifest.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="4" column="29" selection-start="201" selection-end="201" vertical-scroll-proportion="0.0" vertical-offset="60" max-vertical-offset="855">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/res/layout/stats.xml">
-      <provider editor-type-id="android-designer">
-        <state />
-      </provider>
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="7" column="68" selection-start="430" selection-end="430" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="225">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/beaukpad/cashdue/Stats.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="91" column="0" selection-start="2840" selection-end="2840" vertical-scroll-proportion="0.0" vertical-offset="1365" max-vertical-offset="1455">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/beaukpad/cashdue/DataHelper.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="182" column="31" selection-start="6629" selection-end="6629" vertical-scroll-proportion="0.0" vertical-offset="2730" max-vertical-offset="4005">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/beaukpad/cashdue/Shift.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="96" column="24" selection-start="1894" selection-end="1894" vertical-scroll-proportion="0.0" vertical-offset="1440" max-vertical-offset="3120">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/beaukpad/cashdue/DataActivity.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="55" column="38" selection-start="1928" selection-end="1928" vertical-scroll-proportion="0.0" vertical-offset="825" max-vertical-offset="4245">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/AndroidManifest.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="4" column="29" selection-start="201" selection-end="201" vertical-scroll-proportion="0.0" vertical-offset="60" max-vertical-offset="855">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/beaukpad/cashdue/DataHelper.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="15" column="13" selection-start="471" selection-end="471" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/res/drawable/jeremiah.png">
-      <provider selected="true" editor-type-id="images">
-        <state />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/res/drawable/russels.png">
-      <provider selected="true" editor-type-id="images">
-        <state />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/res/drawable/tuna.png">
-      <provider selected="true" editor-type-id="images">
-        <state />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/res/drawable/wineroom.png">
-      <provider selected="true" editor-type-id="images">
-        <state />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/res/layout/main.xml">
-      <provider editor-type-id="android-designer">
-        <state />
-      </provider>
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="10" column="118" selection-start="1122" selection-end="1149" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="510">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/res/menu/mainmenu.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="6" column="71" selection-start="418" selection-end="418" vertical-scroll-proportion="0.15280136" vertical-offset="0" max-vertical-offset="589">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/res/values/colors.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="3" column="32" selection-start="123" selection-end="123" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="165">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/beaukpad/cashdue/DataHelper.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="182" column="31" selection-start="6629" selection-end="6629" vertical-scroll-proportion="0.0" vertical-offset="2730" max-vertical-offset="4005">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/res/layout/database.xml">
-      <provider editor-type-id="android-designer">
-        <state />
-      </provider>
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="17" column="0" selection-start="1695" selection-end="1695" vertical-scroll-proportion="-9.807693" vertical-offset="0" max-vertical-offset="345">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/beaukpad/cashdue/Shift.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="96" column="24" selection-start="1894" selection-end="1894" vertical-scroll-proportion="0.0" vertical-offset="895" max-vertical-offset="3060">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/com/beaukpad/cashdue/CashDue.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="305" column="48" selection-start="10992" selection-end="10996" vertical-scroll-proportion="-7.6153846" vertical-offset="3777" max-vertical-offset="4695" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/beaukpad/cashdue/DataActivity.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="55" column="38" selection-start="1928" selection-end="1928" vertical-scroll-proportion="0.0" vertical-offset="825" max-vertical-offset="4245">
+        <state relative-caret-position="30">
+          <caret line="214" column="20" selection-start-line="214" selection-start-column="20" selection-end-line="214" selection-end-column="20" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/AndroidManifest.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="4" column="29" selection-start="201" selection-end="201" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="855">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/beaukpad/cashdue/Stats.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="91" column="0" selection-start="2840" selection-end="2840" vertical-scroll-proportion="0.0" vertical-offset="1365" max-vertical-offset="1455">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/res/layout/stats.xml">
-      <provider selected="true" editor-type-id="android-designer">
-        <state />
-      </provider>
-      <provider editor-type-id="text-editor">
-        <state line="9" column="14" selection-start="462" selection-end="462" vertical-scroll-proportion="-5.4" vertical-offset="0" max-vertical-offset="225">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-  </component>
-  <component name="masterDetails">
-    <states>
-      <state key="ArtifactsStructureConfigurable.UI">
-        <settings>
-          <artifact-editor />
-          <splitter-proportions>
-            <option name="proportions">
-              <list>
-                <option value="0.2" />
-              </list>
-            </option>
-          </splitter-proportions>
-        </settings>
-      </state>
-      <state key="FacetStructureConfigurable.UI">
-        <settings>
-          <last-edited>Android</last-edited>
-          <splitter-proportions>
-            <option name="proportions">
-              <list>
-                <option value="0.2" />
-              </list>
-            </option>
-          </splitter-proportions>
-        </settings>
-      </state>
-      <state key="GlobalLibrariesConfigurable.UI">
-        <settings>
-          <splitter-proportions>
-            <option name="proportions">
-              <list>
-                <option value="0.2" />
-              </list>
-            </option>
-          </splitter-proportions>
-        </settings>
-      </state>
-      <state key="JdkListConfigurable.UI">
-        <settings>
-          <last-edited>1.7</last-edited>
-          <splitter-proportions>
-            <option name="proportions">
-              <list>
-                <option value="0.2" />
-              </list>
-            </option>
-          </splitter-proportions>
-        </settings>
-      </state>
-      <state key="ModuleStructureConfigurable.UI">
-        <settings>
-          <last-edited>DueTest</last-edited>
-          <splitter-proportions>
-            <option name="proportions">
-              <list>
-                <option value="0.2" />
-                <option value="0.6" />
-              </list>
-            </option>
-          </splitter-proportions>
-        </settings>
-      </state>
-      <state key="ProjectLibrariesConfigurable.UI">
-        <settings>
-          <last-edited>annotations-0a1194a7dab18dda5a9f9f4fd31df05d</last-edited>
-          <splitter-proportions>
-            <option name="proportions">
-              <list>
-                <option value="0.2" />
-              </list>
-            </option>
-          </splitter-proportions>
-        </settings>
-      </state>
-    </states>
   </component>
 </project>
-
