@@ -83,8 +83,9 @@ public final class R {
         public static final int importexport=0x7f030002;
         public static final int main=0x7f030003;
         public static final int results_activity=0x7f030004;
-        public static final int shiftlistitem=0x7f030005;
-        public static final int stats=0x7f030006;
+        public static final int scheduler=0x7f030005;
+        public static final int shiftlistitem=0x7f030006;
+        public static final int stats=0x7f030007;
     }
     public static final class menu {
         public static final int data_view_menu=0x7f070000;

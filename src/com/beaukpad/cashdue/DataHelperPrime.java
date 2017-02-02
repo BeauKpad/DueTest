@@ -183,12 +183,11 @@ public class DataHelperPrime {
 	// insert shift using a Shift object
 	//This needs to be the only gateway to insertion
 	public long insertShift(Shift newShift) {
-		// TODO begin drunk coding
 		//I'm trying to prevent the same shift being added to the database twice in a row
 		if(dbSize > 0){
 			if(newShift.isTheSameShiftAs(lastInsertedShift)){
 				return -1;
-			}			
+			}
 		}
 		// end drunk coding
 		 ContentValues newShiftValues = new ContentValues();
